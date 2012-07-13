@@ -1,0 +1,4650 @@
+
+C:\Users\TOM\Desktop\SpaceInvaders\objdebug\Application.o:     file format elf32-littlearm
+C:\Users\TOM\Desktop\SpaceInvaders\objdebug\Application.o
+
+
+Disassembly of section .text.Application_Ini:
+
+00000000 <Application_Ini>:
+Application_Ini():
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:54
+*                  be called only once by CircleOS.
+* Input          : None
+* Return         : MENU_CONTINUE_COMMAND
+*******************************************************************************/
+enum MENU_code Application_Ini(void)
+    {
+   0:	b590      	push	{r4, r7, lr}
+   2:	b085      	sub	sp, #20
+   4:	af02      	add	r7, sp, #8
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:55
+    if(strcmp(UTIL_GetVersion(), NEEDEDVERSION) < 0)
+   6:	f240 0300 	movw	r3, #0
+   a:	f2c0 0300 	movt	r3, #0
+   e:	681b      	ldr	r3, [r3, #0]
+  10:	f8d3 32d0 	ldr.w	r3, [r3, #720]	; 0x2d0
+  14:	4798      	blx	r3
+  16:	4603      	mov	r3, r0
+  18:	4618      	mov	r0, r3
+  1a:	f240 0100 	movw	r1, #0
+  1e:	f2c0 0100 	movt	r1, #0
+  22:	f7ff fffe 	bl	0 <strcmp>
+  26:	4603      	mov	r3, r0
+  28:	2b00      	cmp	r3, #0
+  2a:	da03      	bge.n	34 <Application_Ini+0x34>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:57
+        {
+        return MsgVersion();
+  2c:	f7ff fffe 	bl	0 <Application_Ini>
+  30:	4603      	mov	r3, r0
+  32:	e08f      	b.n	154 <Application_Ini+0x154>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:59
+        }
+    splash_scrn();
+  34:	f7ff fffe 	bl	0 <Application_Ini>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:60
+    LCD_FillRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, RGB_BLACK); //clears screen
+  38:	f240 0300 	movw	r3, #0
+  3c:	f2c0 0300 	movt	r3, #0
+  40:	681b      	ldr	r3, [r3, #0]
+  42:	f8d3 3118 	ldr.w	r3, [r3, #280]	; 0x118
+  46:	461c      	mov	r4, r3
+  48:	f04f 0300 	mov.w	r3, #0
+  4c:	9300      	str	r3, [sp, #0]
+  4e:	f04f 0000 	mov.w	r0, #0
+  52:	f04f 0100 	mov.w	r1, #0
+  56:	f04f 0280 	mov.w	r2, #128	; 0x80
+  5a:	f04f 0380 	mov.w	r3, #128	; 0x80
+  5e:	47a0      	blx	r4
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:61
+    LCD_SetOffset(OFFSET_OFF);
+  60:	f240 0300 	movw	r3, #0
+  64:	f2c0 0300 	movt	r3, #0
+  68:	681b      	ldr	r3, [r3, #0]
+  6a:	f8d3 3150 	ldr.w	r3, [r3, #336]	; 0x150
+  6e:	f04f 0000 	mov.w	r0, #0
+  72:	4798      	blx	r3
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:62
+    reset_bullet();                                             //initialises bullet variables
+  74:	f7ff fffe 	bl	0 <Application_Ini>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:63
+    reset_alien_bullet();
+  78:	f7ff fffe 	bl	0 <Application_Ini>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:64
+    state = GAME_PLAY;
+  7c:	f240 0300 	movw	r3, #0
+  80:	f2c0 0300 	movt	r3, #0
+  84:	f04f 0201 	mov.w	r2, #1
+  88:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:65
+    LCD_DrawRect(x - 1, y - 1, MAN_WIDTH + 2, MAN_HEIGHT + 2, RGB_BLACK);
+  8a:	f240 0300 	movw	r3, #0
+  8e:	f2c0 0300 	movt	r3, #0
+  92:	681b      	ldr	r3, [r3, #0]
+  94:	f8d3 311c 	ldr.w	r3, [r3, #284]	; 0x11c
+  98:	461c      	mov	r4, r3
+  9a:	f240 0300 	movw	r3, #0
+  9e:	f2c0 0300 	movt	r3, #0
+  a2:	681b      	ldr	r3, [r3, #0]
+  a4:	f103 33ff 	add.w	r3, r3, #4294967295
+  a8:	461a      	mov	r2, r3
+  aa:	f240 0300 	movw	r3, #0
+  ae:	f2c0 0300 	movt	r3, #0
+  b2:	681b      	ldr	r3, [r3, #0]
+  b4:	f103 33ff 	add.w	r3, r3, #4294967295
+  b8:	f04f 0100 	mov.w	r1, #0
+  bc:	9100      	str	r1, [sp, #0]
+  be:	4610      	mov	r0, r2
+  c0:	4619      	mov	r1, r3
+  c2:	f04f 020b 	mov.w	r2, #11
+  c6:	f04f 0307 	mov.w	r3, #7
+  ca:	47a0      	blx	r4
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:66
+    LCD_FillRect(x, y, MAN_WIDTH, MAN_HEIGHT, RGB_GREEN);
+  cc:	f240 0300 	movw	r3, #0
+  d0:	f2c0 0300 	movt	r3, #0
+  d4:	681b      	ldr	r3, [r3, #0]
+  d6:	f8d3 3118 	ldr.w	r3, [r3, #280]	; 0x118
+  da:	461c      	mov	r4, r3
+  dc:	f240 0300 	movw	r3, #0
+  e0:	f2c0 0300 	movt	r3, #0
+  e4:	681b      	ldr	r3, [r3, #0]
+  e6:	461a      	mov	r2, r3
+  e8:	f240 0300 	movw	r3, #0
+  ec:	f2c0 0300 	movt	r3, #0
+  f0:	681b      	ldr	r3, [r3, #0]
+  f2:	f24e 0107 	movw	r1, #57351	; 0xe007
+  f6:	9100      	str	r1, [sp, #0]
+  f8:	4610      	mov	r0, r2
+  fa:	4619      	mov	r1, r3
+  fc:	f04f 0209 	mov.w	r2, #9
+ 100:	f04f 0305 	mov.w	r3, #5
+ 104:	47a0      	blx	r4
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:68
+    
+    Initial_MEMS_X = ((MEMS_GetInfo())->OutX_F4)/4;
+ 106:	f240 0300 	movw	r3, #0
+ 10a:	f2c0 0300 	movt	r3, #0
+ 10e:	681b      	ldr	r3, [r3, #0]
+ 110:	f8d3 31cc 	ldr.w	r3, [r3, #460]	; 0x1cc
+ 114:	4798      	blx	r3
+ 116:	4603      	mov	r3, r0
+ 118:	885b      	ldrh	r3, [r3, #2]
+ 11a:	b21b      	sxth	r3, r3
+ 11c:	f103 0203 	add.w	r2, r3, #3
+ 120:	2b00      	cmp	r3, #0
+ 122:	bfb8      	it	lt
+ 124:	4613      	movlt	r3, r2
+ 126:	ea4f 03a3 	mov.w	r3, r3, asr #2
+ 12a:	b29a      	uxth	r2, r3
+ 12c:	f240 0300 	movw	r3, #0
+ 130:	f2c0 0300 	movt	r3, #0
+ 134:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:70
+    int barrier_col;
+    draw_barrier(barrier_col);
+ 136:	6878      	ldr	r0, [r7, #4]
+ 138:	f7ff fffe 	bl	0 <Application_Ini>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:73
+    
+    
+    MENU_SetAppliDivider(10);
+ 13c:	f240 0300 	movw	r3, #0
+ 140:	f2c0 0300 	movt	r3, #0
+ 144:	681b      	ldr	r3, [r3, #0]
+ 146:	f8d3 32b8 	ldr.w	r3, [r3, #696]	; 0x2b8
+ 14a:	f04f 000a 	mov.w	r0, #10
+ 14e:	4798      	blx	r3
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:75
+
+    return MENU_CONTINUE_COMMAND;
+ 150:	f04f 0304 	mov.w	r3, #4
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:76
+    }
+ 154:	4618      	mov	r0, r3
+ 156:	f107 070c 	add.w	r7, r7, #12
+ 15a:	46bd      	mov	sp, r7
+ 15c:	bd90      	pop	{r4, r7, pc}
+ 15e:	bf00      	nop
+
+Disassembly of section .text.Application_Handler:
+
+00000000 <Application_Handler>:
+Application_Handler():
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:86
+*                  every millisecond by CircleOS while it returns MENU_CONTINUE.
+* Input          : None
+* Return         : MENU_CONTINUE
+*******************************************************************************/
+enum MENU_code Application_Handler(void)
+{
+   0:	b590      	push	{r4, r7, lr}
+   2:	b085      	sub	sp, #20
+   4:	af02      	add	r7, sp, #8
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:89
+    static int clk = 0;
+    s16 Current_MEMS_X, delta;
+    Current_MEMS_X = ((MEMS_GetInfo())->OutX_F4)/4;
+   6:	f240 0300 	movw	r3, #0
+   a:	f2c0 0300 	movt	r3, #0
+   e:	681b      	ldr	r3, [r3, #0]
+  10:	f8d3 31cc 	ldr.w	r3, [r3, #460]	; 0x1cc
+  14:	4798      	blx	r3
+  16:	4603      	mov	r3, r0
+  18:	885b      	ldrh	r3, [r3, #2]
+  1a:	b21b      	sxth	r3, r3
+  1c:	f103 0203 	add.w	r2, r3, #3
+  20:	2b00      	cmp	r3, #0
+  22:	bfb8      	it	lt
+  24:	4613      	movlt	r3, r2
+  26:	ea4f 03a3 	mov.w	r3, r3, asr #2
+  2a:	80fb      	strh	r3, [r7, #6]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:90
+    delta = (Current_MEMS_X - Initial_MEMS_X);
+  2c:	88fa      	ldrh	r2, [r7, #6]
+  2e:	f240 0300 	movw	r3, #0
+  32:	f2c0 0300 	movt	r3, #0
+  36:	881b      	ldrh	r3, [r3, #0]
+  38:	b29b      	uxth	r3, r3
+  3a:	1ad3      	subs	r3, r2, r3
+  3c:	b29b      	uxth	r3, r3
+  3e:	80bb      	strh	r3, [r7, #4]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:91
+    if(state == GAME_PLAY){
+  40:	f240 0300 	movw	r3, #0
+  44:	f2c0 0300 	movt	r3, #0
+  48:	881b      	ldrh	r3, [r3, #0]
+  4a:	b21b      	sxth	r3, r3
+  4c:	2b01      	cmp	r3, #1
+  4e:	f040 8106 	bne.w	25e <Application_Handler+0x25e>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:92
+        if((clk%(check_speed(Current_MEMS_X))) == 0){
+  52:	f240 0300 	movw	r3, #0
+  56:	f2c0 0300 	movt	r3, #0
+  5a:	681c      	ldr	r4, [r3, #0]
+  5c:	f9b7 3006 	ldrsh.w	r3, [r7, #6]
+  60:	4618      	mov	r0, r3
+  62:	f7ff fffe 	bl	0 <Application_Handler>
+  66:	4603      	mov	r3, r0
+  68:	fb94 f2f3 	sdiv	r2, r4, r3
+  6c:	fb03 f302 	mul.w	r3, r3, r2
+  70:	1ae3      	subs	r3, r4, r3
+  72:	2b00      	cmp	r3, #0
+  74:	d104      	bne.n	80 <Application_Handler+0x80>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:93
+            update_man(Current_MEMS_X);
+  76:	f9b7 3006 	ldrsh.w	r3, [r7, #6]
+  7a:	4618      	mov	r0, r3
+  7c:	f7ff fffe 	bl	0 <Application_Handler>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:96
+        }
+        
+        if((clk % 10) == 0){
+  80:	f240 0300 	movw	r3, #0
+  84:	f2c0 0300 	movt	r3, #0
+  88:	6819      	ldr	r1, [r3, #0]
+  8a:	f246 6367 	movw	r3, #26215	; 0x6667
+  8e:	f2c6 6366 	movt	r3, #26214	; 0x6666
+  92:	fb83 2301 	smull	r2, r3, r3, r1
+  96:	ea4f 02a3 	mov.w	r2, r3, asr #2
+  9a:	ea4f 73e1 	mov.w	r3, r1, asr #31
+  9e:	1ad2      	subs	r2, r2, r3
+  a0:	4613      	mov	r3, r2
+  a2:	ea4f 0383 	mov.w	r3, r3, lsl #2
+  a6:	189b      	adds	r3, r3, r2
+  a8:	ea4f 0343 	mov.w	r3, r3, lsl #1
+  ac:	1aca      	subs	r2, r1, r3
+  ae:	2a00      	cmp	r2, #0
+  b0:	d101      	bne.n	b6 <Application_Handler+0xb6>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:97
+            alien_display();
+  b2:	f7ff fffe 	bl	0 <Application_Handler>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:100
+        }
+                
+        if((clk % (alien_translate_speed())) == 0){
+  b6:	f240 0300 	movw	r3, #0
+  ba:	f2c0 0300 	movt	r3, #0
+  be:	681c      	ldr	r4, [r3, #0]
+  c0:	f7ff fffe 	bl	0 <Application_Handler>
+  c4:	4603      	mov	r3, r0
+  c6:	fb94 f2f3 	sdiv	r2, r4, r3
+  ca:	fb03 f302 	mul.w	r3, r3, r2
+  ce:	1ae3      	subs	r3, r4, r3
+  d0:	2b00      	cmp	r3, #0
+  d2:	d101      	bne.n	d8 <Application_Handler+0xd8>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:101
+            alien_translate();
+  d4:	f7ff fffe 	bl	0 <Application_Handler>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:104
+        }
+        
+        if(((BUTTON_GetState() == BUTTON_PUSHED) || (JOYSTICK_GetState() == JOYSTICK_UP) || (TOUCHSCR_IsPressed())) && (!bullet_active)){
+  d8:	f240 0300 	movw	r3, #0
+  dc:	f2c0 0300 	movt	r3, #0
+  e0:	681b      	ldr	r3, [r3, #0]
+  e2:	f8d3 3200 	ldr.w	r3, [r3, #512]	; 0x200
+  e6:	4798      	blx	r3
+  e8:	4603      	mov	r3, r0
+  ea:	b2db      	uxtb	r3, r3
+  ec:	b25b      	sxtb	r3, r3
+  ee:	2b01      	cmp	r3, #1
+  f0:	d018      	beq.n	124 <Application_Handler+0x124>
+  f2:	f240 0300 	movw	r3, #0
+  f6:	f2c0 0300 	movt	r3, #0
+  fa:	681b      	ldr	r3, [r3, #0]
+  fc:	f8d3 3210 	ldr.w	r3, [r3, #528]	; 0x210
+ 100:	4798      	blx	r3
+ 102:	4603      	mov	r3, r0
+ 104:	b2db      	uxtb	r3, r3
+ 106:	b25b      	sxtb	r3, r3
+ 108:	2b02      	cmp	r3, #2
+ 10a:	d00b      	beq.n	124 <Application_Handler+0x124>
+ 10c:	f240 0300 	movw	r3, #0
+ 110:	f2c0 0300 	movt	r3, #0
+ 114:	681b      	ldr	r3, [r3, #0]
+ 116:	f8d3 318c 	ldr.w	r3, [r3, #396]	; 0x18c
+ 11a:	4798      	blx	r3
+ 11c:	4603      	mov	r3, r0
+ 11e:	b2db      	uxtb	r3, r3
+ 120:	2b00      	cmp	r3, #0
+ 122:	d011      	beq.n	148 <Application_Handler+0x148>
+ 124:	f240 0300 	movw	r3, #0
+ 128:	f2c0 0300 	movt	r3, #0
+ 12c:	881b      	ldrh	r3, [r3, #0]
+ 12e:	2b00      	cmp	r3, #0
+ 130:	d10a      	bne.n	148 <Application_Handler+0x148>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:105
+            reset_bullet();
+ 132:	f7ff fffe 	bl	0 <Application_Handler>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:106
+            bullet_active = 1;
+ 136:	f240 0300 	movw	r3, #0
+ 13a:	f2c0 0300 	movt	r3, #0
+ 13e:	f04f 0201 	mov.w	r2, #1
+ 142:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:107
+            fire();
+ 144:	f7ff fffe 	bl	0 <Application_Handler>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:110
+        }
+        
+        if(((clk%1) == 0) && (bullet_active)){
+ 148:	f240 0300 	movw	r3, #0
+ 14c:	f2c0 0300 	movt	r3, #0
+ 150:	881b      	ldrh	r3, [r3, #0]
+ 152:	2b00      	cmp	r3, #0
+ 154:	d001      	beq.n	15a <Application_Handler+0x15a>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:111
+            update_bullet();
+ 156:	f7ff fffe 	bl	0 <Application_Handler>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:114
+        }
+
+        if((clk%100) == 0){
+ 15a:	f240 0300 	movw	r3, #0
+ 15e:	f2c0 0300 	movt	r3, #0
+ 162:	681a      	ldr	r2, [r3, #0]
+ 164:	f248 531f 	movw	r3, #34079	; 0x851f
+ 168:	f2c5 13eb 	movt	r3, #20971	; 0x51eb
+ 16c:	fb83 1302 	smull	r1, r3, r3, r2
+ 170:	ea4f 1163 	mov.w	r1, r3, asr #5
+ 174:	ea4f 73e2 	mov.w	r3, r2, asr #31
+ 178:	1acb      	subs	r3, r1, r3
+ 17a:	f04f 0164 	mov.w	r1, #100	; 0x64
+ 17e:	fb01 f303 	mul.w	r3, r1, r3
+ 182:	1ad3      	subs	r3, r2, r3
+ 184:	2b00      	cmp	r3, #0
+ 186:	d101      	bne.n	18c <Application_Handler+0x18c>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:115
+            check_all_aliens_killed();
+ 188:	f7ff fffe 	bl	0 <Application_Handler>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:118
+        }
+
+        if(((clk%5) == 0 )&& (bullet_active)){
+ 18c:	f240 0300 	movw	r3, #0
+ 190:	f2c0 0300 	movt	r3, #0
+ 194:	6819      	ldr	r1, [r3, #0]
+ 196:	f246 6367 	movw	r3, #26215	; 0x6667
+ 19a:	f2c6 6366 	movt	r3, #26214	; 0x6666
+ 19e:	fb83 2301 	smull	r2, r3, r3, r1
+ 1a2:	ea4f 0263 	mov.w	r2, r3, asr #1
+ 1a6:	ea4f 73e1 	mov.w	r3, r1, asr #31
+ 1aa:	1ad2      	subs	r2, r2, r3
+ 1ac:	4613      	mov	r3, r2
+ 1ae:	ea4f 0383 	mov.w	r3, r3, lsl #2
+ 1b2:	189b      	adds	r3, r3, r2
+ 1b4:	1aca      	subs	r2, r1, r3
+ 1b6:	2a00      	cmp	r2, #0
+ 1b8:	d10c      	bne.n	1d4 <Application_Handler+0x1d4>
+ 1ba:	f240 0300 	movw	r3, #0
+ 1be:	f2c0 0300 	movt	r3, #0
+ 1c2:	881b      	ldrh	r3, [r3, #0]
+ 1c4:	2b00      	cmp	r3, #0
+ 1c6:	d005      	beq.n	1d4 <Application_Handler+0x1d4>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:119
+            check_destroy();
+ 1c8:	f7ff fffe 	bl	0 <Application_Handler>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:120
+            check_barrier_collision();
+ 1cc:	f7ff fffe 	bl	0 <Application_Handler>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:121
+            check_alien_bullet_man_collision();
+ 1d0:	f7ff fffe 	bl	0 <Application_Handler>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:124
+        }
+        
+        if(((clk%50) == 0) && (!alien_bullet_active)){
+ 1d4:	f240 0300 	movw	r3, #0
+ 1d8:	f2c0 0300 	movt	r3, #0
+ 1dc:	681a      	ldr	r2, [r3, #0]
+ 1de:	f248 531f 	movw	r3, #34079	; 0x851f
+ 1e2:	f2c5 13eb 	movt	r3, #20971	; 0x51eb
+ 1e6:	fb83 1302 	smull	r1, r3, r3, r2
+ 1ea:	ea4f 1123 	mov.w	r1, r3, asr #4
+ 1ee:	ea4f 73e2 	mov.w	r3, r2, asr #31
+ 1f2:	1acb      	subs	r3, r1, r3
+ 1f4:	f04f 0132 	mov.w	r1, #50	; 0x32
+ 1f8:	fb01 f303 	mul.w	r3, r1, r3
+ 1fc:	1ad3      	subs	r3, r2, r3
+ 1fe:	2b00      	cmp	r3, #0
+ 200:	d115      	bne.n	22e <Application_Handler+0x22e>
+ 202:	f240 0300 	movw	r3, #0
+ 206:	f2c0 0300 	movt	r3, #0
+ 20a:	881b      	ldrh	r3, [r3, #0]
+ 20c:	2b00      	cmp	r3, #0
+ 20e:	d10e      	bne.n	22e <Application_Handler+0x22e>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:125
+                alien_bullet_active = 1;
+ 210:	f240 0300 	movw	r3, #0
+ 214:	f2c0 0300 	movt	r3, #0
+ 218:	f04f 0201 	mov.w	r2, #1
+ 21c:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:126
+                random_alien_attack(clk);
+ 21e:	f240 0300 	movw	r3, #0
+ 222:	f2c0 0300 	movt	r3, #0
+ 226:	681b      	ldr	r3, [r3, #0]
+ 228:	4618      	mov	r0, r3
+ 22a:	f7ff fffe 	bl	0 <Application_Handler>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:129
+        }
+        
+        if((clk%(alien_shoot_speed())) == 0 && (alien_bullet_active)){
+ 22e:	f240 0300 	movw	r3, #0
+ 232:	f2c0 0300 	movt	r3, #0
+ 236:	681c      	ldr	r4, [r3, #0]
+ 238:	f7ff fffe 	bl	0 <Application_Handler>
+ 23c:	4603      	mov	r3, r0
+ 23e:	fb94 f2f3 	sdiv	r2, r4, r3
+ 242:	fb03 f302 	mul.w	r3, r3, r2
+ 246:	1ae3      	subs	r3, r4, r3
+ 248:	2b00      	cmp	r3, #0
+ 24a:	d108      	bne.n	25e <Application_Handler+0x25e>
+ 24c:	f240 0300 	movw	r3, #0
+ 250:	f2c0 0300 	movt	r3, #0
+ 254:	881b      	ldrh	r3, [r3, #0]
+ 256:	2b00      	cmp	r3, #0
+ 258:	d001      	beq.n	25e <Application_Handler+0x25e>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:130
+            update_alien_bullet();
+ 25a:	f7ff fffe 	bl	0 <Application_Handler>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:134
+        }
+    }
+    
+    if((state == GAME_OVER)){
+ 25e:	f240 0300 	movw	r3, #0
+ 262:	f2c0 0300 	movt	r3, #0
+ 266:	881b      	ldrh	r3, [r3, #0]
+ 268:	b21b      	sxth	r3, r3
+ 26a:	2b02      	cmp	r3, #2
+ 26c:	f040 8093 	bne.w	396 <Application_Handler+0x396>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:135
+        if((clk%2000) == 0){
+ 270:	f240 0300 	movw	r3, #0
+ 274:	f2c0 0300 	movt	r3, #0
+ 278:	681a      	ldr	r2, [r3, #0]
+ 27a:	f644 53d3 	movw	r3, #19923	; 0x4dd3
+ 27e:	f2c1 0362 	movt	r3, #4194	; 0x1062
+ 282:	fb83 1302 	smull	r1, r3, r3, r2
+ 286:	ea4f 11e3 	mov.w	r1, r3, asr #7
+ 28a:	ea4f 73e2 	mov.w	r3, r2, asr #31
+ 28e:	1acb      	subs	r3, r1, r3
+ 290:	f44f 61fa 	mov.w	r1, #2000	; 0x7d0
+ 294:	fb01 f303 	mul.w	r3, r1, r3
+ 298:	1ad3      	subs	r3, r2, r3
+ 29a:	2b00      	cmp	r3, #0
+ 29c:	d102      	bne.n	2a4 <Application_Handler+0x2a4>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:136
+            game_over();
+ 29e:	f7ff fffe 	bl	0 <Application_Handler>
+ 2a2:	e078      	b.n	144 <Application_Handler+0x144>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:137
+        }else if((clk%2) == 0){
+ 2a4:	f240 0300 	movw	r3, #0
+ 2a8:	f2c0 0300 	movt	r3, #0
+ 2ac:	681b      	ldr	r3, [r3, #0]
+ 2ae:	f003 0301 	and.w	r3, r3, #1
+ 2b2:	2b00      	cmp	r3, #0
+ 2b4:	d16f      	bne.n	396 <Application_Handler+0x396>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:138
+            check_quit();
+ 2b6:	f7ff fffe 	bl	0 <Application_Handler>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:139
+            if(TOUCHSCR_IsPressed()){
+ 2ba:	f240 0300 	movw	r3, #0
+ 2be:	f2c0 0300 	movt	r3, #0
+ 2c2:	681b      	ldr	r3, [r3, #0]
+ 2c4:	f8d3 318c 	ldr.w	r3, [r3, #396]	; 0x18c
+ 2c8:	4798      	blx	r3
+ 2ca:	4603      	mov	r3, r0
+ 2cc:	b2db      	uxtb	r3, r3
+ 2ce:	2b00      	cmp	r3, #0
+ 2d0:	d061      	beq.n	396 <Application_Handler+0x396>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:140
+                score = 0;
+ 2d2:	f240 0300 	movw	r3, #0
+ 2d6:	f2c0 0300 	movt	r3, #0
+ 2da:	f04f 0200 	mov.w	r2, #0
+ 2de:	601a      	str	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:141
+                game_duration = 1;
+ 2e0:	f240 0300 	movw	r3, #0
+ 2e4:	f2c0 0300 	movt	r3, #0
+ 2e8:	f04f 0201 	mov.w	r2, #1
+ 2ec:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:142
+                alien_bullet_active = 0;
+ 2ee:	f240 0300 	movw	r3, #0
+ 2f2:	f2c0 0300 	movt	r3, #0
+ 2f6:	f04f 0200 	mov.w	r2, #0
+ 2fa:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:143
+                lives = 3;
+ 2fc:	f240 0300 	movw	r3, #0
+ 300:	f2c0 0300 	movt	r3, #0
+ 304:	f04f 0203 	mov.w	r2, #3
+ 308:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:144
+                state = GAME_PLAY;
+ 30a:	f240 0300 	movw	r3, #0
+ 30e:	f2c0 0300 	movt	r3, #0
+ 312:	f04f 0201 	mov.w	r2, #1
+ 316:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:145
+                LCD_FillRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, RGB_BLACK);
+ 318:	f240 0300 	movw	r3, #0
+ 31c:	f2c0 0300 	movt	r3, #0
+ 320:	681b      	ldr	r3, [r3, #0]
+ 322:	f8d3 3118 	ldr.w	r3, [r3, #280]	; 0x118
+ 326:	461c      	mov	r4, r3
+ 328:	f04f 0300 	mov.w	r3, #0
+ 32c:	9300      	str	r3, [sp, #0]
+ 32e:	f04f 0000 	mov.w	r0, #0
+ 332:	f04f 0100 	mov.w	r1, #0
+ 336:	f04f 0280 	mov.w	r2, #128	; 0x80
+ 33a:	f04f 0380 	mov.w	r3, #128	; 0x80
+ 33e:	47a0      	blx	r4
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:146
+                reset_bullet();
+ 340:	f7ff fffe 	bl	0 <Application_Handler>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:147
+                reset_alien_array();
+ 344:	f7ff fffe 	bl	0 <Application_Handler>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:148
+                reset_alien_bullet();
+ 348:	f7ff fffe 	bl	0 <Application_Handler>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:149
+                draw_barrier(barrier_col);
+ 34c:	f240 0300 	movw	r3, #0
+ 350:	f2c0 0300 	movt	r3, #0
+ 354:	881b      	ldrh	r3, [r3, #0]
+ 356:	b21b      	sxth	r3, r3
+ 358:	4618      	mov	r0, r3
+ 35a:	f7ff fffe 	bl	0 <Application_Handler>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:150
+                alien_translation_x = 0;
+ 35e:	f240 0300 	movw	r3, #0
+ 362:	f2c0 0300 	movt	r3, #0
+ 366:	f04f 0200 	mov.w	r2, #0
+ 36a:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:151
+                alien_translation_y = 0;
+ 36c:	f240 0300 	movw	r3, #0
+ 370:	f2c0 0300 	movt	r3, #0
+ 374:	f04f 0200 	mov.w	r2, #0
+ 378:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:152
+                dead_left_count = 0;
+ 37a:	f240 0300 	movw	r3, #0
+ 37e:	f2c0 0300 	movt	r3, #0
+ 382:	f04f 0200 	mov.w	r2, #0
+ 386:	601a      	str	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:153
+                dead_right_count = 0;
+ 388:	f240 0300 	movw	r3, #0
+ 38c:	f2c0 0300 	movt	r3, #0
+ 390:	f04f 0200 	mov.w	r2, #0
+ 394:	601a      	str	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:157
+            }
+        }
+    }
+    check_quit();
+ 396:	f7ff fffe 	bl	0 <Application_Handler>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:158
+    clk++;
+ 39a:	f240 0300 	movw	r3, #0
+ 39e:	f2c0 0300 	movt	r3, #0
+ 3a2:	681b      	ldr	r3, [r3, #0]
+ 3a4:	f103 0201 	add.w	r2, r3, #1
+ 3a8:	f240 0300 	movw	r3, #0
+ 3ac:	f2c0 0300 	movt	r3, #0
+ 3b0:	601a      	str	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:159
+    return MENU_CONTINUE;
+ 3b2:	f04f 0301 	mov.w	r3, #1
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:160
+}
+ 3b6:	4618      	mov	r0, r3
+ 3b8:	f107 070c 	add.w	r7, r7, #12
+ 3bc:	46bd      	mov	sp, r7
+ 3be:	bd90      	pop	{r4, r7, pc}
+
+Disassembly of section .text.splash_scrn:
+
+00000000 <splash_scrn>:
+splash_scrn():
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:169
+* Description    : Displays the splash screen until the for loop runs out. 
+* Input          : None
+* Return         : 0
+*******************************************************************************/
+int splash_scrn()
+{
+   0:	b590      	push	{r4, r7, lr}
+   2:	b085      	sub	sp, #20
+   4:	af02      	add	r7, sp, #8
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:170
+    DRAW_SetImage(splash, 0, 0, 128, 128);
+   6:	f240 0300 	movw	r3, #0
+   a:	f2c0 0300 	movt	r3, #0
+   e:	681b      	ldr	r3, [r3, #0]
+  10:	f8d3 3088 	ldr.w	r3, [r3, #136]	; 0x88
+  14:	461c      	mov	r4, r3
+  16:	f240 0300 	movw	r3, #0
+  1a:	f2c0 0300 	movt	r3, #0
+  1e:	f04f 0280 	mov.w	r2, #128	; 0x80
+  22:	9200      	str	r2, [sp, #0]
+  24:	4618      	mov	r0, r3
+  26:	f04f 0100 	mov.w	r1, #0
+  2a:	f04f 0200 	mov.w	r2, #0
+  2e:	f04f 0380 	mov.w	r3, #128	; 0x80
+  32:	47a0      	blx	r4
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:171
+    int clk_splash = 0;
+  34:	f04f 0300 	mov.w	r3, #0
+  38:	607b      	str	r3, [r7, #4]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:172
+    for(clk_splash = 0; clk_splash < SPLASH_DELAY; clk_splash++){}
+  3a:	f04f 0300 	mov.w	r3, #0
+  3e:	607b      	str	r3, [r7, #4]
+  40:	e003      	b.n	4a <splash_scrn+0x4a>
+  42:	687b      	ldr	r3, [r7, #4]
+  44:	f103 0301 	add.w	r3, r3, #1
+  48:	607b      	str	r3, [r7, #4]
+  4a:	687a      	ldr	r2, [r7, #4]
+  4c:	f24c 63bf 	movw	r3, #50879	; 0xc6bf
+  50:	f2c0 032d 	movt	r3, #45	; 0x2d
+  54:	429a      	cmp	r2, r3
+  56:	ddf4      	ble.n	42 <splash_scrn+0x42>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:174
+    
+    return 0;
+  58:	f04f 0300 	mov.w	r3, #0
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:175
+}
+  5c:	4618      	mov	r0, r3
+  5e:	f107 070c 	add.w	r7, r7, #12
+  62:	46bd      	mov	sp, r7
+  64:	bd90      	pop	{r4, r7, pc}
+  66:	bf00      	nop
+
+Disassembly of section .text.alien_shoot_speed:
+
+00000000 <alien_shoot_speed>:
+alien_shoot_speed():
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:185
+*                  of time.
+* Input          : None
+* Return         : (5 - (0.2)*game_duration))
+*******************************************************************************/
+int alien_shoot_speed()
+{
+   0:	b580      	push	{r7, lr}
+   2:	af00      	add	r7, sp, #0
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:186
+    if(game_duration > 20){
+   4:	f240 0300 	movw	r3, #0
+   8:	f2c0 0300 	movt	r3, #0
+   c:	881b      	ldrh	r3, [r3, #0]
+   e:	b21b      	sxth	r3, r3
+  10:	2b14      	cmp	r3, #20
+  12:	dd02      	ble.n	1a <alien_shoot_speed+0x1a>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:187
+        return 1;
+  14:	f04f 0301 	mov.w	r3, #1
+  18:	e022      	b.n	e6 <game_duration+0x48>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:189
+    }
+    return (5 - (((0.2)*game_duration)));
+  1a:	f240 0300 	movw	r3, #0
+  1e:	f2c0 0300 	movt	r3, #0
+  22:	881b      	ldrh	r3, [r3, #0]
+  24:	b21b      	sxth	r3, r3
+  26:	4618      	mov	r0, r3
+  28:	f7ff fffe 	bl	0 <__aeabi_i2d>
+  2c:	4602      	mov	r2, r0
+  2e:	460b      	mov	r3, r1
+  30:	4610      	mov	r0, r2
+  32:	4619      	mov	r1, r3
+  34:	a30c      	add	r3, pc, #48	; (adr r3, 68 <alien_shoot_speed+0x68>)
+  36:	e9d3 2300 	ldrd	r2, r3, [r3]
+  3a:	f7ff fffe 	bl	0 <__aeabi_dmul>
+  3e:	4602      	mov	r2, r0
+  40:	460b      	mov	r3, r1
+  42:	f04f 0000 	mov.w	r0, #0
+  46:	f04f 4180 	mov.w	r1, #1073741824	; 0x40000000
+  4a:	f501 11a0 	add.w	r1, r1, #1310720	; 0x140000
+  4e:	f7ff fffe 	bl	0 <__aeabi_dsub>
+  52:	4602      	mov	r2, r0
+  54:	460b      	mov	r3, r1
+  56:	4610      	mov	r0, r2
+  58:	4619      	mov	r1, r3
+  5a:	f7ff fffe 	bl	0 <__aeabi_d2iz>
+  5e:	4603      	mov	r3, r0
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:190
+}
+  60:	4618      	mov	r0, r3
+  62:	bd80      	pop	{r7, pc}
+  64:	f3af 8000 	nop.w
+  68:	9999999a 	.word	0x9999999a
+  6c:	3fc99999 	.word	0x3fc99999
+
+Disassembly of section .text.alien_translate_speed:
+
+00000000 <alien_translate_speed>:
+alien_translate_speed():
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:200
+*                  increasing function of time,.
+* Input          : None
+* Return         : None
+*******************************************************************************/
+int alien_translate_speed()
+{
+   0:	b580      	push	{r7, lr}
+   2:	af00      	add	r7, sp, #0
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:201
+    if(game_duration > 30){
+   4:	f240 0300 	movw	r3, #0
+   8:	f2c0 0300 	movt	r3, #0
+   c:	881b      	ldrh	r3, [r3, #0]
+   e:	b21b      	sxth	r3, r3
+  10:	2b1e      	cmp	r3, #30
+  12:	dd02      	ble.n	1a <alien_translate_speed+0x1a>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:202
+        return 15;
+  14:	f04f 030f 	mov.w	r3, #15
+  18:	e025      	b.n	ec <game_duration+0x4e>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:204
+    }
+    return (30 - (((0.5)*game_duration)));
+  1a:	f240 0300 	movw	r3, #0
+  1e:	f2c0 0300 	movt	r3, #0
+  22:	881b      	ldrh	r3, [r3, #0]
+  24:	b21b      	sxth	r3, r3
+  26:	4618      	mov	r0, r3
+  28:	f7ff fffe 	bl	0 <__aeabi_i2d>
+  2c:	4602      	mov	r2, r0
+  2e:	460b      	mov	r3, r1
+  30:	4610      	mov	r0, r2
+  32:	4619      	mov	r1, r3
+  34:	f04f 0200 	mov.w	r2, #0
+  38:	f04f 537e 	mov.w	r3, #1065353216	; 0x3f800000
+  3c:	f503 03c0 	add.w	r3, r3, #6291456	; 0x600000
+  40:	f7ff fffe 	bl	0 <__aeabi_dmul>
+  44:	4602      	mov	r2, r0
+  46:	460b      	mov	r3, r1
+  48:	f04f 0000 	mov.w	r0, #0
+  4c:	f04f 4180 	mov.w	r1, #1073741824	; 0x40000000
+  50:	f501 1178 	add.w	r1, r1, #4063232	; 0x3e0000
+  54:	f7ff fffe 	bl	0 <__aeabi_dsub>
+  58:	4602      	mov	r2, r0
+  5a:	460b      	mov	r3, r1
+  5c:	4610      	mov	r0, r2
+  5e:	4619      	mov	r1, r3
+  60:	f7ff fffe 	bl	0 <__aeabi_d2iz>
+  64:	4603      	mov	r3, r0
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:205
+}
+  66:	4618      	mov	r0, r3
+  68:	bd80      	pop	{r7, pc}
+  6a:	bf00      	nop
+
+Disassembly of section .text.update_score_lives:
+
+00000000 <update_score_lives>:
+update_score_lives():
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:215
+*                  required ones. 
+* Input          : None
+* Return         : None
+*******************************************************************************/
+int update_score_lives()
+{
+   0:	b590      	push	{r4, r7, lr}
+   2:	b083      	sub	sp, #12
+   4:	af02      	add	r7, sp, #8
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:216
+    LCD_FillRect(0, SCREEN_HEIGHT - MAN_HEIGHT - 6, SCREEN_WIDTH, MAN_HEIGHT + 6, RGB_BLACK);
+   6:	f240 0300 	movw	r3, #0
+   a:	f2c0 0300 	movt	r3, #0
+   e:	681b      	ldr	r3, [r3, #0]
+  10:	f8d3 3118 	ldr.w	r3, [r3, #280]	; 0x118
+  14:	461c      	mov	r4, r3
+  16:	f04f 0300 	mov.w	r3, #0
+  1a:	9300      	str	r3, [sp, #0]
+  1c:	f04f 0000 	mov.w	r0, #0
+  20:	f04f 0175 	mov.w	r1, #117	; 0x75
+  24:	f04f 0280 	mov.w	r2, #128	; 0x80
+  28:	f04f 030b 	mov.w	r3, #11
+  2c:	47a0      	blx	r4
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:217
+    DRAW_SetImage(score_img, 1, 118, 29, 9);
+  2e:	f240 0300 	movw	r3, #0
+  32:	f2c0 0300 	movt	r3, #0
+  36:	681b      	ldr	r3, [r3, #0]
+  38:	f8d3 3088 	ldr.w	r3, [r3, #136]	; 0x88
+  3c:	461c      	mov	r4, r3
+  3e:	f240 0300 	movw	r3, #0
+  42:	f2c0 0300 	movt	r3, #0
+  46:	f04f 0209 	mov.w	r2, #9
+  4a:	9200      	str	r2, [sp, #0]
+  4c:	4618      	mov	r0, r3
+  4e:	f04f 0101 	mov.w	r1, #1
+  52:	f04f 0276 	mov.w	r2, #118	; 0x76
+  56:	f04f 031d 	mov.w	r3, #29
+  5a:	47a0      	blx	r4
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:218
+    UTIL_int2str(score_str, score, 3, 1);
+  5c:	f240 0300 	movw	r3, #0
+  60:	f2c0 0300 	movt	r3, #0
+  64:	681b      	ldr	r3, [r3, #0]
+  66:	f8d3 32cc 	ldr.w	r3, [r3, #716]	; 0x2cc
+  6a:	461c      	mov	r4, r3
+  6c:	f240 0300 	movw	r3, #0
+  70:	f2c0 0300 	movt	r3, #0
+  74:	f240 0200 	movw	r2, #0
+  78:	f2c0 0200 	movt	r2, #0
+  7c:	6812      	ldr	r2, [r2, #0]
+  7e:	4618      	mov	r0, r3
+  80:	4611      	mov	r1, r2
+  82:	f04f 0203 	mov.w	r2, #3
+  86:	f04f 0301 	mov.w	r3, #1
+  8a:	47a0      	blx	r4
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:219
+    DRAW_DisplayStringWithMode(31, SCREEN_HEIGHT - 13, score_str, 4, 1, 1);
+  8c:	f240 0300 	movw	r3, #0
+  90:	f2c0 0300 	movt	r3, #0
+  94:	681b      	ldr	r3, [r3, #0]
+  96:	f8d3 30dc 	ldr.w	r3, [r3, #220]	; 0xdc
+  9a:	461c      	mov	r4, r3
+  9c:	f240 0300 	movw	r3, #0
+  a0:	f2c0 0300 	movt	r3, #0
+  a4:	f04f 0201 	mov.w	r2, #1
+  a8:	9200      	str	r2, [sp, #0]
+  aa:	f04f 0201 	mov.w	r2, #1
+  ae:	9201      	str	r2, [sp, #4]
+  b0:	f04f 001f 	mov.w	r0, #31
+  b4:	f04f 0173 	mov.w	r1, #115	; 0x73
+  b8:	461a      	mov	r2, r3
+  ba:	f04f 0304 	mov.w	r3, #4
+  be:	47a0      	blx	r4
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:220
+    DRAW_SetImage(lives_img, 68, 118, 30, 9);
+  c0:	f240 0300 	movw	r3, #0
+  c4:	f2c0 0300 	movt	r3, #0
+  c8:	681b      	ldr	r3, [r3, #0]
+  ca:	f8d3 3088 	ldr.w	r3, [r3, #136]	; 0x88
+  ce:	461c      	mov	r4, r3
+  d0:	f240 0300 	movw	r3, #0
+  d4:	f2c0 0300 	movt	r3, #0
+  d8:	f04f 0209 	mov.w	r2, #9
+  dc:	9200      	str	r2, [sp, #0]
+  de:	4618      	mov	r0, r3
+  e0:	f04f 0144 	mov.w	r1, #68	; 0x44
+  e4:	f04f 0276 	mov.w	r2, #118	; 0x76
+  e8:	f04f 031e 	mov.w	r3, #30
+  ec:	47a0      	blx	r4
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:221
+    if(lives >= 1){
+  ee:	f240 0300 	movw	r3, #0
+  f2:	f2c0 0300 	movt	r3, #0
+  f6:	881b      	ldrh	r3, [r3, #0]
+  f8:	b21b      	sxth	r3, r3
+  fa:	2b00      	cmp	r3, #0
+  fc:	dd55      	ble.n	1aa <update_score_lives+0x1aa>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:222
+        DRAW_SetImage(man_lives_img, SCREEN_WIDTH - MAN_WIDTH - 1, SCREEN_HEIGHT - MAN_HEIGHT - 4, MAN_WIDTH, MAN_HEIGHT);
+  fe:	f240 0300 	movw	r3, #0
+ 102:	f2c0 0300 	movt	r3, #0
+ 106:	681b      	ldr	r3, [r3, #0]
+ 108:	f8d3 3088 	ldr.w	r3, [r3, #136]	; 0x88
+ 10c:	461c      	mov	r4, r3
+ 10e:	f240 0300 	movw	r3, #0
+ 112:	f2c0 0300 	movt	r3, #0
+ 116:	f04f 0205 	mov.w	r2, #5
+ 11a:	9200      	str	r2, [sp, #0]
+ 11c:	4618      	mov	r0, r3
+ 11e:	f04f 0176 	mov.w	r1, #118	; 0x76
+ 122:	f04f 0277 	mov.w	r2, #119	; 0x77
+ 126:	f04f 0309 	mov.w	r3, #9
+ 12a:	47a0      	blx	r4
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:223
+        if(lives >= 2){
+ 12c:	f240 0300 	movw	r3, #0
+ 130:	f2c0 0300 	movt	r3, #0
+ 134:	881b      	ldrh	r3, [r3, #0]
+ 136:	b21b      	sxth	r3, r3
+ 138:	2b01      	cmp	r3, #1
+ 13a:	dd38      	ble.n	1ae <update_score_lives+0x1ae>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:224
+            DRAW_SetImage(man_lives_img, SCREEN_WIDTH - MAN_WIDTH - 9, SCREEN_HEIGHT - MAN_HEIGHT - 4, MAN_WIDTH, MAN_HEIGHT);
+ 13c:	f240 0300 	movw	r3, #0
+ 140:	f2c0 0300 	movt	r3, #0
+ 144:	681b      	ldr	r3, [r3, #0]
+ 146:	f8d3 3088 	ldr.w	r3, [r3, #136]	; 0x88
+ 14a:	461c      	mov	r4, r3
+ 14c:	f240 0300 	movw	r3, #0
+ 150:	f2c0 0300 	movt	r3, #0
+ 154:	f04f 0205 	mov.w	r2, #5
+ 158:	9200      	str	r2, [sp, #0]
+ 15a:	4618      	mov	r0, r3
+ 15c:	f04f 016e 	mov.w	r1, #110	; 0x6e
+ 160:	f04f 0277 	mov.w	r2, #119	; 0x77
+ 164:	f04f 0309 	mov.w	r3, #9
+ 168:	47a0      	blx	r4
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:225
+            if(lives >= 3){
+ 16a:	f240 0300 	movw	r3, #0
+ 16e:	f2c0 0300 	movt	r3, #0
+ 172:	881b      	ldrh	r3, [r3, #0]
+ 174:	b21b      	sxth	r3, r3
+ 176:	2b02      	cmp	r3, #2
+ 178:	dd19      	ble.n	1ae <update_score_lives+0x1ae>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:226
+            DRAW_SetImage(man_lives_img, SCREEN_WIDTH - MAN_WIDTH - 17, SCREEN_HEIGHT - MAN_HEIGHT - 4, MAN_WIDTH, MAN_HEIGHT);
+ 17a:	f240 0300 	movw	r3, #0
+ 17e:	f2c0 0300 	movt	r3, #0
+ 182:	681b      	ldr	r3, [r3, #0]
+ 184:	f8d3 3088 	ldr.w	r3, [r3, #136]	; 0x88
+ 188:	461c      	mov	r4, r3
+ 18a:	f240 0300 	movw	r3, #0
+ 18e:	f2c0 0300 	movt	r3, #0
+ 192:	f04f 0205 	mov.w	r2, #5
+ 196:	9200      	str	r2, [sp, #0]
+ 198:	4618      	mov	r0, r3
+ 19a:	f04f 0166 	mov.w	r1, #102	; 0x66
+ 19e:	f04f 0277 	mov.w	r2, #119	; 0x77
+ 1a2:	f04f 0309 	mov.w	r3, #9
+ 1a6:	47a0      	blx	r4
+ 1a8:	e001      	b.n	1ae <update_score_lives+0x1ae>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:230
+            }
+        }
+    }else{
+        game_over();
+ 1aa:	f7ff fffe 	bl	0 <update_score_lives>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:232
+    }
+}
+ 1ae:	4618      	mov	r0, r3
+ 1b0:	f107 0704 	add.w	r7, r7, #4
+ 1b4:	46bd      	mov	sp, r7
+ 1b6:	bd90      	pop	{r4, r7, pc}
+
+Disassembly of section .text.show_score:
+
+00000000 <show_score>:
+show_score():
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:241
+* Description    : Updates the score by re-printing the value of score. 
+* Input          : None
+* Return         : None
+*******************************************************************************/
+int show_score()
+{
+   0:	b590      	push	{r4, r7, lr}
+   2:	b083      	sub	sp, #12
+   4:	af02      	add	r7, sp, #8
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:242
+    DRAW_SetImage(score_img, 1, 118, 29, 9);
+   6:	f240 0300 	movw	r3, #0
+   a:	f2c0 0300 	movt	r3, #0
+   e:	681b      	ldr	r3, [r3, #0]
+  10:	f8d3 3088 	ldr.w	r3, [r3, #136]	; 0x88
+  14:	461c      	mov	r4, r3
+  16:	f240 0300 	movw	r3, #0
+  1a:	f2c0 0300 	movt	r3, #0
+  1e:	f04f 0209 	mov.w	r2, #9
+  22:	9200      	str	r2, [sp, #0]
+  24:	4618      	mov	r0, r3
+  26:	f04f 0101 	mov.w	r1, #1
+  2a:	f04f 0276 	mov.w	r2, #118	; 0x76
+  2e:	f04f 031d 	mov.w	r3, #29
+  32:	47a0      	blx	r4
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:243
+    UTIL_int2str(score_str, score, 3, 1);
+  34:	f240 0300 	movw	r3, #0
+  38:	f2c0 0300 	movt	r3, #0
+  3c:	681b      	ldr	r3, [r3, #0]
+  3e:	f8d3 32cc 	ldr.w	r3, [r3, #716]	; 0x2cc
+  42:	461c      	mov	r4, r3
+  44:	f240 0300 	movw	r3, #0
+  48:	f2c0 0300 	movt	r3, #0
+  4c:	f240 0200 	movw	r2, #0
+  50:	f2c0 0200 	movt	r2, #0
+  54:	6812      	ldr	r2, [r2, #0]
+  56:	4618      	mov	r0, r3
+  58:	4611      	mov	r1, r2
+  5a:	f04f 0203 	mov.w	r2, #3
+  5e:	f04f 0301 	mov.w	r3, #1
+  62:	47a0      	blx	r4
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:244
+    DRAW_DisplayStringWithMode(31, SCREEN_HEIGHT - 13, score_str, 4, 1, 1);
+  64:	f240 0300 	movw	r3, #0
+  68:	f2c0 0300 	movt	r3, #0
+  6c:	681b      	ldr	r3, [r3, #0]
+  6e:	f8d3 30dc 	ldr.w	r3, [r3, #220]	; 0xdc
+  72:	461c      	mov	r4, r3
+  74:	f240 0300 	movw	r3, #0
+  78:	f2c0 0300 	movt	r3, #0
+  7c:	f04f 0201 	mov.w	r2, #1
+  80:	9200      	str	r2, [sp, #0]
+  82:	f04f 0201 	mov.w	r2, #1
+  86:	9201      	str	r2, [sp, #4]
+  88:	f04f 001f 	mov.w	r0, #31
+  8c:	f04f 0173 	mov.w	r1, #115	; 0x73
+  90:	461a      	mov	r2, r3
+  92:	f04f 0304 	mov.w	r3, #4
+  96:	47a0      	blx	r4
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:245
+}
+  98:	4618      	mov	r0, r3
+  9a:	f107 0704 	add.w	r7, r7, #4
+  9e:	46bd      	mov	sp, r7
+  a0:	bd90      	pop	{r4, r7, pc}
+  a2:	bf00      	nop
+
+Disassembly of section .text.show_lives:
+
+00000000 <show_lives>:
+show_lives():
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:254
+* Description    : Updates the lives by redrawing the required ones.
+* Input          : None
+* Return         : None
+*******************************************************************************/
+int show_lives()
+{
+   0:	b590      	push	{r4, r7, lr}
+   2:	b083      	sub	sp, #12
+   4:	af02      	add	r7, sp, #8
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:256
+    
+    DRAW_SetImage(lives_img, 68, 118, 30, 9);
+   6:	f240 0300 	movw	r3, #0
+   a:	f2c0 0300 	movt	r3, #0
+   e:	681b      	ldr	r3, [r3, #0]
+  10:	f8d3 3088 	ldr.w	r3, [r3, #136]	; 0x88
+  14:	461c      	mov	r4, r3
+  16:	f240 0300 	movw	r3, #0
+  1a:	f2c0 0300 	movt	r3, #0
+  1e:	f04f 0209 	mov.w	r2, #9
+  22:	9200      	str	r2, [sp, #0]
+  24:	4618      	mov	r0, r3
+  26:	f04f 0144 	mov.w	r1, #68	; 0x44
+  2a:	f04f 0276 	mov.w	r2, #118	; 0x76
+  2e:	f04f 031e 	mov.w	r3, #30
+  32:	47a0      	blx	r4
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:257
+    if(lives >= 1){
+  34:	f240 0300 	movw	r3, #0
+  38:	f2c0 0300 	movt	r3, #0
+  3c:	881b      	ldrh	r3, [r3, #0]
+  3e:	b21b      	sxth	r3, r3
+  40:	2b00      	cmp	r3, #0
+  42:	dd55      	ble.n	f0 <show_lives+0xf0>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:258
+        DRAW_SetImage(man_lives_img, SCREEN_WIDTH - MAN_WIDTH - 1, SCREEN_HEIGHT - MAN_HEIGHT - 4, MAN_WIDTH, MAN_HEIGHT);
+  44:	f240 0300 	movw	r3, #0
+  48:	f2c0 0300 	movt	r3, #0
+  4c:	681b      	ldr	r3, [r3, #0]
+  4e:	f8d3 3088 	ldr.w	r3, [r3, #136]	; 0x88
+  52:	461c      	mov	r4, r3
+  54:	f240 0300 	movw	r3, #0
+  58:	f2c0 0300 	movt	r3, #0
+  5c:	f04f 0205 	mov.w	r2, #5
+  60:	9200      	str	r2, [sp, #0]
+  62:	4618      	mov	r0, r3
+  64:	f04f 0176 	mov.w	r1, #118	; 0x76
+  68:	f04f 0277 	mov.w	r2, #119	; 0x77
+  6c:	f04f 0309 	mov.w	r3, #9
+  70:	47a0      	blx	r4
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:259
+        if(lives >= 2){
+  72:	f240 0300 	movw	r3, #0
+  76:	f2c0 0300 	movt	r3, #0
+  7a:	881b      	ldrh	r3, [r3, #0]
+  7c:	b21b      	sxth	r3, r3
+  7e:	2b01      	cmp	r3, #1
+  80:	dd38      	ble.n	f4 <show_lives+0xf4>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:260
+            DRAW_SetImage(man_lives_img, SCREEN_WIDTH - MAN_WIDTH - 9, SCREEN_HEIGHT - MAN_HEIGHT - 4, MAN_WIDTH, MAN_HEIGHT);
+  82:	f240 0300 	movw	r3, #0
+  86:	f2c0 0300 	movt	r3, #0
+  8a:	681b      	ldr	r3, [r3, #0]
+  8c:	f8d3 3088 	ldr.w	r3, [r3, #136]	; 0x88
+  90:	461c      	mov	r4, r3
+  92:	f240 0300 	movw	r3, #0
+  96:	f2c0 0300 	movt	r3, #0
+  9a:	f04f 0205 	mov.w	r2, #5
+  9e:	9200      	str	r2, [sp, #0]
+  a0:	4618      	mov	r0, r3
+  a2:	f04f 016e 	mov.w	r1, #110	; 0x6e
+  a6:	f04f 0277 	mov.w	r2, #119	; 0x77
+  aa:	f04f 0309 	mov.w	r3, #9
+  ae:	47a0      	blx	r4
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:261
+            if(lives >= 3){
+  b0:	f240 0300 	movw	r3, #0
+  b4:	f2c0 0300 	movt	r3, #0
+  b8:	881b      	ldrh	r3, [r3, #0]
+  ba:	b21b      	sxth	r3, r3
+  bc:	2b02      	cmp	r3, #2
+  be:	dd19      	ble.n	f4 <show_lives+0xf4>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:262
+            DRAW_SetImage(man_lives_img, SCREEN_WIDTH - MAN_WIDTH - 17, SCREEN_HEIGHT - MAN_HEIGHT - 4, MAN_WIDTH, MAN_HEIGHT);
+  c0:	f240 0300 	movw	r3, #0
+  c4:	f2c0 0300 	movt	r3, #0
+  c8:	681b      	ldr	r3, [r3, #0]
+  ca:	f8d3 3088 	ldr.w	r3, [r3, #136]	; 0x88
+  ce:	461c      	mov	r4, r3
+  d0:	f240 0300 	movw	r3, #0
+  d4:	f2c0 0300 	movt	r3, #0
+  d8:	f04f 0205 	mov.w	r2, #5
+  dc:	9200      	str	r2, [sp, #0]
+  de:	4618      	mov	r0, r3
+  e0:	f04f 0166 	mov.w	r1, #102	; 0x66
+  e4:	f04f 0277 	mov.w	r2, #119	; 0x77
+  e8:	f04f 0309 	mov.w	r3, #9
+  ec:	47a0      	blx	r4
+  ee:	e001      	b.n	f4 <show_lives+0xf4>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:266
+            }
+        }
+    }else{
+        game_over();
+  f0:	f7ff fffe 	bl	0 <show_lives>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:268
+    }
+}
+  f4:	4618      	mov	r0, r3
+  f6:	f107 0704 	add.w	r7, r7, #4
+  fa:	46bd      	mov	sp, r7
+  fc:	bd90      	pop	{r4, r7, pc}
+  fe:	bf00      	nop
+
+Disassembly of section .text.check_quit:
+
+00000000 <check_quit>:
+check_quit():
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:277
+* Description    : Checks if the joystick is pushed down. If so, quits the game.
+* Input          : None
+* Return         : None
+*******************************************************************************/
+int check_quit()
+{
+   0:	b580      	push	{r7, lr}
+   2:	af00      	add	r7, sp, #0
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:278
+    if(JOYSTICK_GetState() == JOYSTICK_DOWN) {
+   4:	f240 0300 	movw	r3, #0
+   8:	f2c0 0300 	movt	r3, #0
+   c:	681b      	ldr	r3, [r3, #0]
+   e:	f8d3 3210 	ldr.w	r3, [r3, #528]	; 0x210
+  12:	4798      	blx	r3
+  14:	4603      	mov	r3, r0
+  16:	b2db      	uxtb	r3, r3
+  18:	b25b      	sxtb	r3, r3
+  1a:	2b04      	cmp	r3, #4
+  1c:	d111      	bne.n	42 <check_quit+0x42>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:279
+        JOYSTICK_WaitForRelease();
+  1e:	f240 0300 	movw	r3, #0
+  22:	f2c0 0300 	movt	r3, #0
+  26:	681b      	ldr	r3, [r3, #0]
+  28:	f8d3 3214 	ldr.w	r3, [r3, #532]	; 0x214
+  2c:	4798      	blx	r3
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:280
+        return MENU_Quit();
+  2e:	f240 0300 	movw	r3, #0
+  32:	f2c0 0300 	movt	r3, #0
+  36:	681b      	ldr	r3, [r3, #0]
+  38:	f8d3 32a8 	ldr.w	r3, [r3, #680]	; 0x2a8
+  3c:	4798      	blx	r3
+  3e:	4603      	mov	r3, r0
+  40:	e7ff      	b.n	42 <check_quit+0x42>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:282
+        }
+}
+  42:	4618      	mov	r0, r3
+  44:	bd80      	pop	{r7, pc}
+  46:	bf00      	nop
+
+Disassembly of section .text.reset_alien_bullet:
+
+00000000 <reset_alien_bullet>:
+reset_alien_bullet():
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:292
+*                  the variables associated with it, thus preparing it for reuse.
+* Input          : None
+* Return         : None
+*******************************************************************************/
+int reset_alien_bullet()
+{
+   0:	b590      	push	{r4, r7, lr}
+   2:	b083      	sub	sp, #12
+   4:	af02      	add	r7, sp, #8
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:293
+    LCD_FillRect(alien_fire_point_x, alien_fire_point_y - alien_bullet_translation + 1, ALIEN_BULLET_WIDTH, ALIEN_BULLET_HEIGHT + 1, RGB_BLACK);
+   6:	f240 0300 	movw	r3, #0
+   a:	f2c0 0300 	movt	r3, #0
+   e:	681b      	ldr	r3, [r3, #0]
+  10:	f8d3 3118 	ldr.w	r3, [r3, #280]	; 0x118
+  14:	461c      	mov	r4, r3
+  16:	f240 0300 	movw	r3, #0
+  1a:	f2c0 0300 	movt	r3, #0
+  1e:	881b      	ldrh	r3, [r3, #0]
+  20:	b21a      	sxth	r2, r3
+  22:	f240 0300 	movw	r3, #0
+  26:	f2c0 0300 	movt	r3, #0
+  2a:	881b      	ldrh	r3, [r3, #0]
+  2c:	b219      	sxth	r1, r3
+  2e:	f240 0300 	movw	r3, #0
+  32:	f2c0 0300 	movt	r3, #0
+  36:	881b      	ldrh	r3, [r3, #0]
+  38:	b21b      	sxth	r3, r3
+  3a:	1acb      	subs	r3, r1, r3
+  3c:	f103 0301 	add.w	r3, r3, #1
+  40:	f04f 0100 	mov.w	r1, #0
+  44:	9100      	str	r1, [sp, #0]
+  46:	4610      	mov	r0, r2
+  48:	4619      	mov	r1, r3
+  4a:	f04f 0202 	mov.w	r2, #2
+  4e:	f04f 0304 	mov.w	r3, #4
+  52:	47a0      	blx	r4
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:294
+    alien_bullet_active = 0;
+  54:	f240 0300 	movw	r3, #0
+  58:	f2c0 0300 	movt	r3, #0
+  5c:	f04f 0200 	mov.w	r2, #0
+  60:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:295
+    alien_fire_point_x = 0;
+  62:	f240 0300 	movw	r3, #0
+  66:	f2c0 0300 	movt	r3, #0
+  6a:	f04f 0200 	mov.w	r2, #0
+  6e:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:296
+    alien_fire_point_y = 0;  
+  70:	f240 0300 	movw	r3, #0
+  74:	f2c0 0300 	movt	r3, #0
+  78:	f04f 0200 	mov.w	r2, #0
+  7c:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:297
+    alien_bullet_translation = 0;
+  7e:	f240 0300 	movw	r3, #0
+  82:	f2c0 0300 	movt	r3, #0
+  86:	f04f 0200 	mov.w	r2, #0
+  8a:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:298
+}
+  8c:	4618      	mov	r0, r3
+  8e:	f107 0704 	add.w	r7, r7, #4
+  92:	46bd      	mov	sp, r7
+  94:	bd90      	pop	{r4, r7, pc}
+  96:	bf00      	nop
+
+Disassembly of section .text.update_alien_bullet:
+
+00000000 <update_alien_bullet>:
+update_alien_bullet():
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:308
+*                  destruction and redrawing it.
+* Input          : None
+* Return         : None
+*******************************************************************************/
+int update_alien_bullet()
+{
+   0:	b580      	push	{r7, lr}
+   2:	af00      	add	r7, sp, #0
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:309
+    if(alien_bullet_translation > (alien_fire_point_y)){
+   4:	f240 0300 	movw	r3, #0
+   8:	f2c0 0300 	movt	r3, #0
+   c:	881a      	ldrh	r2, [r3, #0]
+   e:	f240 0300 	movw	r3, #0
+  12:	f2c0 0300 	movt	r3, #0
+  16:	881b      	ldrh	r3, [r3, #0]
+  18:	b212      	sxth	r2, r2
+  1a:	b21b      	sxth	r3, r3
+  1c:	429a      	cmp	r2, r3
+  1e:	dd02      	ble.n	26 <update_alien_bullet+0x26>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:310
+        reset_alien_bullet();
+  20:	f7ff fffe 	bl	0 <update_alien_bullet>
+  24:	e005      	b.n	e <update_alien_bullet+0xe>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:312
+    }else{
+        alien_fire_draw();
+  26:	f7ff fffe 	bl	0 <update_alien_bullet>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:313
+        check_alien_bullet_barrier_collision();
+  2a:	f7ff fffe 	bl	0 <update_alien_bullet>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:314
+        check_alien_bullet_man_collision();
+  2e:	f7ff fffe 	bl	0 <update_alien_bullet>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:317
+        
+    }
+}
+  32:	4618      	mov	r0, r3
+  34:	bd80      	pop	{r7, pc}
+  36:	bf00      	nop
+
+Disassembly of section .text.random_alien_attack:
+
+00000000 <random_alien_attack>:
+random_alien_attack():
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:326
+* Description    : Translates the alien bullet, by clearing and redrawing it. 
+* Input          : None
+* Return         : None
+*******************************************************************************/
+int random_alien_attack(int clk)
+{
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:327
+    alien_fire_row = (rand()%5);
+   8:	f7ff fffe 	bl	0 <rand>
+   c:	4601      	mov	r1, r0
+   e:	f246 6367 	movw	r3, #26215	; 0x6667
+  12:	f2c6 6366 	movt	r3, #26214	; 0x6666
+  16:	fb83 2301 	smull	r2, r3, r3, r1
+  1a:	ea4f 0263 	mov.w	r2, r3, asr #1
+  1e:	ea4f 73e1 	mov.w	r3, r1, asr #31
+  22:	1ad2      	subs	r2, r2, r3
+  24:	4613      	mov	r3, r2
+  26:	ea4f 0383 	mov.w	r3, r3, lsl #2
+  2a:	189b      	adds	r3, r3, r2
+  2c:	1aca      	subs	r2, r1, r3
+  2e:	b292      	uxth	r2, r2
+  30:	f240 0300 	movw	r3, #0
+  34:	f2c0 0300 	movt	r3, #0
+  38:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:328
+    alien_fire_col = (rand()%7);
+  3a:	f7ff fffe 	bl	0 <rand>
+  3e:	4601      	mov	r1, r0
+  40:	f242 4393 	movw	r3, #9363	; 0x2493
+  44:	f2c9 2349 	movt	r3, #37449	; 0x9249
+  48:	fb83 2301 	smull	r2, r3, r3, r1
+  4c:	185b      	adds	r3, r3, r1
+  4e:	ea4f 02a3 	mov.w	r2, r3, asr #2
+  52:	ea4f 73e1 	mov.w	r3, r1, asr #31
+  56:	1ad2      	subs	r2, r2, r3
+  58:	4613      	mov	r3, r2
+  5a:	ea4f 03c3 	mov.w	r3, r3, lsl #3
+  5e:	1a9b      	subs	r3, r3, r2
+  60:	1aca      	subs	r2, r1, r3
+  62:	b292      	uxth	r2, r2
+  64:	f240 0300 	movw	r3, #0
+  68:	f2c0 0300 	movt	r3, #0
+  6c:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:329
+    if(alien_bullet_active){
+  6e:	f240 0300 	movw	r3, #0
+  72:	f2c0 0300 	movt	r3, #0
+  76:	881b      	ldrh	r3, [r3, #0]
+  78:	2b00      	cmp	r3, #0
+  7a:	f000 8099 	beq.w	1b0 <random_alien_attack+0x1b0>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:330
+        if(alien_array[alien_fire_row][alien_fire_col].alive)
+  7e:	f240 0300 	movw	r3, #0
+  82:	f2c0 0300 	movt	r3, #0
+  86:	881b      	ldrh	r3, [r3, #0]
+  88:	b219      	sxth	r1, r3
+  8a:	f240 0300 	movw	r3, #0
+  8e:	f2c0 0300 	movt	r3, #0
+  92:	881b      	ldrh	r3, [r3, #0]
+  94:	b218      	sxth	r0, r3
+  96:	f240 0200 	movw	r2, #0
+  9a:	f2c0 0200 	movt	r2, #0
+  9e:	4603      	mov	r3, r0
+  a0:	ea4f 0343 	mov.w	r3, r3, lsl #1
+  a4:	181b      	adds	r3, r3, r0
+  a6:	ea4f 0043 	mov.w	r0, r3, lsl #1
+  aa:	460b      	mov	r3, r1
+  ac:	ea4f 03c3 	mov.w	r3, r3, lsl #3
+  b0:	185b      	adds	r3, r3, r1
+  b2:	ea4f 0383 	mov.w	r3, r3, lsl #2
+  b6:	18c3      	adds	r3, r0, r3
+  b8:	18d3      	adds	r3, r2, r3
+  ba:	781b      	ldrb	r3, [r3, #0]
+  bc:	2b00      	cmp	r3, #0
+  be:	d074      	beq.n	1aa <random_alien_attack+0x1aa>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:332
+        {
+            alien_fire_point_x = ALIEN_START_X + (((alien_array[alien_fire_row][alien_fire_col].alien_pos_x)-1)*COLUMN_SIZE) + alien_translation_x + (ALIEN_WIDTH/2) - (ALIEN_BULLET_WIDTH/2);
+  c0:	f240 0300 	movw	r3, #0
+  c4:	f2c0 0300 	movt	r3, #0
+  c8:	881b      	ldrh	r3, [r3, #0]
+  ca:	b219      	sxth	r1, r3
+  cc:	f240 0300 	movw	r3, #0
+  d0:	f2c0 0300 	movt	r3, #0
+  d4:	881b      	ldrh	r3, [r3, #0]
+  d6:	b218      	sxth	r0, r3
+  d8:	f240 0200 	movw	r2, #0
+  dc:	f2c0 0200 	movt	r2, #0
+  e0:	4603      	mov	r3, r0
+  e2:	ea4f 0343 	mov.w	r3, r3, lsl #1
+  e6:	181b      	adds	r3, r3, r0
+  e8:	ea4f 0043 	mov.w	r0, r3, lsl #1
+  ec:	460b      	mov	r3, r1
+  ee:	ea4f 03c3 	mov.w	r3, r3, lsl #3
+  f2:	185b      	adds	r3, r3, r1
+  f4:	ea4f 0383 	mov.w	r3, r3, lsl #2
+  f8:	18c3      	adds	r3, r0, r3
+  fa:	18d3      	adds	r3, r2, r3
+  fc:	885b      	ldrh	r3, [r3, #2]
+  fe:	b21b      	sxth	r3, r3
+ 100:	f103 33ff 	add.w	r3, r3, #4294967295
+ 104:	b29b      	uxth	r3, r3
+ 106:	ea4f 1303 	mov.w	r3, r3, lsl #4
+ 10a:	b29a      	uxth	r2, r3
+ 10c:	f240 0300 	movw	r3, #0
+ 110:	f2c0 0300 	movt	r3, #0
+ 114:	881b      	ldrh	r3, [r3, #0]
+ 116:	b29b      	uxth	r3, r3
+ 118:	18d3      	adds	r3, r2, r3
+ 11a:	b29b      	uxth	r3, r3
+ 11c:	f103 0308 	add.w	r3, r3, #8
+ 120:	b29b      	uxth	r3, r3
+ 122:	b29a      	uxth	r2, r3
+ 124:	f240 0300 	movw	r3, #0
+ 128:	f2c0 0300 	movt	r3, #0
+ 12c:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:333
+            alien_fire_point_y = ALIEN_START_Y + (((alien_array[alien_fire_row][alien_fire_col].alien_pos_y)-1)*ROW_SIZE) + alien_translation_y - ALIEN_BULLET_HEIGHT;
+ 12e:	f240 0300 	movw	r3, #0
+ 132:	f2c0 0300 	movt	r3, #0
+ 136:	881b      	ldrh	r3, [r3, #0]
+ 138:	b219      	sxth	r1, r3
+ 13a:	f240 0300 	movw	r3, #0
+ 13e:	f2c0 0300 	movt	r3, #0
+ 142:	881b      	ldrh	r3, [r3, #0]
+ 144:	b218      	sxth	r0, r3
+ 146:	f240 0200 	movw	r2, #0
+ 14a:	f2c0 0200 	movt	r2, #0
+ 14e:	4603      	mov	r3, r0
+ 150:	ea4f 0343 	mov.w	r3, r3, lsl #1
+ 154:	181b      	adds	r3, r3, r0
+ 156:	ea4f 0043 	mov.w	r0, r3, lsl #1
+ 15a:	460b      	mov	r3, r1
+ 15c:	ea4f 03c3 	mov.w	r3, r3, lsl #3
+ 160:	185b      	adds	r3, r3, r1
+ 162:	ea4f 0383 	mov.w	r3, r3, lsl #2
+ 166:	18c3      	adds	r3, r0, r3
+ 168:	18d3      	adds	r3, r2, r3
+ 16a:	889b      	ldrh	r3, [r3, #4]
+ 16c:	b21b      	sxth	r3, r3
+ 16e:	f103 33ff 	add.w	r3, r3, #4294967295
+ 172:	b29b      	uxth	r3, r3
+ 174:	461a      	mov	r2, r3
+ 176:	ea4f 0242 	mov.w	r2, r2, lsl #1
+ 17a:	18d3      	adds	r3, r2, r3
+ 17c:	ea4f 0383 	mov.w	r3, r3, lsl #2
+ 180:	b29a      	uxth	r2, r3
+ 182:	f240 0300 	movw	r3, #0
+ 186:	f2c0 0300 	movt	r3, #0
+ 18a:	881b      	ldrh	r3, [r3, #0]
+ 18c:	b29b      	uxth	r3, r3
+ 18e:	18d3      	adds	r3, r2, r3
+ 190:	b29b      	uxth	r3, r3
+ 192:	f103 0343 	add.w	r3, r3, #67	; 0x43
+ 196:	b29b      	uxth	r3, r3
+ 198:	b29a      	uxth	r2, r3
+ 19a:	f240 0300 	movw	r3, #0
+ 19e:	f2c0 0300 	movt	r3, #0
+ 1a2:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:334
+            alien_fire_draw();
+ 1a4:	f7ff fffe 	bl	0 <random_alien_attack>
+ 1a8:	e002      	b.n	1b0 <random_alien_attack+0x1b0>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:336
+        }else{
+            random_alien_attack(clk);
+ 1aa:	6878      	ldr	r0, [r7, #4]
+ 1ac:	f7ff fffe 	bl	0 <random_alien_attack>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:339
+        }
+    }
+}
+ 1b0:	4618      	mov	r0, r3
+ 1b2:	f107 0708 	add.w	r7, r7, #8
+ 1b6:	46bd      	mov	sp, r7
+ 1b8:	bd80      	pop	{r7, pc}
+ 1ba:	bf00      	nop
+
+Disassembly of section .text.alien_fire_draw:
+
+00000000 <alien_fire_draw>:
+alien_fire_draw():
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:348
+* Description    : Translates the alien bullet, by clearing and redrawing it. 
+* Input          : None
+* Return         : None
+*******************************************************************************/
+int alien_fire_draw()
+{
+   0:	b590      	push	{r4, r7, lr}
+   2:	b083      	sub	sp, #12
+   4:	af02      	add	r7, sp, #8
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:349
+    LCD_FillRect(alien_fire_point_x, alien_fire_point_y - alien_bullet_translation + 1, ALIEN_BULLET_WIDTH, ALIEN_BULLET_HEIGHT + 1, RGB_BLACK);
+   6:	f240 0300 	movw	r3, #0
+   a:	f2c0 0300 	movt	r3, #0
+   e:	681b      	ldr	r3, [r3, #0]
+  10:	f8d3 3118 	ldr.w	r3, [r3, #280]	; 0x118
+  14:	461c      	mov	r4, r3
+  16:	f240 0300 	movw	r3, #0
+  1a:	f2c0 0300 	movt	r3, #0
+  1e:	881b      	ldrh	r3, [r3, #0]
+  20:	b21a      	sxth	r2, r3
+  22:	f240 0300 	movw	r3, #0
+  26:	f2c0 0300 	movt	r3, #0
+  2a:	881b      	ldrh	r3, [r3, #0]
+  2c:	b219      	sxth	r1, r3
+  2e:	f240 0300 	movw	r3, #0
+  32:	f2c0 0300 	movt	r3, #0
+  36:	881b      	ldrh	r3, [r3, #0]
+  38:	b21b      	sxth	r3, r3
+  3a:	1acb      	subs	r3, r1, r3
+  3c:	f103 0301 	add.w	r3, r3, #1
+  40:	f04f 0100 	mov.w	r1, #0
+  44:	9100      	str	r1, [sp, #0]
+  46:	4610      	mov	r0, r2
+  48:	4619      	mov	r1, r3
+  4a:	f04f 0202 	mov.w	r2, #2
+  4e:	f04f 0304 	mov.w	r3, #4
+  52:	47a0      	blx	r4
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:350
+    LCD_FillRect(alien_fire_point_x, alien_fire_point_y - alien_bullet_translation, ALIEN_BULLET_WIDTH, ALIEN_BULLET_HEIGHT, RGB_BLUE);
+  54:	f240 0300 	movw	r3, #0
+  58:	f2c0 0300 	movt	r3, #0
+  5c:	681b      	ldr	r3, [r3, #0]
+  5e:	f8d3 3118 	ldr.w	r3, [r3, #280]	; 0x118
+  62:	461c      	mov	r4, r3
+  64:	f240 0300 	movw	r3, #0
+  68:	f2c0 0300 	movt	r3, #0
+  6c:	881b      	ldrh	r3, [r3, #0]
+  6e:	b21a      	sxth	r2, r3
+  70:	f240 0300 	movw	r3, #0
+  74:	f2c0 0300 	movt	r3, #0
+  78:	881b      	ldrh	r3, [r3, #0]
+  7a:	b219      	sxth	r1, r3
+  7c:	f240 0300 	movw	r3, #0
+  80:	f2c0 0300 	movt	r3, #0
+  84:	881b      	ldrh	r3, [r3, #0]
+  86:	b21b      	sxth	r3, r3
+  88:	1acb      	subs	r3, r1, r3
+  8a:	f44f 51f8 	mov.w	r1, #7936	; 0x1f00
+  8e:	9100      	str	r1, [sp, #0]
+  90:	4610      	mov	r0, r2
+  92:	4619      	mov	r1, r3
+  94:	f04f 0202 	mov.w	r2, #2
+  98:	f04f 0303 	mov.w	r3, #3
+  9c:	47a0      	blx	r4
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:351
+    alien_bullet_translation++;
+  9e:	f240 0300 	movw	r3, #0
+  a2:	f2c0 0300 	movt	r3, #0
+  a6:	881b      	ldrh	r3, [r3, #0]
+  a8:	f103 0301 	add.w	r3, r3, #1
+  ac:	b29a      	uxth	r2, r3
+  ae:	f240 0300 	movw	r3, #0
+  b2:	f2c0 0300 	movt	r3, #0
+  b6:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:352
+}
+  b8:	4618      	mov	r0, r3
+  ba:	f107 0704 	add.w	r7, r7, #4
+  be:	46bd      	mov	sp, r7
+  c0:	bd90      	pop	{r4, r7, pc}
+  c2:	bf00      	nop
+
+Disassembly of section .text.check_speed:
+
+00000000 <check_speed>:
+check_speed():
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:362
+*                  value between 2 and 7, representing the speed of the man.
+* Input          : int Current_MEMS_X
+* Return         : An int between 2 and 7.
+*******************************************************************************/
+int check_speed(int Current_MEMS_X)
+{
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:363
+    if (lim_check_right(Current_MEMS_X)){
+   8:	6878      	ldr	r0, [r7, #4]
+   a:	f7ff fffe 	bl	0 <check_speed>
+   e:	4603      	mov	r3, r0
+  10:	2b00      	cmp	r3, #0
+  12:	d00e      	beq.n	32 <check_speed+0x32>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:364
+        return (7 - (Current_MEMS_X/100));
+  14:	687a      	ldr	r2, [r7, #4]
+  16:	f248 531f 	movw	r3, #34079	; 0x851f
+  1a:	f2c5 13eb 	movt	r3, #20971	; 0x51eb
+  1e:	fb83 1302 	smull	r1, r3, r3, r2
+  22:	ea4f 1163 	mov.w	r1, r3, asr #5
+  26:	ea4f 73e2 	mov.w	r3, r2, asr #31
+  2a:	1acb      	subs	r3, r1, r3
+  2c:	f1c3 0307 	rsb	r3, r3, #7
+  30:	e016      	b.n	60 <check_speed+0x60>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:366
+    }
+    if (lim_check_left(Current_MEMS_X)){
+  32:	6878      	ldr	r0, [r7, #4]
+  34:	f7ff fffe 	bl	0 <check_speed>
+  38:	4603      	mov	r3, r0
+  3a:	2b00      	cmp	r3, #0
+  3c:	d00e      	beq.n	5c <check_speed+0x5c>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:367
+        return (7 - (-(Current_MEMS_X/100)));
+  3e:	687a      	ldr	r2, [r7, #4]
+  40:	f248 531f 	movw	r3, #34079	; 0x851f
+  44:	f2c5 13eb 	movt	r3, #20971	; 0x51eb
+  48:	fb83 1302 	smull	r1, r3, r3, r2
+  4c:	ea4f 1163 	mov.w	r1, r3, asr #5
+  50:	ea4f 73e2 	mov.w	r3, r2, asr #31
+  54:	1acb      	subs	r3, r1, r3
+  56:	f103 0307 	add.w	r3, r3, #7
+  5a:	e001      	b.n	60 <check_speed+0x60>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:369
+    }else{
+        return 2;
+  5c:	f04f 0302 	mov.w	r3, #2
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:371
+    }
+}
+  60:	4618      	mov	r0, r3
+  62:	f107 0708 	add.w	r7, r7, #8
+  66:	46bd      	mov	sp, r7
+  68:	bd80      	pop	{r7, pc}
+  6a:	bf00      	nop
+
+Disassembly of section .text.check_all_aliens_killed:
+
+00000000 <check_all_aliens_killed>:
+check_all_aliens_killed():
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:382
+*                  the score.
+* Input          : None
+* Return         : None
+*******************************************************************************/
+int check_all_aliens_killed()
+{
+   0:	b580      	push	{r7, lr}
+   2:	af00      	add	r7, sp, #0
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:383
+    for(alien_y = 0; alien_y < 4; alien_y++){
+   4:	f240 0300 	movw	r3, #0
+   8:	f2c0 0300 	movt	r3, #0
+   c:	f04f 0200 	mov.w	r2, #0
+  10:	601a      	str	r2, [r3, #0]
+  12:	e052      	b.n	ba <check_all_aliens_killed+0xba>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:384
+        for(alien_x = 0; alien_x < 6; alien_x++){
+  14:	f240 0300 	movw	r3, #0
+  18:	f2c0 0300 	movt	r3, #0
+  1c:	f04f 0200 	mov.w	r2, #0
+  20:	601a      	str	r2, [r3, #0]
+  22:	e037      	b.n	94 <check_all_aliens_killed+0x94>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:385
+            if (!alien_array[alien_y][alien_x].alive){
+  24:	f240 0300 	movw	r3, #0
+  28:	f2c0 0300 	movt	r3, #0
+  2c:	6819      	ldr	r1, [r3, #0]
+  2e:	f240 0300 	movw	r3, #0
+  32:	f2c0 0300 	movt	r3, #0
+  36:	6818      	ldr	r0, [r3, #0]
+  38:	f240 0200 	movw	r2, #0
+  3c:	f2c0 0200 	movt	r2, #0
+  40:	4603      	mov	r3, r0
+  42:	ea4f 0343 	mov.w	r3, r3, lsl #1
+  46:	181b      	adds	r3, r3, r0
+  48:	ea4f 0043 	mov.w	r0, r3, lsl #1
+  4c:	460b      	mov	r3, r1
+  4e:	ea4f 03c3 	mov.w	r3, r3, lsl #3
+  52:	185b      	adds	r3, r3, r1
+  54:	ea4f 0383 	mov.w	r3, r3, lsl #2
+  58:	18c3      	adds	r3, r0, r3
+  5a:	18d3      	adds	r3, r2, r3
+  5c:	781b      	ldrb	r3, [r3, #0]
+  5e:	2b00      	cmp	r3, #0
+  60:	d10c      	bne.n	7c <check_all_aliens_killed+0x7c>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:386
+                alive_count++;
+  62:	f240 0300 	movw	r3, #0
+  66:	f2c0 0300 	movt	r3, #0
+  6a:	881b      	ldrh	r3, [r3, #0]
+  6c:	f103 0301 	add.w	r3, r3, #1
+  70:	b29a      	uxth	r2, r3
+  72:	f240 0300 	movw	r3, #0
+  76:	f2c0 0300 	movt	r3, #0
+  7a:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:384
+* Return         : None
+*******************************************************************************/
+int check_all_aliens_killed()
+{
+    for(alien_y = 0; alien_y < 4; alien_y++){
+        for(alien_x = 0; alien_x < 6; alien_x++){
+  7c:	f240 0300 	movw	r3, #0
+  80:	f2c0 0300 	movt	r3, #0
+  84:	681b      	ldr	r3, [r3, #0]
+  86:	f103 0201 	add.w	r2, r3, #1
+  8a:	f240 0300 	movw	r3, #0
+  8e:	f2c0 0300 	movt	r3, #0
+  92:	601a      	str	r2, [r3, #0]
+  94:	f240 0300 	movw	r3, #0
+  98:	f2c0 0300 	movt	r3, #0
+  9c:	681b      	ldr	r3, [r3, #0]
+  9e:	2b05      	cmp	r3, #5
+  a0:	ddc0      	ble.n	24 <check_all_aliens_killed+0x24>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:383
+* Input          : None
+* Return         : None
+*******************************************************************************/
+int check_all_aliens_killed()
+{
+    for(alien_y = 0; alien_y < 4; alien_y++){
+  a2:	f240 0300 	movw	r3, #0
+  a6:	f2c0 0300 	movt	r3, #0
+  aa:	681b      	ldr	r3, [r3, #0]
+  ac:	f103 0201 	add.w	r2, r3, #1
+  b0:	f240 0300 	movw	r3, #0
+  b4:	f2c0 0300 	movt	r3, #0
+  b8:	601a      	str	r2, [r3, #0]
+  ba:	f240 0300 	movw	r3, #0
+  be:	f2c0 0300 	movt	r3, #0
+  c2:	681b      	ldr	r3, [r3, #0]
+  c4:	2b03      	cmp	r3, #3
+  c6:	dda5      	ble.n	14 <check_all_aliens_killed+0x14>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:391
+                alive_count++;
+            }
+        }
+    }
+
+    if ((alive_count >= 24)){
+  c8:	f240 0300 	movw	r3, #0
+  cc:	f2c0 0300 	movt	r3, #0
+  d0:	881b      	ldrh	r3, [r3, #0]
+  d2:	b21b      	sxth	r3, r3
+  d4:	2b17      	cmp	r3, #23
+  d6:	dd24      	ble.n	122 <check_all_aliens_killed+0x122>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:392
+        reset_alien_array();
+  d8:	f7ff fffe 	bl	0 <check_all_aliens_killed>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:393
+        alien_translation_x = 0;
+  dc:	f240 0300 	movw	r3, #0
+  e0:	f2c0 0300 	movt	r3, #0
+  e4:	f04f 0200 	mov.w	r2, #0
+  e8:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:394
+        alien_translation_y = 0;
+  ea:	f240 0300 	movw	r3, #0
+  ee:	f2c0 0300 	movt	r3, #0
+  f2:	f04f 0200 	mov.w	r2, #0
+  f6:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:395
+        direction = 1;
+  f8:	f240 0300 	movw	r3, #0
+  fc:	f2c0 0300 	movt	r3, #0
+ 100:	f04f 0201 	mov.w	r2, #1
+ 104:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:396
+        score += 10;
+ 106:	f240 0300 	movw	r3, #0
+ 10a:	f2c0 0300 	movt	r3, #0
+ 10e:	681b      	ldr	r3, [r3, #0]
+ 110:	f103 020a 	add.w	r2, r3, #10
+ 114:	f240 0300 	movw	r3, #0
+ 118:	f2c0 0300 	movt	r3, #0
+ 11c:	601a      	str	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:397
+        update_score_lives();
+ 11e:	f7ff fffe 	bl	0 <check_all_aliens_killed>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:399
+    }
+    alive_count = 0;
+ 122:	f240 0300 	movw	r3, #0
+ 126:	f2c0 0300 	movt	r3, #0
+ 12a:	f04f 0200 	mov.w	r2, #0
+ 12e:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:400
+}
+ 130:	4618      	mov	r0, r3
+ 132:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text.reset_alien_array:
+
+00000000 <reset_alien_array>:
+reset_alien_array():
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:409
+* Description    : Sets the alive status of each alien to be 1 again (alive);
+* Input          : None
+* Return         : None
+*******************************************************************************/
+int reset_alien_array()
+{
+   0:	b480      	push	{r7}
+   2:	af00      	add	r7, sp, #0
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:410
+    for(alien_y = 0; alien_y < 4; alien_y++){
+   4:	f240 0300 	movw	r3, #0
+   8:	f2c0 0300 	movt	r3, #0
+   c:	f04f 0200 	mov.w	r2, #0
+  10:	601a      	str	r2, [r3, #0]
+  12:	e045      	b.n	a0 <reset_alien_array+0xa0>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:411
+        for(alien_x = 0; alien_x < 6; alien_x++){
+  14:	f240 0300 	movw	r3, #0
+  18:	f2c0 0300 	movt	r3, #0
+  1c:	f04f 0200 	mov.w	r2, #0
+  20:	601a      	str	r2, [r3, #0]
+  22:	e02a      	b.n	7a <reset_alien_array+0x7a>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:412
+            alien_array[alien_y][alien_x].alive = 1;
+  24:	f240 0300 	movw	r3, #0
+  28:	f2c0 0300 	movt	r3, #0
+  2c:	6819      	ldr	r1, [r3, #0]
+  2e:	f240 0300 	movw	r3, #0
+  32:	f2c0 0300 	movt	r3, #0
+  36:	6818      	ldr	r0, [r3, #0]
+  38:	f240 0200 	movw	r2, #0
+  3c:	f2c0 0200 	movt	r2, #0
+  40:	4603      	mov	r3, r0
+  42:	ea4f 0343 	mov.w	r3, r3, lsl #1
+  46:	181b      	adds	r3, r3, r0
+  48:	ea4f 0043 	mov.w	r0, r3, lsl #1
+  4c:	460b      	mov	r3, r1
+  4e:	ea4f 03c3 	mov.w	r3, r3, lsl #3
+  52:	185b      	adds	r3, r3, r1
+  54:	ea4f 0383 	mov.w	r3, r3, lsl #2
+  58:	18c3      	adds	r3, r0, r3
+  5a:	18d3      	adds	r3, r2, r3
+  5c:	f04f 0201 	mov.w	r2, #1
+  60:	701a      	strb	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:411
+* Return         : None
+*******************************************************************************/
+int reset_alien_array()
+{
+    for(alien_y = 0; alien_y < 4; alien_y++){
+        for(alien_x = 0; alien_x < 6; alien_x++){
+  62:	f240 0300 	movw	r3, #0
+  66:	f2c0 0300 	movt	r3, #0
+  6a:	681b      	ldr	r3, [r3, #0]
+  6c:	f103 0201 	add.w	r2, r3, #1
+  70:	f240 0300 	movw	r3, #0
+  74:	f2c0 0300 	movt	r3, #0
+  78:	601a      	str	r2, [r3, #0]
+  7a:	f240 0300 	movw	r3, #0
+  7e:	f2c0 0300 	movt	r3, #0
+  82:	681b      	ldr	r3, [r3, #0]
+  84:	2b05      	cmp	r3, #5
+  86:	ddcd      	ble.n	24 <reset_alien_array+0x24>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:410
+* Input          : None
+* Return         : None
+*******************************************************************************/
+int reset_alien_array()
+{
+    for(alien_y = 0; alien_y < 4; alien_y++){
+  88:	f240 0300 	movw	r3, #0
+  8c:	f2c0 0300 	movt	r3, #0
+  90:	681b      	ldr	r3, [r3, #0]
+  92:	f103 0201 	add.w	r2, r3, #1
+  96:	f240 0300 	movw	r3, #0
+  9a:	f2c0 0300 	movt	r3, #0
+  9e:	601a      	str	r2, [r3, #0]
+  a0:	f240 0300 	movw	r3, #0
+  a4:	f2c0 0300 	movt	r3, #0
+  a8:	681b      	ldr	r3, [r3, #0]
+  aa:	2b03      	cmp	r3, #3
+  ac:	ddb2      	ble.n	14 <reset_alien_array+0x14>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:415
+        for(alien_x = 0; alien_x < 6; alien_x++){
+            alien_array[alien_y][alien_x].alive = 1;
+        }
+    }
+}
+  ae:	4618      	mov	r0, r3
+  b0:	46bd      	mov	sp, r7
+  b2:	bc80      	pop	{r7}
+  b4:	4770      	bx	lr
+  b6:	bf00      	nop
+
+Disassembly of section .text.game_over:
+
+00000000 <game_over>:
+game_over():
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:424
+* Description    : Prints the gameOver background image and prints final score. 
+* Input          : None
+* Return         : 0
+*******************************************************************************/
+int game_over()
+{
+   0:	b590      	push	{r4, r7, lr}
+   2:	b083      	sub	sp, #12
+   4:	af02      	add	r7, sp, #8
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:425
+    LCD_FillRect(0, 0,SCREEN_WIDTH, SCREEN_HEIGHT, RGB_BLACK);
+   6:	f240 0300 	movw	r3, #0
+   a:	f2c0 0300 	movt	r3, #0
+   e:	681b      	ldr	r3, [r3, #0]
+  10:	f8d3 3118 	ldr.w	r3, [r3, #280]	; 0x118
+  14:	461c      	mov	r4, r3
+  16:	f04f 0300 	mov.w	r3, #0
+  1a:	9300      	str	r3, [sp, #0]
+  1c:	f04f 0000 	mov.w	r0, #0
+  20:	f04f 0100 	mov.w	r1, #0
+  24:	f04f 0280 	mov.w	r2, #128	; 0x80
+  28:	f04f 0380 	mov.w	r3, #128	; 0x80
+  2c:	47a0      	blx	r4
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:426
+    DRAW_SetImage(gameOver, 0, 0, 128, 128);
+  2e:	f240 0300 	movw	r3, #0
+  32:	f2c0 0300 	movt	r3, #0
+  36:	681b      	ldr	r3, [r3, #0]
+  38:	f8d3 3088 	ldr.w	r3, [r3, #136]	; 0x88
+  3c:	461c      	mov	r4, r3
+  3e:	f240 0300 	movw	r3, #0
+  42:	f2c0 0300 	movt	r3, #0
+  46:	f04f 0280 	mov.w	r2, #128	; 0x80
+  4a:	9200      	str	r2, [sp, #0]
+  4c:	4618      	mov	r0, r3
+  4e:	f04f 0100 	mov.w	r1, #0
+  52:	f04f 0200 	mov.w	r2, #0
+  56:	f04f 0380 	mov.w	r3, #128	; 0x80
+  5a:	47a0      	blx	r4
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:427
+    UTIL_int2str(score_str2, score, 4, 0);
+  5c:	f240 0300 	movw	r3, #0
+  60:	f2c0 0300 	movt	r3, #0
+  64:	681b      	ldr	r3, [r3, #0]
+  66:	f8d3 32cc 	ldr.w	r3, [r3, #716]	; 0x2cc
+  6a:	461c      	mov	r4, r3
+  6c:	f240 0300 	movw	r3, #0
+  70:	f2c0 0300 	movt	r3, #0
+  74:	f240 0200 	movw	r2, #0
+  78:	f2c0 0200 	movt	r2, #0
+  7c:	6812      	ldr	r2, [r2, #0]
+  7e:	4618      	mov	r0, r3
+  80:	4611      	mov	r1, r2
+  82:	f04f 0204 	mov.w	r2, #4
+  86:	f04f 0300 	mov.w	r3, #0
+  8a:	47a0      	blx	r4
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:428
+    DRAW_DisplayStringWithMode(60, 43, score_str, 4, 1, 0);
+  8c:	f240 0300 	movw	r3, #0
+  90:	f2c0 0300 	movt	r3, #0
+  94:	681b      	ldr	r3, [r3, #0]
+  96:	f8d3 30dc 	ldr.w	r3, [r3, #220]	; 0xdc
+  9a:	461c      	mov	r4, r3
+  9c:	f240 0300 	movw	r3, #0
+  a0:	f2c0 0300 	movt	r3, #0
+  a4:	f04f 0201 	mov.w	r2, #1
+  a8:	9200      	str	r2, [sp, #0]
+  aa:	f04f 0200 	mov.w	r2, #0
+  ae:	9201      	str	r2, [sp, #4]
+  b0:	f04f 003c 	mov.w	r0, #60	; 0x3c
+  b4:	f04f 012b 	mov.w	r1, #43	; 0x2b
+  b8:	461a      	mov	r2, r3
+  ba:	f04f 0304 	mov.w	r3, #4
+  be:	47a0      	blx	r4
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:429
+    state = GAME_OVER;
+  c0:	f240 0300 	movw	r3, #0
+  c4:	f2c0 0300 	movt	r3, #0
+  c8:	f04f 0202 	mov.w	r2, #2
+  cc:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:431
+    
+    return 0;
+  ce:	f04f 0300 	mov.w	r3, #0
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:432
+}
+  d2:	4618      	mov	r0, r3
+  d4:	f107 0704 	add.w	r7, r7, #4
+  d8:	46bd      	mov	sp, r7
+  da:	bd90      	pop	{r4, r7, pc}
+
+Disassembly of section .text.check_dead_columns_left:
+
+00000000 <check_dead_columns_left>:
+check_dead_columns_left():
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:445
+*                  subtracted from the y limit. 
+* Input          : None
+* Return         : ((dead_left_count/4)*COLUMN_SIZE)
+*******************************************************************************/
+int check_dead_columns_left()
+{
+   0:	b480      	push	{r7}
+   2:	af00      	add	r7, sp, #0
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:446
+    dead_left_count = 0;
+   4:	f240 0300 	movw	r3, #0
+   8:	f2c0 0300 	movt	r3, #0
+   c:	f04f 0200 	mov.w	r2, #0
+  10:	601a      	str	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:447
+    for(alien_x = 0; alien_x < 6; alien_x++){
+  12:	f240 0300 	movw	r3, #0
+  16:	f2c0 0300 	movt	r3, #0
+  1a:	f04f 0200 	mov.w	r2, #0
+  1e:	601a      	str	r2, [r3, #0]
+  20:	e061      	b.n	e6 <check_dead_columns_left+0xe6>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:448
+        for(alien_y = 0; alien_y < 4; alien_y++){
+  22:	f240 0300 	movw	r3, #0
+  26:	f2c0 0300 	movt	r3, #0
+  2a:	f04f 0200 	mov.w	r2, #0
+  2e:	601a      	str	r2, [r3, #0]
+  30:	e046      	b.n	c0 <check_dead_columns_left+0xc0>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:449
+            if(!alien_array[alien_y][alien_x].alive){
+  32:	f240 0300 	movw	r3, #0
+  36:	f2c0 0300 	movt	r3, #0
+  3a:	6819      	ldr	r1, [r3, #0]
+  3c:	f240 0300 	movw	r3, #0
+  40:	f2c0 0300 	movt	r3, #0
+  44:	6818      	ldr	r0, [r3, #0]
+  46:	f240 0200 	movw	r2, #0
+  4a:	f2c0 0200 	movt	r2, #0
+  4e:	4603      	mov	r3, r0
+  50:	ea4f 0343 	mov.w	r3, r3, lsl #1
+  54:	181b      	adds	r3, r3, r0
+  56:	ea4f 0043 	mov.w	r0, r3, lsl #1
+  5a:	460b      	mov	r3, r1
+  5c:	ea4f 03c3 	mov.w	r3, r3, lsl #3
+  60:	185b      	adds	r3, r3, r1
+  62:	ea4f 0383 	mov.w	r3, r3, lsl #2
+  66:	18c3      	adds	r3, r0, r3
+  68:	18d3      	adds	r3, r2, r3
+  6a:	781b      	ldrb	r3, [r3, #0]
+  6c:	2b00      	cmp	r3, #0
+  6e:	d118      	bne.n	a2 <check_dead_columns_left+0xa2>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:450
+                dead_left_count++;
+  70:	f240 0300 	movw	r3, #0
+  74:	f2c0 0300 	movt	r3, #0
+  78:	681b      	ldr	r3, [r3, #0]
+  7a:	f103 0201 	add.w	r2, r3, #1
+  7e:	f240 0300 	movw	r3, #0
+  82:	f2c0 0300 	movt	r3, #0
+  86:	601a      	str	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:448
+*******************************************************************************/
+int check_dead_columns_left()
+{
+    dead_left_count = 0;
+    for(alien_x = 0; alien_x < 6; alien_x++){
+        for(alien_y = 0; alien_y < 4; alien_y++){
+  88:	f240 0300 	movw	r3, #0
+  8c:	f2c0 0300 	movt	r3, #0
+  90:	681b      	ldr	r3, [r3, #0]
+  92:	f103 0201 	add.w	r2, r3, #1
+  96:	f240 0300 	movw	r3, #0
+  9a:	f2c0 0300 	movt	r3, #0
+  9e:	601a      	str	r2, [r3, #0]
+  a0:	e00e      	b.n	c0 <check_dead_columns_left+0xc0>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:452
+            if(!alien_array[alien_y][alien_x].alive){
+                dead_left_count++;
+            }else{
+                return ((dead_left_count/4)*COLUMN_SIZE);
+  a2:	f240 0300 	movw	r3, #0
+  a6:	f2c0 0300 	movt	r3, #0
+  aa:	681b      	ldr	r3, [r3, #0]
+  ac:	f103 0203 	add.w	r2, r3, #3
+  b0:	2b00      	cmp	r3, #0
+  b2:	bfb8      	it	lt
+  b4:	4613      	movlt	r3, r2
+  b6:	ea4f 03a3 	mov.w	r3, r3, asr #2
+  ba:	ea4f 1303 	mov.w	r3, r3, lsl #4
+  be:	e019      	b.n	42 <check_dead_columns_left+0x42>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:448
+*******************************************************************************/
+int check_dead_columns_left()
+{
+    dead_left_count = 0;
+    for(alien_x = 0; alien_x < 6; alien_x++){
+        for(alien_y = 0; alien_y < 4; alien_y++){
+  c0:	f240 0300 	movw	r3, #0
+  c4:	f2c0 0300 	movt	r3, #0
+  c8:	681b      	ldr	r3, [r3, #0]
+  ca:	2b03      	cmp	r3, #3
+  cc:	ddb1      	ble.n	32 <check_dead_columns_left+0x32>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:447
+* Return         : ((dead_left_count/4)*COLUMN_SIZE)
+*******************************************************************************/
+int check_dead_columns_left()
+{
+    dead_left_count = 0;
+    for(alien_x = 0; alien_x < 6; alien_x++){
+  ce:	f240 0300 	movw	r3, #0
+  d2:	f2c0 0300 	movt	r3, #0
+  d6:	681b      	ldr	r3, [r3, #0]
+  d8:	f103 0201 	add.w	r2, r3, #1
+  dc:	f240 0300 	movw	r3, #0
+  e0:	f2c0 0300 	movt	r3, #0
+  e4:	601a      	str	r2, [r3, #0]
+  e6:	f240 0300 	movw	r3, #0
+  ea:	f2c0 0300 	movt	r3, #0
+  ee:	681b      	ldr	r3, [r3, #0]
+  f0:	2b05      	cmp	r3, #5
+  f2:	dd96      	ble.n	22 <check_dead_columns_left+0x22>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:457
+                return ((dead_left_count/4)*COLUMN_SIZE);
+            }
+        }
+    }
+    
+}
+  f4:	4618      	mov	r0, r3
+  f6:	46bd      	mov	sp, r7
+  f8:	bc80      	pop	{r7}
+  fa:	4770      	bx	lr
+
+Disassembly of section .text.check_dead_columns_right:
+
+00000000 <check_dead_columns_right>:
+check_dead_columns_right():
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:470
+*                  to the x limit. 
+* Input          : None
+* Return         : ((dead_right_count/4)*COLUMN_SIZE)
+*******************************************************************************/
+int check_dead_columns_right()
+{
+   0:	b480      	push	{r7}
+   2:	af00      	add	r7, sp, #0
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:471
+    dead_right_count = 0;
+   4:	f240 0300 	movw	r3, #0
+   8:	f2c0 0300 	movt	r3, #0
+   c:	f04f 0200 	mov.w	r2, #0
+  10:	601a      	str	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:472
+    for(alien_x = 5; alien_x >= 0; alien_x--){
+  12:	f240 0300 	movw	r3, #0
+  16:	f2c0 0300 	movt	r3, #0
+  1a:	f04f 0205 	mov.w	r2, #5
+  1e:	601a      	str	r2, [r3, #0]
+  20:	e061      	b.n	e6 <check_dead_columns_right+0xe6>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:473
+        for(alien_y = 0; alien_y < 4; alien_y++){
+  22:	f240 0300 	movw	r3, #0
+  26:	f2c0 0300 	movt	r3, #0
+  2a:	f04f 0200 	mov.w	r2, #0
+  2e:	601a      	str	r2, [r3, #0]
+  30:	e046      	b.n	c0 <check_dead_columns_right+0xc0>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:474
+            if(!alien_array[alien_y][alien_x].alive){
+  32:	f240 0300 	movw	r3, #0
+  36:	f2c0 0300 	movt	r3, #0
+  3a:	6819      	ldr	r1, [r3, #0]
+  3c:	f240 0300 	movw	r3, #0
+  40:	f2c0 0300 	movt	r3, #0
+  44:	6818      	ldr	r0, [r3, #0]
+  46:	f240 0200 	movw	r2, #0
+  4a:	f2c0 0200 	movt	r2, #0
+  4e:	4603      	mov	r3, r0
+  50:	ea4f 0343 	mov.w	r3, r3, lsl #1
+  54:	181b      	adds	r3, r3, r0
+  56:	ea4f 0043 	mov.w	r0, r3, lsl #1
+  5a:	460b      	mov	r3, r1
+  5c:	ea4f 03c3 	mov.w	r3, r3, lsl #3
+  60:	185b      	adds	r3, r3, r1
+  62:	ea4f 0383 	mov.w	r3, r3, lsl #2
+  66:	18c3      	adds	r3, r0, r3
+  68:	18d3      	adds	r3, r2, r3
+  6a:	781b      	ldrb	r3, [r3, #0]
+  6c:	2b00      	cmp	r3, #0
+  6e:	d118      	bne.n	a2 <check_dead_columns_right+0xa2>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:475
+                dead_right_count++;
+  70:	f240 0300 	movw	r3, #0
+  74:	f2c0 0300 	movt	r3, #0
+  78:	681b      	ldr	r3, [r3, #0]
+  7a:	f103 0201 	add.w	r2, r3, #1
+  7e:	f240 0300 	movw	r3, #0
+  82:	f2c0 0300 	movt	r3, #0
+  86:	601a      	str	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:473
+*******************************************************************************/
+int check_dead_columns_right()
+{
+    dead_right_count = 0;
+    for(alien_x = 5; alien_x >= 0; alien_x--){
+        for(alien_y = 0; alien_y < 4; alien_y++){
+  88:	f240 0300 	movw	r3, #0
+  8c:	f2c0 0300 	movt	r3, #0
+  90:	681b      	ldr	r3, [r3, #0]
+  92:	f103 0201 	add.w	r2, r3, #1
+  96:	f240 0300 	movw	r3, #0
+  9a:	f2c0 0300 	movt	r3, #0
+  9e:	601a      	str	r2, [r3, #0]
+  a0:	e00e      	b.n	c0 <check_dead_columns_right+0xc0>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:477
+            if(!alien_array[alien_y][alien_x].alive){
+                dead_right_count++;
+            }else{
+                return ((dead_right_count/4)*COLUMN_SIZE);
+  a2:	f240 0300 	movw	r3, #0
+  a6:	f2c0 0300 	movt	r3, #0
+  aa:	681b      	ldr	r3, [r3, #0]
+  ac:	f103 0203 	add.w	r2, r3, #3
+  b0:	2b00      	cmp	r3, #0
+  b2:	bfb8      	it	lt
+  b4:	4613      	movlt	r3, r2
+  b6:	ea4f 03a3 	mov.w	r3, r3, asr #2
+  ba:	ea4f 1303 	mov.w	r3, r3, lsl #4
+  be:	e019      	b.n	42 <check_dead_columns_right+0x42>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:473
+*******************************************************************************/
+int check_dead_columns_right()
+{
+    dead_right_count = 0;
+    for(alien_x = 5; alien_x >= 0; alien_x--){
+        for(alien_y = 0; alien_y < 4; alien_y++){
+  c0:	f240 0300 	movw	r3, #0
+  c4:	f2c0 0300 	movt	r3, #0
+  c8:	681b      	ldr	r3, [r3, #0]
+  ca:	2b03      	cmp	r3, #3
+  cc:	ddb1      	ble.n	32 <check_dead_columns_right+0x32>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:472
+* Return         : ((dead_right_count/4)*COLUMN_SIZE)
+*******************************************************************************/
+int check_dead_columns_right()
+{
+    dead_right_count = 0;
+    for(alien_x = 5; alien_x >= 0; alien_x--){
+  ce:	f240 0300 	movw	r3, #0
+  d2:	f2c0 0300 	movt	r3, #0
+  d6:	681b      	ldr	r3, [r3, #0]
+  d8:	f103 32ff 	add.w	r2, r3, #4294967295
+  dc:	f240 0300 	movw	r3, #0
+  e0:	f2c0 0300 	movt	r3, #0
+  e4:	601a      	str	r2, [r3, #0]
+  e6:	f240 0300 	movw	r3, #0
+  ea:	f2c0 0300 	movt	r3, #0
+  ee:	681b      	ldr	r3, [r3, #0]
+  f0:	2b00      	cmp	r3, #0
+  f2:	da96      	bge.n	22 <check_dead_columns_right+0x22>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:481
+            }else{
+                return ((dead_right_count/4)*COLUMN_SIZE);
+            }
+        }
+    }
+}
+  f4:	4618      	mov	r0, r3
+  f6:	46bd      	mov	sp, r7
+  f8:	bc80      	pop	{r7}
+  fa:	4770      	bx	lr
+
+Disassembly of section .text.check_rows:
+
+00000000 <check_rows>:
+check_rows():
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:484
+
+int check_rows()
+{
+   0:	b480      	push	{r7}
+   2:	af00      	add	r7, sp, #0
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:485
+    dead_row_count = 0;
+   4:	f240 0300 	movw	r3, #0
+   8:	f2c0 0300 	movt	r3, #0
+   c:	f04f 0200 	mov.w	r2, #0
+  10:	601a      	str	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:486
+    for(alien_y = 0; alien_y <= 4; alien_y++){
+  12:	f240 0300 	movw	r3, #0
+  16:	f2c0 0300 	movt	r3, #0
+  1a:	f04f 0200 	mov.w	r2, #0
+  1e:	601a      	str	r2, [r3, #0]
+  20:	e067      	b.n	f2 <check_rows+0xf2>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:487
+        for(alien_x = 0; alien_x < 5; alien_x++){
+  22:	f240 0300 	movw	r3, #0
+  26:	f2c0 0300 	movt	r3, #0
+  2a:	f04f 0200 	mov.w	r2, #0
+  2e:	601a      	str	r2, [r3, #0]
+  30:	e04c      	b.n	cc <check_rows+0xcc>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:488
+            if(!alien_array[alien_y][alien_x].alive){
+  32:	f240 0300 	movw	r3, #0
+  36:	f2c0 0300 	movt	r3, #0
+  3a:	6819      	ldr	r1, [r3, #0]
+  3c:	f240 0300 	movw	r3, #0
+  40:	f2c0 0300 	movt	r3, #0
+  44:	6818      	ldr	r0, [r3, #0]
+  46:	f240 0200 	movw	r2, #0
+  4a:	f2c0 0200 	movt	r2, #0
+  4e:	4603      	mov	r3, r0
+  50:	ea4f 0343 	mov.w	r3, r3, lsl #1
+  54:	181b      	adds	r3, r3, r0
+  56:	ea4f 0043 	mov.w	r0, r3, lsl #1
+  5a:	460b      	mov	r3, r1
+  5c:	ea4f 03c3 	mov.w	r3, r3, lsl #3
+  60:	185b      	adds	r3, r3, r1
+  62:	ea4f 0383 	mov.w	r3, r3, lsl #2
+  66:	18c3      	adds	r3, r0, r3
+  68:	18d3      	adds	r3, r2, r3
+  6a:	781b      	ldrb	r3, [r3, #0]
+  6c:	2b00      	cmp	r3, #0
+  6e:	d118      	bne.n	a2 <check_rows+0xa2>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:489
+                dead_row_count++;
+  70:	f240 0300 	movw	r3, #0
+  74:	f2c0 0300 	movt	r3, #0
+  78:	681b      	ldr	r3, [r3, #0]
+  7a:	f103 0201 	add.w	r2, r3, #1
+  7e:	f240 0300 	movw	r3, #0
+  82:	f2c0 0300 	movt	r3, #0
+  86:	601a      	str	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:487
+
+int check_rows()
+{
+    dead_row_count = 0;
+    for(alien_y = 0; alien_y <= 4; alien_y++){
+        for(alien_x = 0; alien_x < 5; alien_x++){
+  88:	f240 0300 	movw	r3, #0
+  8c:	f2c0 0300 	movt	r3, #0
+  90:	681b      	ldr	r3, [r3, #0]
+  92:	f103 0201 	add.w	r2, r3, #1
+  96:	f240 0300 	movw	r3, #0
+  9a:	f2c0 0300 	movt	r3, #0
+  9e:	601a      	str	r2, [r3, #0]
+  a0:	e014      	b.n	cc <check_rows+0xcc>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:491
+            if(!alien_array[alien_y][alien_x].alive){
+                dead_row_count++;
+            }else{
+                return ((dead_row_count/6)*ROW_SIZE);
+  a2:	f240 0300 	movw	r3, #0
+  a6:	f2c0 0300 	movt	r3, #0
+  aa:	681a      	ldr	r2, [r3, #0]
+  ac:	f64a 23ab 	movw	r3, #43691	; 0xaaab
+  b0:	f6c2 23aa 	movt	r3, #10922	; 0x2aaa
+  b4:	fb83 0102 	smull	r0, r1, r3, r2
+  b8:	ea4f 73e2 	mov.w	r3, r2, asr #31
+  bc:	1aca      	subs	r2, r1, r3
+  be:	4613      	mov	r3, r2
+  c0:	ea4f 0343 	mov.w	r3, r3, lsl #1
+  c4:	189b      	adds	r3, r3, r2
+  c6:	ea4f 0383 	mov.w	r3, r3, lsl #2
+  ca:	e019      	b.n	3e <check_rows+0x3e>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:487
+
+int check_rows()
+{
+    dead_row_count = 0;
+    for(alien_y = 0; alien_y <= 4; alien_y++){
+        for(alien_x = 0; alien_x < 5; alien_x++){
+  cc:	f240 0300 	movw	r3, #0
+  d0:	f2c0 0300 	movt	r3, #0
+  d4:	681b      	ldr	r3, [r3, #0]
+  d6:	2b04      	cmp	r3, #4
+  d8:	ddab      	ble.n	32 <check_rows+0x32>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:486
+}
+
+int check_rows()
+{
+    dead_row_count = 0;
+    for(alien_y = 0; alien_y <= 4; alien_y++){
+  da:	f240 0300 	movw	r3, #0
+  de:	f2c0 0300 	movt	r3, #0
+  e2:	681b      	ldr	r3, [r3, #0]
+  e4:	f103 0201 	add.w	r2, r3, #1
+  e8:	f240 0300 	movw	r3, #0
+  ec:	f2c0 0300 	movt	r3, #0
+  f0:	601a      	str	r2, [r3, #0]
+  f2:	f240 0300 	movw	r3, #0
+  f6:	f2c0 0300 	movt	r3, #0
+  fa:	681b      	ldr	r3, [r3, #0]
+  fc:	2b04      	cmp	r3, #4
+  fe:	dd90      	ble.n	22 <check_rows+0x22>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:495
+            }else{
+                return ((dead_row_count/6)*ROW_SIZE);
+            }
+        }
+    }
+}
+ 100:	4618      	mov	r0, r3
+ 102:	46bd      	mov	sp, r7
+ 104:	bc80      	pop	{r7}
+ 106:	4770      	bx	lr
+
+Disassembly of section .text.alien_translate:
+
+00000000 <alien_translate>:
+alien_translate():
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:512
+*                  are killed.
+* Input          : None
+* Return         : None
+*******************************************************************************/
+int alien_translate()
+{
+   0:	b590      	push	{r4, r7, lr}
+   2:	b083      	sub	sp, #12
+   4:	af02      	add	r7, sp, #8
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:513
+    if(direction){
+   6:	f240 0300 	movw	r3, #0
+   a:	f2c0 0300 	movt	r3, #0
+   e:	881b      	ldrh	r3, [r3, #0]
+  10:	2b00      	cmp	r3, #0
+  12:	f000 808f 	beq.w	134 <alien_translate+0x134>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:514
+        alien_translation_x++;
+  16:	f240 0300 	movw	r3, #0
+  1a:	f2c0 0300 	movt	r3, #0
+  1e:	881b      	ldrh	r3, [r3, #0]
+  20:	f103 0301 	add.w	r3, r3, #1
+  24:	b29a      	uxth	r2, r3
+  26:	f240 0300 	movw	r3, #0
+  2a:	f2c0 0300 	movt	r3, #0
+  2e:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:515
+        if(alien_translation_x > 30 + (check_dead_columns_right())){
+  30:	f240 0300 	movw	r3, #0
+  34:	f2c0 0300 	movt	r3, #0
+  38:	881b      	ldrh	r3, [r3, #0]
+  3a:	b21c      	sxth	r4, r3
+  3c:	f7ff fffe 	bl	0 <alien_translate>
+  40:	4603      	mov	r3, r0
+  42:	f103 031e 	add.w	r3, r3, #30
+  46:	429c      	cmp	r4, r3
+  48:	f340 8100 	ble.w	24c <alien_translate+0x24c>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:516
+            LCD_FillRect(0, ALIEN_START_Y - 22, SCREEN_WIDTH, 68, RGB_BLACK);
+  4c:	f240 0300 	movw	r3, #0
+  50:	f2c0 0300 	movt	r3, #0
+  54:	681b      	ldr	r3, [r3, #0]
+  56:	f8d3 3118 	ldr.w	r3, [r3, #280]	; 0x118
+  5a:	461c      	mov	r4, r3
+  5c:	f04f 0300 	mov.w	r3, #0
+  60:	9300      	str	r3, [sp, #0]
+  62:	f04f 0000 	mov.w	r0, #0
+  66:	f04f 0130 	mov.w	r1, #48	; 0x30
+  6a:	f04f 0280 	mov.w	r2, #128	; 0x80
+  6e:	f04f 0344 	mov.w	r3, #68	; 0x44
+  72:	47a0      	blx	r4
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:517
+            alien_translation_y -= 5;
+  74:	f240 0300 	movw	r3, #0
+  78:	f2c0 0300 	movt	r3, #0
+  7c:	881b      	ldrh	r3, [r3, #0]
+  7e:	b29b      	uxth	r3, r3
+  80:	f1a3 0305 	sub.w	r3, r3, #5
+  84:	b29b      	uxth	r3, r3
+  86:	b29a      	uxth	r2, r3
+  88:	f240 0300 	movw	r3, #0
+  8c:	f2c0 0300 	movt	r3, #0
+  90:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:518
+            direction = 0;
+  92:	f240 0300 	movw	r3, #0
+  96:	f2c0 0300 	movt	r3, #0
+  9a:	f04f 0200 	mov.w	r2, #0
+  9e:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:519
+            game_duration += 1;
+  a0:	f240 0300 	movw	r3, #0
+  a4:	f2c0 0300 	movt	r3, #0
+  a8:	881b      	ldrh	r3, [r3, #0]
+  aa:	b29b      	uxth	r3, r3
+  ac:	f103 0301 	add.w	r3, r3, #1
+  b0:	b29b      	uxth	r3, r3
+  b2:	b29a      	uxth	r2, r3
+  b4:	f240 0300 	movw	r3, #0
+  b8:	f2c0 0300 	movt	r3, #0
+  bc:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:520
+            if(alien_translation_y < - 31 - (check_rows())){
+  be:	f240 0300 	movw	r3, #0
+  c2:	f2c0 0300 	movt	r3, #0
+  c6:	881b      	ldrh	r3, [r3, #0]
+  c8:	b21c      	sxth	r4, r3
+  ca:	f7ff fffe 	bl	0 <alien_translate>
+  ce:	4602      	mov	r2, r0
+  d0:	f64f 73e1 	movw	r3, #65505	; 0xffe1
+  d4:	f6cf 73ff 	movt	r3, #65535	; 0xffff
+  d8:	1a9b      	subs	r3, r3, r2
+  da:	429c      	cmp	r4, r3
+  dc:	f280 80b6 	bge.w	24c <alien_translate+0x24c>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:521
+                LCD_FillRect(0, ALIEN_START_Y - 32, SCREEN_WIDTH, 78, RGB_BLACK);
+  e0:	f240 0300 	movw	r3, #0
+  e4:	f2c0 0300 	movt	r3, #0
+  e8:	681b      	ldr	r3, [r3, #0]
+  ea:	f8d3 3118 	ldr.w	r3, [r3, #280]	; 0x118
+  ee:	461c      	mov	r4, r3
+  f0:	f04f 0300 	mov.w	r3, #0
+  f4:	9300      	str	r3, [sp, #0]
+  f6:	f04f 0000 	mov.w	r0, #0
+  fa:	f04f 0126 	mov.w	r1, #38	; 0x26
+  fe:	f04f 0280 	mov.w	r2, #128	; 0x80
+ 102:	f04f 034e 	mov.w	r3, #78	; 0x4e
+ 106:	47a0      	blx	r4
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:522
+                reposition_aliens();
+ 108:	f7ff fffe 	bl	0 <alien_translate>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:523
+                lives -= 1;
+ 10c:	f240 0300 	movw	r3, #0
+ 110:	f2c0 0300 	movt	r3, #0
+ 114:	881b      	ldrh	r3, [r3, #0]
+ 116:	b29b      	uxth	r3, r3
+ 118:	f103 33ff 	add.w	r3, r3, #4294967295
+ 11c:	b29b      	uxth	r3, r3
+ 11e:	b29a      	uxth	r2, r3
+ 120:	f240 0300 	movw	r3, #0
+ 124:	f2c0 0300 	movt	r3, #0
+ 128:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:524
+                update_score_lives();
+ 12a:	f7ff fffe 	bl	0 <alien_translate>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:525
+                alien_display();
+ 12e:	f7ff fffe 	bl	0 <alien_translate>
+ 132:	e08b      	b.n	12e <alien_translate+0x12e>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:529
+            }
+        }   
+    }else{
+        alien_translation_x--;
+ 134:	f240 0300 	movw	r3, #0
+ 138:	f2c0 0300 	movt	r3, #0
+ 13c:	881b      	ldrh	r3, [r3, #0]
+ 13e:	f103 33ff 	add.w	r3, r3, #4294967295
+ 142:	b29a      	uxth	r2, r3
+ 144:	f240 0300 	movw	r3, #0
+ 148:	f2c0 0300 	movt	r3, #0
+ 14c:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:530
+        if(alien_translation_x < 1 - (check_dead_columns_left())){
+ 14e:	f240 0300 	movw	r3, #0
+ 152:	f2c0 0300 	movt	r3, #0
+ 156:	881b      	ldrh	r3, [r3, #0]
+ 158:	b21c      	sxth	r4, r3
+ 15a:	f7ff fffe 	bl	0 <alien_translate>
+ 15e:	4603      	mov	r3, r0
+ 160:	f1c3 0301 	rsb	r3, r3, #1
+ 164:	429c      	cmp	r4, r3
+ 166:	da71      	bge.n	24c <alien_translate+0x24c>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:531
+            LCD_FillRect(0, ALIEN_START_Y - 32, SCREEN_WIDTH, 78, RGB_BLACK);
+ 168:	f240 0300 	movw	r3, #0
+ 16c:	f2c0 0300 	movt	r3, #0
+ 170:	681b      	ldr	r3, [r3, #0]
+ 172:	f8d3 3118 	ldr.w	r3, [r3, #280]	; 0x118
+ 176:	461c      	mov	r4, r3
+ 178:	f04f 0300 	mov.w	r3, #0
+ 17c:	9300      	str	r3, [sp, #0]
+ 17e:	f04f 0000 	mov.w	r0, #0
+ 182:	f04f 0126 	mov.w	r1, #38	; 0x26
+ 186:	f04f 0280 	mov.w	r2, #128	; 0x80
+ 18a:	f04f 034e 	mov.w	r3, #78	; 0x4e
+ 18e:	47a0      	blx	r4
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:532
+            alien_translation_y -= 5;
+ 190:	f240 0300 	movw	r3, #0
+ 194:	f2c0 0300 	movt	r3, #0
+ 198:	881b      	ldrh	r3, [r3, #0]
+ 19a:	b29b      	uxth	r3, r3
+ 19c:	f1a3 0305 	sub.w	r3, r3, #5
+ 1a0:	b29b      	uxth	r3, r3
+ 1a2:	b29a      	uxth	r2, r3
+ 1a4:	f240 0300 	movw	r3, #0
+ 1a8:	f2c0 0300 	movt	r3, #0
+ 1ac:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:533
+            direction = 1;
+ 1ae:	f240 0300 	movw	r3, #0
+ 1b2:	f2c0 0300 	movt	r3, #0
+ 1b6:	f04f 0201 	mov.w	r2, #1
+ 1ba:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:534
+            game_duration += 1;
+ 1bc:	f240 0300 	movw	r3, #0
+ 1c0:	f2c0 0300 	movt	r3, #0
+ 1c4:	881b      	ldrh	r3, [r3, #0]
+ 1c6:	b29b      	uxth	r3, r3
+ 1c8:	f103 0301 	add.w	r3, r3, #1
+ 1cc:	b29b      	uxth	r3, r3
+ 1ce:	b29a      	uxth	r2, r3
+ 1d0:	f240 0300 	movw	r3, #0
+ 1d4:	f2c0 0300 	movt	r3, #0
+ 1d8:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:535
+            if(alien_translation_y < - 31 - (check_rows())){
+ 1da:	f240 0300 	movw	r3, #0
+ 1de:	f2c0 0300 	movt	r3, #0
+ 1e2:	881b      	ldrh	r3, [r3, #0]
+ 1e4:	b21c      	sxth	r4, r3
+ 1e6:	f7ff fffe 	bl	0 <alien_translate>
+ 1ea:	4602      	mov	r2, r0
+ 1ec:	f64f 73e1 	movw	r3, #65505	; 0xffe1
+ 1f0:	f6cf 73ff 	movt	r3, #65535	; 0xffff
+ 1f4:	1a9b      	subs	r3, r3, r2
+ 1f6:	429c      	cmp	r4, r3
+ 1f8:	da28      	bge.n	24c <alien_translate+0x24c>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:536
+                LCD_FillRect(0, ALIEN_START_Y - 22, SCREEN_WIDTH, 68, RGB_BLACK);
+ 1fa:	f240 0300 	movw	r3, #0
+ 1fe:	f2c0 0300 	movt	r3, #0
+ 202:	681b      	ldr	r3, [r3, #0]
+ 204:	f8d3 3118 	ldr.w	r3, [r3, #280]	; 0x118
+ 208:	461c      	mov	r4, r3
+ 20a:	f04f 0300 	mov.w	r3, #0
+ 20e:	9300      	str	r3, [sp, #0]
+ 210:	f04f 0000 	mov.w	r0, #0
+ 214:	f04f 0130 	mov.w	r1, #48	; 0x30
+ 218:	f04f 0280 	mov.w	r2, #128	; 0x80
+ 21c:	f04f 0344 	mov.w	r3, #68	; 0x44
+ 220:	47a0      	blx	r4
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:537
+                reposition_aliens();
+ 222:	f7ff fffe 	bl	0 <alien_translate>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:538
+                lives -= 1;
+ 226:	f240 0300 	movw	r3, #0
+ 22a:	f2c0 0300 	movt	r3, #0
+ 22e:	881b      	ldrh	r3, [r3, #0]
+ 230:	b29b      	uxth	r3, r3
+ 232:	f103 33ff 	add.w	r3, r3, #4294967295
+ 236:	b29b      	uxth	r3, r3
+ 238:	b29a      	uxth	r2, r3
+ 23a:	f240 0300 	movw	r3, #0
+ 23e:	f2c0 0300 	movt	r3, #0
+ 242:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:539
+                update_score_lives();
+ 244:	f7ff fffe 	bl	0 <alien_translate>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:540
+                alien_display();
+ 248:	f7ff fffe 	bl	0 <alien_translate>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:544
+            }
+        } 
+    }
+    alien_display();
+ 24c:	f7ff fffe 	bl	0 <alien_translate>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:545
+}
+ 250:	4618      	mov	r0, r3
+ 252:	f107 0704 	add.w	r7, r7, #4
+ 256:	46bd      	mov	sp, r7
+ 258:	bd90      	pop	{r4, r7, pc}
+ 25a:	bf00      	nop
+
+Disassembly of section .text.reposition_aliens:
+
+00000000 <reposition_aliens>:
+reposition_aliens():
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:554
+* Description    : Sets the position of the aliens to their original positions.  
+* Input          : None
+* Return         : None
+*******************************************************************************/
+int reposition_aliens()
+{
+   0:	b480      	push	{r7}
+   2:	af00      	add	r7, sp, #0
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:555
+    alien_translation_x = 0;
+   4:	f240 0300 	movw	r3, #0
+   8:	f2c0 0300 	movt	r3, #0
+   c:	f04f 0200 	mov.w	r2, #0
+  10:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:556
+    alien_translation_y = 0;
+  12:	f240 0300 	movw	r3, #0
+  16:	f2c0 0300 	movt	r3, #0
+  1a:	f04f 0200 	mov.w	r2, #0
+  1e:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:557
+    dead_right_count = 0;
+  20:	f240 0300 	movw	r3, #0
+  24:	f2c0 0300 	movt	r3, #0
+  28:	f04f 0200 	mov.w	r2, #0
+  2c:	601a      	str	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:558
+    dead_left_count = 0;
+  2e:	f240 0300 	movw	r3, #0
+  32:	f2c0 0300 	movt	r3, #0
+  36:	f04f 0200 	mov.w	r2, #0
+  3a:	601a      	str	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:559
+    direction = 1;
+  3c:	f240 0300 	movw	r3, #0
+  40:	f2c0 0300 	movt	r3, #0
+  44:	f04f 0201 	mov.w	r2, #1
+  48:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:560
+}
+  4a:	4618      	mov	r0, r3
+  4c:	46bd      	mov	sp, r7
+  4e:	bc80      	pop	{r7}
+  50:	4770      	bx	lr
+  52:	bf00      	nop
+
+Disassembly of section .text.check_alien_bullet_man_collision:
+
+00000000 <check_alien_bullet_man_collision>:
+check_alien_bullet_man_collision():
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:570
+*                  so, it resets the alien bullet and decrements the mans lives. 
+* Input          : None
+* Return         : None
+*******************************************************************************/
+int check_alien_bullet_man_collision()
+{
+   0:	b580      	push	{r7, lr}
+   2:	af00      	add	r7, sp, #0
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:571
+    if(((LCD_GetPixel(alien_fire_point_x, alien_fire_point_y - alien_bullet_translation)) == 0xA3F8) || ((LCD_GetPixel(alien_fire_point_x + (ALIEN_BULLET_WIDTH/2), alien_fire_point_y - alien_bullet_translation)) == 0xA3F8)){
+   4:	f240 0300 	movw	r3, #0
+   8:	f2c0 0300 	movt	r3, #0
+   c:	681b      	ldr	r3, [r3, #0]
+   e:	f8d3 3104 	ldr.w	r3, [r3, #260]	; 0x104
+  12:	461a      	mov	r2, r3
+  14:	f240 0300 	movw	r3, #0
+  18:	f2c0 0300 	movt	r3, #0
+  1c:	881b      	ldrh	r3, [r3, #0]
+  1e:	b219      	sxth	r1, r3
+  20:	f240 0300 	movw	r3, #0
+  24:	f2c0 0300 	movt	r3, #0
+  28:	881b      	ldrh	r3, [r3, #0]
+  2a:	b218      	sxth	r0, r3
+  2c:	f240 0300 	movw	r3, #0
+  30:	f2c0 0300 	movt	r3, #0
+  34:	881b      	ldrh	r3, [r3, #0]
+  36:	b21b      	sxth	r3, r3
+  38:	1ac3      	subs	r3, r0, r3
+  3a:	4608      	mov	r0, r1
+  3c:	4619      	mov	r1, r3
+  3e:	4790      	blx	r2
+  40:	4603      	mov	r3, r0
+  42:	b29a      	uxth	r2, r3
+  44:	f24a 33f8 	movw	r3, #41976	; 0xa3f8
+  48:	429a      	cmp	r2, r3
+  4a:	d026      	beq.n	9a <check_alien_bullet_man_collision+0x9a>
+  4c:	f240 0300 	movw	r3, #0
+  50:	f2c0 0300 	movt	r3, #0
+  54:	681b      	ldr	r3, [r3, #0]
+  56:	f8d3 3104 	ldr.w	r3, [r3, #260]	; 0x104
+  5a:	461a      	mov	r2, r3
+  5c:	f240 0300 	movw	r3, #0
+  60:	f2c0 0300 	movt	r3, #0
+  64:	881b      	ldrh	r3, [r3, #0]
+  66:	b21b      	sxth	r3, r3
+  68:	f103 0301 	add.w	r3, r3, #1
+  6c:	4619      	mov	r1, r3
+  6e:	f240 0300 	movw	r3, #0
+  72:	f2c0 0300 	movt	r3, #0
+  76:	881b      	ldrh	r3, [r3, #0]
+  78:	b218      	sxth	r0, r3
+  7a:	f240 0300 	movw	r3, #0
+  7e:	f2c0 0300 	movt	r3, #0
+  82:	881b      	ldrh	r3, [r3, #0]
+  84:	b21b      	sxth	r3, r3
+  86:	1ac3      	subs	r3, r0, r3
+  88:	4608      	mov	r0, r1
+  8a:	4619      	mov	r1, r3
+  8c:	4790      	blx	r2
+  8e:	4603      	mov	r3, r0
+  90:	b29a      	uxth	r2, r3
+  92:	f24a 33f8 	movw	r3, #41976	; 0xa3f8
+  96:	429a      	cmp	r2, r3
+  98:	d112      	bne.n	c0 <check_alien_bullet_man_collision+0xc0>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:572
+        lives -= 1;
+  9a:	f240 0300 	movw	r3, #0
+  9e:	f2c0 0300 	movt	r3, #0
+  a2:	881b      	ldrh	r3, [r3, #0]
+  a4:	b29b      	uxth	r3, r3
+  a6:	f103 33ff 	add.w	r3, r3, #4294967295
+  aa:	b29b      	uxth	r3, r3
+  ac:	b29a      	uxth	r2, r3
+  ae:	f240 0300 	movw	r3, #0
+  b2:	f2c0 0300 	movt	r3, #0
+  b6:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:573
+        update_score_lives();
+  b8:	f7ff fffe 	bl	0 <check_alien_bullet_man_collision>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:574
+        reset_alien_bullet();
+  bc:	f7ff fffe 	bl	0 <check_alien_bullet_man_collision>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:576
+    }
+}
+  c0:	4618      	mov	r0, r3
+  c2:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text.check_barrier_collision:
+
+00000000 <check_barrier_collision>:
+check_barrier_collision():
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:587
+*                  point of collision. 
+* Input          : None
+* Return         : None
+*******************************************************************************/
+int check_barrier_collision()
+{
+   0:	b590      	push	{r4, r7, lr}
+   2:	b083      	sub	sp, #12
+   4:	af02      	add	r7, sp, #8
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:588
+    if(((LCD_GetPixel(bullet_init_x + (BULLET_WIDTH/2), bullet_init_y + BULLET_HEIGHT + bullet_translation + 1)) == 0xC567) || ((LCD_GetPixel(bullet_init_x, bullet_init_y + BULLET_HEIGHT + bullet_translation + 1)) == 0xC567)){
+   6:	f240 0300 	movw	r3, #0
+   a:	f2c0 0300 	movt	r3, #0
+   e:	681b      	ldr	r3, [r3, #0]
+  10:	f8d3 3104 	ldr.w	r3, [r3, #260]	; 0x104
+  14:	461a      	mov	r2, r3
+  16:	f240 0300 	movw	r3, #0
+  1a:	f2c0 0300 	movt	r3, #0
+  1e:	881b      	ldrh	r3, [r3, #0]
+  20:	b21b      	sxth	r3, r3
+  22:	f103 0301 	add.w	r3, r3, #1
+  26:	4619      	mov	r1, r3
+  28:	f240 0300 	movw	r3, #0
+  2c:	f2c0 0300 	movt	r3, #0
+  30:	881b      	ldrh	r3, [r3, #0]
+  32:	b21b      	sxth	r3, r3
+  34:	f103 0003 	add.w	r0, r3, #3
+  38:	f240 0300 	movw	r3, #0
+  3c:	f2c0 0300 	movt	r3, #0
+  40:	881b      	ldrh	r3, [r3, #0]
+  42:	b21b      	sxth	r3, r3
+  44:	18c3      	adds	r3, r0, r3
+  46:	f103 0301 	add.w	r3, r3, #1
+  4a:	4608      	mov	r0, r1
+  4c:	4619      	mov	r1, r3
+  4e:	4790      	blx	r2
+  50:	4603      	mov	r3, r0
+  52:	b29a      	uxth	r2, r3
+  54:	f24c 5367 	movw	r3, #50535	; 0xc567
+  58:	429a      	cmp	r2, r3
+  5a:	d027      	beq.n	ac <check_barrier_collision+0xac>
+  5c:	f240 0300 	movw	r3, #0
+  60:	f2c0 0300 	movt	r3, #0
+  64:	681b      	ldr	r3, [r3, #0]
+  66:	f8d3 3104 	ldr.w	r3, [r3, #260]	; 0x104
+  6a:	461a      	mov	r2, r3
+  6c:	f240 0300 	movw	r3, #0
+  70:	f2c0 0300 	movt	r3, #0
+  74:	881b      	ldrh	r3, [r3, #0]
+  76:	b219      	sxth	r1, r3
+  78:	f240 0300 	movw	r3, #0
+  7c:	f2c0 0300 	movt	r3, #0
+  80:	881b      	ldrh	r3, [r3, #0]
+  82:	b21b      	sxth	r3, r3
+  84:	f103 0003 	add.w	r0, r3, #3
+  88:	f240 0300 	movw	r3, #0
+  8c:	f2c0 0300 	movt	r3, #0
+  90:	881b      	ldrh	r3, [r3, #0]
+  92:	b21b      	sxth	r3, r3
+  94:	18c3      	adds	r3, r0, r3
+  96:	f103 0301 	add.w	r3, r3, #1
+  9a:	4608      	mov	r0, r1
+  9c:	4619      	mov	r1, r3
+  9e:	4790      	blx	r2
+  a0:	4603      	mov	r3, r0
+  a2:	b29a      	uxth	r2, r3
+  a4:	f24c 5367 	movw	r3, #50535	; 0xc567
+  a8:	429a      	cmp	r2, r3
+  aa:	d12a      	bne.n	102 <check_barrier_collision+0x102>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:589
+        LCD_FillRect((bullet_init_x), (bullet_init_y + BULLET_HEIGHT + bullet_translation + 1), BULLET_WIDTH, 1, RGB_BLACK);
+  ac:	f240 0300 	movw	r3, #0
+  b0:	f2c0 0300 	movt	r3, #0
+  b4:	681b      	ldr	r3, [r3, #0]
+  b6:	f8d3 3118 	ldr.w	r3, [r3, #280]	; 0x118
+  ba:	461c      	mov	r4, r3
+  bc:	f240 0300 	movw	r3, #0
+  c0:	f2c0 0300 	movt	r3, #0
+  c4:	881b      	ldrh	r3, [r3, #0]
+  c6:	b21a      	sxth	r2, r3
+  c8:	f240 0300 	movw	r3, #0
+  cc:	f2c0 0300 	movt	r3, #0
+  d0:	881b      	ldrh	r3, [r3, #0]
+  d2:	b21b      	sxth	r3, r3
+  d4:	f103 0103 	add.w	r1, r3, #3
+  d8:	f240 0300 	movw	r3, #0
+  dc:	f2c0 0300 	movt	r3, #0
+  e0:	881b      	ldrh	r3, [r3, #0]
+  e2:	b21b      	sxth	r3, r3
+  e4:	18cb      	adds	r3, r1, r3
+  e6:	f103 0301 	add.w	r3, r3, #1
+  ea:	f04f 0100 	mov.w	r1, #0
+  ee:	9100      	str	r1, [sp, #0]
+  f0:	4610      	mov	r0, r2
+  f2:	4619      	mov	r1, r3
+  f4:	f04f 0202 	mov.w	r2, #2
+  f8:	f04f 0301 	mov.w	r3, #1
+  fc:	47a0      	blx	r4
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:590
+        reset_bullet();
+  fe:	f7ff fffe 	bl	0 <check_barrier_collision>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:592
+    }
+}
+ 102:	4618      	mov	r0, r3
+ 104:	f107 0704 	add.w	r7, r7, #4
+ 108:	46bd      	mov	sp, r7
+ 10a:	bd90      	pop	{r4, r7, pc}
+
+Disassembly of section .text.check_alien_bullet_barrier_collision:
+
+00000000 <check_alien_bullet_barrier_collision>:
+check_alien_bullet_barrier_collision():
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:603
+*                  the point of impact.
+* Input          : None
+* Return         : None
+*******************************************************************************/
+int check_alien_bullet_barrier_collision()
+{
+   0:	b590      	push	{r4, r7, lr}
+   2:	b083      	sub	sp, #12
+   4:	af02      	add	r7, sp, #8
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:604
+    if(((LCD_GetPixel(alien_fire_point_x, alien_fire_point_y - alien_bullet_translation)) == 0xC567) || ((LCD_GetPixel(alien_fire_point_x + (ALIEN_BULLET_WIDTH/2), alien_fire_point_y - alien_bullet_translation)) == 0xC567)){
+   6:	f240 0300 	movw	r3, #0
+   a:	f2c0 0300 	movt	r3, #0
+   e:	681b      	ldr	r3, [r3, #0]
+  10:	f8d3 3104 	ldr.w	r3, [r3, #260]	; 0x104
+  14:	461a      	mov	r2, r3
+  16:	f240 0300 	movw	r3, #0
+  1a:	f2c0 0300 	movt	r3, #0
+  1e:	881b      	ldrh	r3, [r3, #0]
+  20:	b219      	sxth	r1, r3
+  22:	f240 0300 	movw	r3, #0
+  26:	f2c0 0300 	movt	r3, #0
+  2a:	881b      	ldrh	r3, [r3, #0]
+  2c:	b218      	sxth	r0, r3
+  2e:	f240 0300 	movw	r3, #0
+  32:	f2c0 0300 	movt	r3, #0
+  36:	881b      	ldrh	r3, [r3, #0]
+  38:	b21b      	sxth	r3, r3
+  3a:	1ac3      	subs	r3, r0, r3
+  3c:	4608      	mov	r0, r1
+  3e:	4619      	mov	r1, r3
+  40:	4790      	blx	r2
+  42:	4603      	mov	r3, r0
+  44:	b29a      	uxth	r2, r3
+  46:	f24c 5367 	movw	r3, #50535	; 0xc567
+  4a:	429a      	cmp	r2, r3
+  4c:	d026      	beq.n	9c <check_alien_bullet_barrier_collision+0x9c>
+  4e:	f240 0300 	movw	r3, #0
+  52:	f2c0 0300 	movt	r3, #0
+  56:	681b      	ldr	r3, [r3, #0]
+  58:	f8d3 3104 	ldr.w	r3, [r3, #260]	; 0x104
+  5c:	461a      	mov	r2, r3
+  5e:	f240 0300 	movw	r3, #0
+  62:	f2c0 0300 	movt	r3, #0
+  66:	881b      	ldrh	r3, [r3, #0]
+  68:	b21b      	sxth	r3, r3
+  6a:	f103 0301 	add.w	r3, r3, #1
+  6e:	4619      	mov	r1, r3
+  70:	f240 0300 	movw	r3, #0
+  74:	f2c0 0300 	movt	r3, #0
+  78:	881b      	ldrh	r3, [r3, #0]
+  7a:	b218      	sxth	r0, r3
+  7c:	f240 0300 	movw	r3, #0
+  80:	f2c0 0300 	movt	r3, #0
+  84:	881b      	ldrh	r3, [r3, #0]
+  86:	b21b      	sxth	r3, r3
+  88:	1ac3      	subs	r3, r0, r3
+  8a:	4608      	mov	r0, r1
+  8c:	4619      	mov	r1, r3
+  8e:	4790      	blx	r2
+  90:	4603      	mov	r3, r0
+  92:	b29a      	uxth	r2, r3
+  94:	f24c 5367 	movw	r3, #50535	; 0xc567
+  98:	429a      	cmp	r2, r3
+  9a:	d126      	bne.n	ea <check_alien_bullet_barrier_collision+0xea>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:605
+        LCD_FillRect(alien_fire_point_x, alien_fire_point_y - alien_bullet_translation, BULLET_WIDTH, 1, RGB_BLACK);
+  9c:	f240 0300 	movw	r3, #0
+  a0:	f2c0 0300 	movt	r3, #0
+  a4:	681b      	ldr	r3, [r3, #0]
+  a6:	f8d3 3118 	ldr.w	r3, [r3, #280]	; 0x118
+  aa:	461c      	mov	r4, r3
+  ac:	f240 0300 	movw	r3, #0
+  b0:	f2c0 0300 	movt	r3, #0
+  b4:	881b      	ldrh	r3, [r3, #0]
+  b6:	b21a      	sxth	r2, r3
+  b8:	f240 0300 	movw	r3, #0
+  bc:	f2c0 0300 	movt	r3, #0
+  c0:	881b      	ldrh	r3, [r3, #0]
+  c2:	b219      	sxth	r1, r3
+  c4:	f240 0300 	movw	r3, #0
+  c8:	f2c0 0300 	movt	r3, #0
+  cc:	881b      	ldrh	r3, [r3, #0]
+  ce:	b21b      	sxth	r3, r3
+  d0:	1acb      	subs	r3, r1, r3
+  d2:	f04f 0100 	mov.w	r1, #0
+  d6:	9100      	str	r1, [sp, #0]
+  d8:	4610      	mov	r0, r2
+  da:	4619      	mov	r1, r3
+  dc:	f04f 0202 	mov.w	r2, #2
+  e0:	f04f 0301 	mov.w	r3, #1
+  e4:	47a0      	blx	r4
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:606
+        reset_alien_bullet();
+  e6:	f7ff fffe 	bl	0 <check_alien_bullet_barrier_collision>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:608
+    }
+}
+  ea:	4618      	mov	r0, r3
+  ec:	f107 0704 	add.w	r7, r7, #4
+  f0:	46bd      	mov	sp, r7
+  f2:	bd90      	pop	{r4, r7, pc}
+
+Disassembly of section .text.check_destroy:
+
+00000000 <check_destroy>:
+check_destroy():
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:618
+*                  check if any aliens are destroyed. 
+* Input          : None
+* Return         : None
+*******************************************************************************/
+int check_destroy()
+{   
+   0:	b598      	push	{r3, r4, r7, lr}
+   2:	af00      	add	r7, sp, #0
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:619
+    for(alien_y = 0; alien_y < 4; alien_y++){
+   4:	f240 0300 	movw	r3, #0
+   8:	f2c0 0300 	movt	r3, #0
+   c:	f04f 0200 	mov.w	r2, #0
+  10:	601a      	str	r2, [r3, #0]
+  12:	e109      	b.n	228 <check_destroy+0x228>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:620
+            for(alien_x = 0; alien_x < 6; alien_x++){
+  14:	f240 0300 	movw	r3, #0
+  18:	f2c0 0300 	movt	r3, #0
+  1c:	f04f 0200 	mov.w	r2, #0
+  20:	601a      	str	r2, [r3, #0]
+  22:	e0e4      	b.n	1ee <check_destroy+0x1ee>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:621
+                if (alien_array[alien_y][alien_x].alive){
+  24:	f240 0300 	movw	r3, #0
+  28:	f2c0 0300 	movt	r3, #0
+  2c:	6819      	ldr	r1, [r3, #0]
+  2e:	f240 0300 	movw	r3, #0
+  32:	f2c0 0300 	movt	r3, #0
+  36:	6818      	ldr	r0, [r3, #0]
+  38:	f240 0200 	movw	r2, #0
+  3c:	f2c0 0200 	movt	r2, #0
+  40:	4603      	mov	r3, r0
+  42:	ea4f 0343 	mov.w	r3, r3, lsl #1
+  46:	181b      	adds	r3, r3, r0
+  48:	ea4f 0043 	mov.w	r0, r3, lsl #1
+  4c:	460b      	mov	r3, r1
+  4e:	ea4f 03c3 	mov.w	r3, r3, lsl #3
+  52:	185b      	adds	r3, r3, r1
+  54:	ea4f 0383 	mov.w	r3, r3, lsl #2
+  58:	18c3      	adds	r3, r0, r3
+  5a:	18d3      	adds	r3, r2, r3
+  5c:	781b      	ldrb	r3, [r3, #0]
+  5e:	2b00      	cmp	r3, #0
+  60:	f000 80b2 	beq.w	1c8 <check_destroy+0x1c8>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:622
+                    if(compare_distance(alien_array[alien_y][alien_x].alien_pos_x, alien_array[alien_y][alien_x].alien_pos_y)){
+  64:	f240 0300 	movw	r3, #0
+  68:	f2c0 0300 	movt	r3, #0
+  6c:	6819      	ldr	r1, [r3, #0]
+  6e:	f240 0300 	movw	r3, #0
+  72:	f2c0 0300 	movt	r3, #0
+  76:	6818      	ldr	r0, [r3, #0]
+  78:	f240 0200 	movw	r2, #0
+  7c:	f2c0 0200 	movt	r2, #0
+  80:	4603      	mov	r3, r0
+  82:	ea4f 0343 	mov.w	r3, r3, lsl #1
+  86:	181b      	adds	r3, r3, r0
+  88:	ea4f 0043 	mov.w	r0, r3, lsl #1
+  8c:	460b      	mov	r3, r1
+  8e:	ea4f 03c3 	mov.w	r3, r3, lsl #3
+  92:	185b      	adds	r3, r3, r1
+  94:	ea4f 0383 	mov.w	r3, r3, lsl #2
+  98:	18c3      	adds	r3, r0, r3
+  9a:	18d3      	adds	r3, r2, r3
+  9c:	885b      	ldrh	r3, [r3, #2]
+  9e:	b21c      	sxth	r4, r3
+  a0:	f240 0300 	movw	r3, #0
+  a4:	f2c0 0300 	movt	r3, #0
+  a8:	6819      	ldr	r1, [r3, #0]
+  aa:	f240 0300 	movw	r3, #0
+  ae:	f2c0 0300 	movt	r3, #0
+  b2:	6818      	ldr	r0, [r3, #0]
+  b4:	f240 0200 	movw	r2, #0
+  b8:	f2c0 0200 	movt	r2, #0
+  bc:	4603      	mov	r3, r0
+  be:	ea4f 0343 	mov.w	r3, r3, lsl #1
+  c2:	181b      	adds	r3, r3, r0
+  c4:	ea4f 0043 	mov.w	r0, r3, lsl #1
+  c8:	460b      	mov	r3, r1
+  ca:	ea4f 03c3 	mov.w	r3, r3, lsl #3
+  ce:	185b      	adds	r3, r3, r1
+  d0:	ea4f 0383 	mov.w	r3, r3, lsl #2
+  d4:	18c3      	adds	r3, r0, r3
+  d6:	18d3      	adds	r3, r2, r3
+  d8:	889b      	ldrh	r3, [r3, #4]
+  da:	b21b      	sxth	r3, r3
+  dc:	4620      	mov	r0, r4
+  de:	4619      	mov	r1, r3
+  e0:	f7ff fffe 	bl	0 <check_destroy>
+  e4:	4603      	mov	r3, r0
+  e6:	2b00      	cmp	r3, #0
+  e8:	d06e      	beq.n	1c8 <check_destroy+0x1c8>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:623
+                        alien_array[alien_y][alien_x].alive = 0;
+  ea:	f240 0300 	movw	r3, #0
+  ee:	f2c0 0300 	movt	r3, #0
+  f2:	6819      	ldr	r1, [r3, #0]
+  f4:	f240 0300 	movw	r3, #0
+  f8:	f2c0 0300 	movt	r3, #0
+  fc:	6818      	ldr	r0, [r3, #0]
+  fe:	f240 0200 	movw	r2, #0
+ 102:	f2c0 0200 	movt	r2, #0
+ 106:	4603      	mov	r3, r0
+ 108:	ea4f 0343 	mov.w	r3, r3, lsl #1
+ 10c:	181b      	adds	r3, r3, r0
+ 10e:	ea4f 0043 	mov.w	r0, r3, lsl #1
+ 112:	460b      	mov	r3, r1
+ 114:	ea4f 03c3 	mov.w	r3, r3, lsl #3
+ 118:	185b      	adds	r3, r3, r1
+ 11a:	ea4f 0383 	mov.w	r3, r3, lsl #2
+ 11e:	18c3      	adds	r3, r0, r3
+ 120:	18d3      	adds	r3, r2, r3
+ 122:	f04f 0200 	mov.w	r2, #0
+ 126:	701a      	strb	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:624
+                        alien_die(alien_array[alien_y][alien_x].alien_pos_x, alien_array[alien_y][alien_x].alien_pos_y);
+ 128:	f240 0300 	movw	r3, #0
+ 12c:	f2c0 0300 	movt	r3, #0
+ 130:	6819      	ldr	r1, [r3, #0]
+ 132:	f240 0300 	movw	r3, #0
+ 136:	f2c0 0300 	movt	r3, #0
+ 13a:	6818      	ldr	r0, [r3, #0]
+ 13c:	f240 0200 	movw	r2, #0
+ 140:	f2c0 0200 	movt	r2, #0
+ 144:	4603      	mov	r3, r0
+ 146:	ea4f 0343 	mov.w	r3, r3, lsl #1
+ 14a:	181b      	adds	r3, r3, r0
+ 14c:	ea4f 0043 	mov.w	r0, r3, lsl #1
+ 150:	460b      	mov	r3, r1
+ 152:	ea4f 03c3 	mov.w	r3, r3, lsl #3
+ 156:	185b      	adds	r3, r3, r1
+ 158:	ea4f 0383 	mov.w	r3, r3, lsl #2
+ 15c:	18c3      	adds	r3, r0, r3
+ 15e:	18d3      	adds	r3, r2, r3
+ 160:	885b      	ldrh	r3, [r3, #2]
+ 162:	b21c      	sxth	r4, r3
+ 164:	f240 0300 	movw	r3, #0
+ 168:	f2c0 0300 	movt	r3, #0
+ 16c:	6819      	ldr	r1, [r3, #0]
+ 16e:	f240 0300 	movw	r3, #0
+ 172:	f2c0 0300 	movt	r3, #0
+ 176:	6818      	ldr	r0, [r3, #0]
+ 178:	f240 0200 	movw	r2, #0
+ 17c:	f2c0 0200 	movt	r2, #0
+ 180:	4603      	mov	r3, r0
+ 182:	ea4f 0343 	mov.w	r3, r3, lsl #1
+ 186:	181b      	adds	r3, r3, r0
+ 188:	ea4f 0043 	mov.w	r0, r3, lsl #1
+ 18c:	460b      	mov	r3, r1
+ 18e:	ea4f 03c3 	mov.w	r3, r3, lsl #3
+ 192:	185b      	adds	r3, r3, r1
+ 194:	ea4f 0383 	mov.w	r3, r3, lsl #2
+ 198:	18c3      	adds	r3, r0, r3
+ 19a:	18d3      	adds	r3, r2, r3
+ 19c:	889b      	ldrh	r3, [r3, #4]
+ 19e:	b21b      	sxth	r3, r3
+ 1a0:	4620      	mov	r0, r4
+ 1a2:	4619      	mov	r1, r3
+ 1a4:	f7ff fffe 	bl	0 <check_destroy>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:625
+                        score += 1;
+ 1a8:	f240 0300 	movw	r3, #0
+ 1ac:	f2c0 0300 	movt	r3, #0
+ 1b0:	681b      	ldr	r3, [r3, #0]
+ 1b2:	f103 0201 	add.w	r2, r3, #1
+ 1b6:	f240 0300 	movw	r3, #0
+ 1ba:	f2c0 0300 	movt	r3, #0
+ 1be:	601a      	str	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:626
+                        update_score_lives();
+ 1c0:	f7ff fffe 	bl	0 <check_destroy>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:627
+                        reset_bullet();
+ 1c4:	f7ff fffe 	bl	0 <check_destroy>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:630
+                    }
+                }
+                if(!bullet_active){
+ 1c8:	f240 0300 	movw	r3, #0
+ 1cc:	f2c0 0300 	movt	r3, #0
+ 1d0:	881b      	ldrh	r3, [r3, #0]
+ 1d2:	2b00      	cmp	r3, #0
+ 1d4:	d014      	beq.n	200 <check_destroy+0x200>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:620
+* Return         : None
+*******************************************************************************/
+int check_destroy()
+{   
+    for(alien_y = 0; alien_y < 4; alien_y++){
+            for(alien_x = 0; alien_x < 6; alien_x++){
+ 1d6:	f240 0300 	movw	r3, #0
+ 1da:	f2c0 0300 	movt	r3, #0
+ 1de:	681b      	ldr	r3, [r3, #0]
+ 1e0:	f103 0201 	add.w	r2, r3, #1
+ 1e4:	f240 0300 	movw	r3, #0
+ 1e8:	f2c0 0300 	movt	r3, #0
+ 1ec:	601a      	str	r2, [r3, #0]
+ 1ee:	f240 0300 	movw	r3, #0
+ 1f2:	f2c0 0300 	movt	r3, #0
+ 1f6:	681b      	ldr	r3, [r3, #0]
+ 1f8:	2b05      	cmp	r3, #5
+ 1fa:	f77f af13 	ble.w	24 <check_destroy+0x24>
+ 1fe:	e000      	b.n	202 <check_destroy+0x202>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:631
+                        update_score_lives();
+                        reset_bullet();
+                    }
+                }
+                if(!bullet_active){
+                    break;
+ 200:	bf00      	nop
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:634
+                }
+            }
+            if(!bullet_active){
+ 202:	f240 0300 	movw	r3, #0
+ 206:	f2c0 0300 	movt	r3, #0
+ 20a:	881b      	ldrh	r3, [r3, #0]
+ 20c:	2b00      	cmp	r3, #0
+ 20e:	d014      	beq.n	23a <check_destroy+0x23a>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:619
+* Input          : None
+* Return         : None
+*******************************************************************************/
+int check_destroy()
+{   
+    for(alien_y = 0; alien_y < 4; alien_y++){
+ 210:	f240 0300 	movw	r3, #0
+ 214:	f2c0 0300 	movt	r3, #0
+ 218:	681b      	ldr	r3, [r3, #0]
+ 21a:	f103 0201 	add.w	r2, r3, #1
+ 21e:	f240 0300 	movw	r3, #0
+ 222:	f2c0 0300 	movt	r3, #0
+ 226:	601a      	str	r2, [r3, #0]
+ 228:	f240 0300 	movw	r3, #0
+ 22c:	f2c0 0300 	movt	r3, #0
+ 230:	681b      	ldr	r3, [r3, #0]
+ 232:	2b03      	cmp	r3, #3
+ 234:	f77f aeee 	ble.w	14 <check_destroy+0x14>
+ 238:	e000      	b.n	23c <check_destroy+0x23c>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:635
+                if(!bullet_active){
+                    break;
+                }
+            }
+            if(!bullet_active){
+                    break;
+ 23a:	bf00      	nop
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:638
+                }
+        }
+}
+ 23c:	4618      	mov	r0, r3
+ 23e:	bd98      	pop	{r3, r4, r7, pc}
+
+Disassembly of section .text.reset_bullet:
+
+00000000 <reset_bullet>:
+reset_bullet():
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:648
+*                  for being used again.
+* Input          : None
+* Return         : None
+*******************************************************************************/
+int reset_bullet()
+{
+   0:	b590      	push	{r4, r7, lr}
+   2:	b083      	sub	sp, #12
+   4:	af02      	add	r7, sp, #8
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:649
+    LCD_FillRect(bullet_init_x, bullet_init_y + bullet_translation - 1, BULLET_WIDTH + 2, BULLET_HEIGHT + 2, RGB_BLACK);
+   6:	f240 0300 	movw	r3, #0
+   a:	f2c0 0300 	movt	r3, #0
+   e:	681b      	ldr	r3, [r3, #0]
+  10:	f8d3 3118 	ldr.w	r3, [r3, #280]	; 0x118
+  14:	461c      	mov	r4, r3
+  16:	f240 0300 	movw	r3, #0
+  1a:	f2c0 0300 	movt	r3, #0
+  1e:	881b      	ldrh	r3, [r3, #0]
+  20:	b21a      	sxth	r2, r3
+  22:	f240 0300 	movw	r3, #0
+  26:	f2c0 0300 	movt	r3, #0
+  2a:	881b      	ldrh	r3, [r3, #0]
+  2c:	b219      	sxth	r1, r3
+  2e:	f240 0300 	movw	r3, #0
+  32:	f2c0 0300 	movt	r3, #0
+  36:	881b      	ldrh	r3, [r3, #0]
+  38:	b21b      	sxth	r3, r3
+  3a:	18cb      	adds	r3, r1, r3
+  3c:	f103 33ff 	add.w	r3, r3, #4294967295
+  40:	f04f 0100 	mov.w	r1, #0
+  44:	9100      	str	r1, [sp, #0]
+  46:	4610      	mov	r0, r2
+  48:	4619      	mov	r1, r3
+  4a:	f04f 0204 	mov.w	r2, #4
+  4e:	f04f 0305 	mov.w	r3, #5
+  52:	47a0      	blx	r4
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:650
+    bullet_active = 0;
+  54:	f240 0300 	movw	r3, #0
+  58:	f2c0 0300 	movt	r3, #0
+  5c:	f04f 0200 	mov.w	r2, #0
+  60:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:651
+    bullet_init_x = 0;
+  62:	f240 0300 	movw	r3, #0
+  66:	f2c0 0300 	movt	r3, #0
+  6a:	f04f 0200 	mov.w	r2, #0
+  6e:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:652
+    bullet_init_y = MAN_LEVEL + MAN_HEIGHT;  
+  70:	f240 0300 	movw	r3, #0
+  74:	f2c0 0300 	movt	r3, #0
+  78:	f04f 020a 	mov.w	r2, #10
+  7c:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:653
+    bullet_translation = 0;
+  7e:	f240 0300 	movw	r3, #0
+  82:	f2c0 0300 	movt	r3, #0
+  86:	f04f 0200 	mov.w	r2, #0
+  8a:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:654
+}
+  8c:	4618      	mov	r0, r3
+  8e:	f107 0704 	add.w	r7, r7, #4
+  92:	46bd      	mov	sp, r7
+  94:	bd90      	pop	{r4, r7, pc}
+  96:	bf00      	nop
+
+Disassembly of section .text.compare_distance:
+
+00000000 <compare_distance>:
+compare_distance():
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:664
+*                  active aliens, to check if they are hit.
+* Input          : int alien_col, int alien_row
+* Return         : 1, 0 (alien hit, alien missed)
+*******************************************************************************/
+int compare_distance(int alien_col, int alien_row)
+{
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:665
+    tot_x = ALIEN_START_X + ((alien_col - 1)*COLUMN_SIZE) + alien_translation_x;
+   a:	687b      	ldr	r3, [r7, #4]
+   c:	f103 33ff 	add.w	r3, r3, #4294967295
+  10:	b29b      	uxth	r3, r3
+  12:	ea4f 1303 	mov.w	r3, r3, lsl #4
+  16:	b29a      	uxth	r2, r3
+  18:	f240 0300 	movw	r3, #0
+  1c:	f2c0 0300 	movt	r3, #0
+  20:	881b      	ldrh	r3, [r3, #0]
+  22:	b29b      	uxth	r3, r3
+  24:	18d3      	adds	r3, r2, r3
+  26:	b29b      	uxth	r3, r3
+  28:	f103 0305 	add.w	r3, r3, #5
+  2c:	b29b      	uxth	r3, r3
+  2e:	b29a      	uxth	r2, r3
+  30:	f240 0300 	movw	r3, #0
+  34:	f2c0 0300 	movt	r3, #0
+  38:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:666
+    tot_y = ALIEN_START_Y + ((alien_row - 1)*ROW_SIZE) + alien_translation_y;
+  3a:	683b      	ldr	r3, [r7, #0]
+  3c:	f103 33ff 	add.w	r3, r3, #4294967295
+  40:	b29b      	uxth	r3, r3
+  42:	461a      	mov	r2, r3
+  44:	ea4f 0242 	mov.w	r2, r2, lsl #1
+  48:	18d3      	adds	r3, r2, r3
+  4a:	ea4f 0383 	mov.w	r3, r3, lsl #2
+  4e:	b29a      	uxth	r2, r3
+  50:	f240 0300 	movw	r3, #0
+  54:	f2c0 0300 	movt	r3, #0
+  58:	881b      	ldrh	r3, [r3, #0]
+  5a:	b29b      	uxth	r3, r3
+  5c:	18d3      	adds	r3, r2, r3
+  5e:	b29b      	uxth	r3, r3
+  60:	f103 0346 	add.w	r3, r3, #70	; 0x46
+  64:	b29b      	uxth	r3, r3
+  66:	b29a      	uxth	r2, r3
+  68:	f240 0300 	movw	r3, #0
+  6c:	f2c0 0300 	movt	r3, #0
+  70:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:667
+    centre_coord_bullet_x = bullet_init_x + (BULLET_WIDTH/2);
+  72:	f240 0300 	movw	r3, #0
+  76:	f2c0 0300 	movt	r3, #0
+  7a:	881b      	ldrh	r3, [r3, #0]
+  7c:	b29b      	uxth	r3, r3
+  7e:	f103 0301 	add.w	r3, r3, #1
+  82:	b29b      	uxth	r3, r3
+  84:	b29a      	uxth	r2, r3
+  86:	f240 0300 	movw	r3, #0
+  8a:	f2c0 0300 	movt	r3, #0
+  8e:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:668
+    centre_coord_bullet_y = bullet_init_y + (BULLET_HEIGHT/2) + bullet_translation;
+  90:	f240 0300 	movw	r3, #0
+  94:	f2c0 0300 	movt	r3, #0
+  98:	881b      	ldrh	r3, [r3, #0]
+  9a:	b29a      	uxth	r2, r3
+  9c:	f240 0300 	movw	r3, #0
+  a0:	f2c0 0300 	movt	r3, #0
+  a4:	881b      	ldrh	r3, [r3, #0]
+  a6:	b29b      	uxth	r3, r3
+  a8:	18d3      	adds	r3, r2, r3
+  aa:	b29b      	uxth	r3, r3
+  ac:	f103 0301 	add.w	r3, r3, #1
+  b0:	b29b      	uxth	r3, r3
+  b2:	b29a      	uxth	r2, r3
+  b4:	f240 0300 	movw	r3, #0
+  b8:	f2c0 0300 	movt	r3, #0
+  bc:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:669
+    centre_coord_alien_x = tot_x + (ALIEN_WIDTH/2);
+  be:	f240 0300 	movw	r3, #0
+  c2:	f2c0 0300 	movt	r3, #0
+  c6:	881b      	ldrh	r3, [r3, #0]
+  c8:	b29b      	uxth	r3, r3
+  ca:	f103 0304 	add.w	r3, r3, #4
+  ce:	b29b      	uxth	r3, r3
+  d0:	b29a      	uxth	r2, r3
+  d2:	f240 0300 	movw	r3, #0
+  d6:	f2c0 0300 	movt	r3, #0
+  da:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:670
+    centre_coord_alien_y = tot_y + (ALIEN_HEIGHT/2);
+  dc:	f240 0300 	movw	r3, #0
+  e0:	f2c0 0300 	movt	r3, #0
+  e4:	881b      	ldrh	r3, [r3, #0]
+  e6:	b29b      	uxth	r3, r3
+  e8:	f103 0304 	add.w	r3, r3, #4
+  ec:	b29b      	uxth	r3, r3
+  ee:	b29a      	uxth	r2, r3
+  f0:	f240 0300 	movw	r3, #0
+  f4:	f2c0 0300 	movt	r3, #0
+  f8:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:672
+    
+    if((centre_coord_alien_x - centre_coord_bullet_x) < ((ALIEN_WIDTH/2) + (BULLET_WIDTH/2)) && 
+  fa:	f240 0300 	movw	r3, #0
+  fe:	f2c0 0300 	movt	r3, #0
+ 102:	881b      	ldrh	r3, [r3, #0]
+ 104:	b21a      	sxth	r2, r3
+ 106:	f240 0300 	movw	r3, #0
+ 10a:	f2c0 0300 	movt	r3, #0
+ 10e:	881b      	ldrh	r3, [r3, #0]
+ 110:	b21b      	sxth	r3, r3
+ 112:	1ad3      	subs	r3, r2, r3
+ 114:	2b04      	cmp	r3, #4
+ 116:	dc32      	bgt.n	17e <compare_distance+0x17e>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:673
+        ((centre_coord_alien_x - centre_coord_bullet_x)*-1) < ((ALIEN_WIDTH/2) + (BULLET_WIDTH/2))){
+ 118:	f240 0300 	movw	r3, #0
+ 11c:	f2c0 0300 	movt	r3, #0
+ 120:	881b      	ldrh	r3, [r3, #0]
+ 122:	b21a      	sxth	r2, r3
+ 124:	f240 0300 	movw	r3, #0
+ 128:	f2c0 0300 	movt	r3, #0
+ 12c:	881b      	ldrh	r3, [r3, #0]
+ 12e:	b21b      	sxth	r3, r3
+ 130:	1ad3      	subs	r3, r2, r3
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:672
+    centre_coord_bullet_x = bullet_init_x + (BULLET_WIDTH/2);
+    centre_coord_bullet_y = bullet_init_y + (BULLET_HEIGHT/2) + bullet_translation;
+    centre_coord_alien_x = tot_x + (ALIEN_WIDTH/2);
+    centre_coord_alien_y = tot_y + (ALIEN_HEIGHT/2);
+    
+    if((centre_coord_alien_x - centre_coord_bullet_x) < ((ALIEN_WIDTH/2) + (BULLET_WIDTH/2)) && 
+ 132:	2b04      	cmp	r3, #4
+ 134:	dc23      	bgt.n	17e <compare_distance+0x17e>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:674
+        ((centre_coord_alien_x - centre_coord_bullet_x)*-1) < ((ALIEN_WIDTH/2) + (BULLET_WIDTH/2))){
+        if((centre_coord_alien_y - centre_coord_bullet_y) < ((ALIEN_HEIGHT/2) + (BULLET_HEIGHT/2)) && 
+ 136:	f240 0300 	movw	r3, #0
+ 13a:	f2c0 0300 	movt	r3, #0
+ 13e:	881b      	ldrh	r3, [r3, #0]
+ 140:	b21a      	sxth	r2, r3
+ 142:	f240 0300 	movw	r3, #0
+ 146:	f2c0 0300 	movt	r3, #0
+ 14a:	881b      	ldrh	r3, [r3, #0]
+ 14c:	b21b      	sxth	r3, r3
+ 14e:	1ad3      	subs	r3, r2, r3
+ 150:	2b04      	cmp	r3, #4
+ 152:	dc11      	bgt.n	178 <compare_distance+0x178>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:675
+        ((centre_coord_alien_y - centre_coord_bullet_y)*-1) < ((ALIEN_HEIGHT/2) + (BULLET_HEIGHT/2))){
+ 154:	f240 0300 	movw	r3, #0
+ 158:	f2c0 0300 	movt	r3, #0
+ 15c:	881b      	ldrh	r3, [r3, #0]
+ 15e:	b21a      	sxth	r2, r3
+ 160:	f240 0300 	movw	r3, #0
+ 164:	f2c0 0300 	movt	r3, #0
+ 168:	881b      	ldrh	r3, [r3, #0]
+ 16a:	b21b      	sxth	r3, r3
+ 16c:	1ad3      	subs	r3, r2, r3
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:674
+    centre_coord_alien_x = tot_x + (ALIEN_WIDTH/2);
+    centre_coord_alien_y = tot_y + (ALIEN_HEIGHT/2);
+    
+    if((centre_coord_alien_x - centre_coord_bullet_x) < ((ALIEN_WIDTH/2) + (BULLET_WIDTH/2)) && 
+        ((centre_coord_alien_x - centre_coord_bullet_x)*-1) < ((ALIEN_WIDTH/2) + (BULLET_WIDTH/2))){
+        if((centre_coord_alien_y - centre_coord_bullet_y) < ((ALIEN_HEIGHT/2) + (BULLET_HEIGHT/2)) && 
+ 16e:	2b04      	cmp	r3, #4
+ 170:	dc02      	bgt.n	178 <compare_distance+0x178>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:676
+        ((centre_coord_alien_y - centre_coord_bullet_y)*-1) < ((ALIEN_HEIGHT/2) + (BULLET_HEIGHT/2))){
+            return 1;
+ 172:	f04f 0301 	mov.w	r3, #1
+ 176:	e004      	b.n	182 <compare_distance+0x182>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:678
+        }else{
+            return 0;
+ 178:	f04f 0300 	mov.w	r3, #0
+ 17c:	e001      	b.n	182 <compare_distance+0x182>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:681
+        }
+    }else{
+        return 0;
+ 17e:	f04f 0300 	mov.w	r3, #0
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:683
+    } 
+}
+ 182:	4618      	mov	r0, r3
+ 184:	f107 070c 	add.w	r7, r7, #12
+ 188:	46bd      	mov	sp, r7
+ 18a:	bc80      	pop	{r7}
+ 18c:	4770      	bx	lr
+ 18e:	bf00      	nop
+
+Disassembly of section .text.alien_die:
+
+00000000 <alien_die>:
+alien_die():
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:692
+* Description    : Draws a black box over an alien location when it is hit.
+* Input          : int alien_col, int alien_row
+* Return         : None
+*******************************************************************************/
+int alien_die(int alien_col, int alien_row)
+{
+   0:	b590      	push	{r4, r7, lr}
+   2:	b085      	sub	sp, #20
+   4:	af02      	add	r7, sp, #8
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:693
+    tot_x = ALIEN_START_X + ((alien_col - 1)*COLUMN_SIZE) + alien_translation_x;
+   a:	687b      	ldr	r3, [r7, #4]
+   c:	f103 33ff 	add.w	r3, r3, #4294967295
+  10:	b29b      	uxth	r3, r3
+  12:	ea4f 1303 	mov.w	r3, r3, lsl #4
+  16:	b29a      	uxth	r2, r3
+  18:	f240 0300 	movw	r3, #0
+  1c:	f2c0 0300 	movt	r3, #0
+  20:	881b      	ldrh	r3, [r3, #0]
+  22:	b29b      	uxth	r3, r3
+  24:	18d3      	adds	r3, r2, r3
+  26:	b29b      	uxth	r3, r3
+  28:	f103 0305 	add.w	r3, r3, #5
+  2c:	b29b      	uxth	r3, r3
+  2e:	b29a      	uxth	r2, r3
+  30:	f240 0300 	movw	r3, #0
+  34:	f2c0 0300 	movt	r3, #0
+  38:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:694
+    tot_y = ALIEN_START_Y + ((alien_row - 1)*ROW_SIZE) + alien_translation_y;
+  3a:	683b      	ldr	r3, [r7, #0]
+  3c:	f103 33ff 	add.w	r3, r3, #4294967295
+  40:	b29b      	uxth	r3, r3
+  42:	461a      	mov	r2, r3
+  44:	ea4f 0242 	mov.w	r2, r2, lsl #1
+  48:	18d3      	adds	r3, r2, r3
+  4a:	ea4f 0383 	mov.w	r3, r3, lsl #2
+  4e:	b29a      	uxth	r2, r3
+  50:	f240 0300 	movw	r3, #0
+  54:	f2c0 0300 	movt	r3, #0
+  58:	881b      	ldrh	r3, [r3, #0]
+  5a:	b29b      	uxth	r3, r3
+  5c:	18d3      	adds	r3, r2, r3
+  5e:	b29b      	uxth	r3, r3
+  60:	f103 0346 	add.w	r3, r3, #70	; 0x46
+  64:	b29b      	uxth	r3, r3
+  66:	b29a      	uxth	r2, r3
+  68:	f240 0300 	movw	r3, #0
+  6c:	f2c0 0300 	movt	r3, #0
+  70:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:696
+    
+    LCD_FillRect(tot_x-1, tot_y, ALIEN_WIDTH + 2, ALIEN_HEIGHT, RGB_BLACK);
+  72:	f240 0300 	movw	r3, #0
+  76:	f2c0 0300 	movt	r3, #0
+  7a:	681b      	ldr	r3, [r3, #0]
+  7c:	f8d3 3118 	ldr.w	r3, [r3, #280]	; 0x118
+  80:	461c      	mov	r4, r3
+  82:	f240 0300 	movw	r3, #0
+  86:	f2c0 0300 	movt	r3, #0
+  8a:	881b      	ldrh	r3, [r3, #0]
+  8c:	b21b      	sxth	r3, r3
+  8e:	f103 33ff 	add.w	r3, r3, #4294967295
+  92:	461a      	mov	r2, r3
+  94:	f240 0300 	movw	r3, #0
+  98:	f2c0 0300 	movt	r3, #0
+  9c:	881b      	ldrh	r3, [r3, #0]
+  9e:	b21b      	sxth	r3, r3
+  a0:	f04f 0100 	mov.w	r1, #0
+  a4:	9100      	str	r1, [sp, #0]
+  a6:	4610      	mov	r0, r2
+  a8:	4619      	mov	r1, r3
+  aa:	f04f 020a 	mov.w	r2, #10
+  ae:	f04f 0308 	mov.w	r3, #8
+  b2:	47a0      	blx	r4
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:697
+}
+  b4:	4618      	mov	r0, r3
+  b6:	f107 070c 	add.w	r7, r7, #12
+  ba:	46bd      	mov	sp, r7
+  bc:	bd90      	pop	{r4, r7, pc}
+  be:	bf00      	nop
+
+Disassembly of section .text.fire:
+
+00000000 <fire>:
+fire():
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:707
+*                  location.
+* Input          : None
+* Return         : None
+*******************************************************************************/
+int fire()
+{
+   0:	b590      	push	{r4, r7, lr}
+   2:	b083      	sub	sp, #12
+   4:	af02      	add	r7, sp, #8
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:708
+    bullet_init_x = x + (MAN_WIDTH/2) - (BULLET_WIDTH/2);
+   6:	f240 0300 	movw	r3, #0
+   a:	f2c0 0300 	movt	r3, #0
+   e:	681b      	ldr	r3, [r3, #0]
+  10:	b29b      	uxth	r3, r3
+  12:	f103 0303 	add.w	r3, r3, #3
+  16:	b29b      	uxth	r3, r3
+  18:	b29a      	uxth	r2, r3
+  1a:	f240 0300 	movw	r3, #0
+  1e:	f2c0 0300 	movt	r3, #0
+  22:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:709
+    bullet_init_y = MAN_LEVEL + MAN_HEIGHT;
+  24:	f240 0300 	movw	r3, #0
+  28:	f2c0 0300 	movt	r3, #0
+  2c:	f04f 020a 	mov.w	r2, #10
+  30:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:710
+    LCD_FillRect(bullet_init_x, bullet_init_y + bullet_translation, BULLET_WIDTH, BULLET_HEIGHT, RGB_RED);
+  32:	f240 0300 	movw	r3, #0
+  36:	f2c0 0300 	movt	r3, #0
+  3a:	681b      	ldr	r3, [r3, #0]
+  3c:	f8d3 3118 	ldr.w	r3, [r3, #280]	; 0x118
+  40:	461c      	mov	r4, r3
+  42:	f240 0300 	movw	r3, #0
+  46:	f2c0 0300 	movt	r3, #0
+  4a:	881b      	ldrh	r3, [r3, #0]
+  4c:	b21a      	sxth	r2, r3
+  4e:	f240 0300 	movw	r3, #0
+  52:	f2c0 0300 	movt	r3, #0
+  56:	881b      	ldrh	r3, [r3, #0]
+  58:	b219      	sxth	r1, r3
+  5a:	f240 0300 	movw	r3, #0
+  5e:	f2c0 0300 	movt	r3, #0
+  62:	881b      	ldrh	r3, [r3, #0]
+  64:	b21b      	sxth	r3, r3
+  66:	18cb      	adds	r3, r1, r3
+  68:	f04f 01f8 	mov.w	r1, #248	; 0xf8
+  6c:	9100      	str	r1, [sp, #0]
+  6e:	4610      	mov	r0, r2
+  70:	4619      	mov	r1, r3
+  72:	f04f 0202 	mov.w	r2, #2
+  76:	f04f 0303 	mov.w	r3, #3
+  7a:	47a0      	blx	r4
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:711
+}
+  7c:	4618      	mov	r0, r3
+  7e:	f107 0704 	add.w	r7, r7, #4
+  82:	46bd      	mov	sp, r7
+  84:	bd90      	pop	{r4, r7, pc}
+  86:	bf00      	nop
+
+Disassembly of section .text.update_bullet:
+
+00000000 <update_bullet>:
+update_bullet():
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:722
+*                  new coordinates
+* Input          : None
+* Return         : None
+*******************************************************************************/
+int update_bullet()
+{
+   0:	b590      	push	{r4, r7, lr}
+   2:	b083      	sub	sp, #12
+   4:	af02      	add	r7, sp, #8
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:724
+    
+    if(bullet_translation > (SCREEN_HEIGHT - bullet_init_y)){
+   6:	f240 0300 	movw	r3, #0
+   a:	f2c0 0300 	movt	r3, #0
+   e:	881b      	ldrh	r3, [r3, #0]
+  10:	b21a      	sxth	r2, r3
+  12:	f240 0300 	movw	r3, #0
+  16:	f2c0 0300 	movt	r3, #0
+  1a:	881b      	ldrh	r3, [r3, #0]
+  1c:	b21b      	sxth	r3, r3
+  1e:	f1c3 0380 	rsb	r3, r3, #128	; 0x80
+  22:	429a      	cmp	r2, r3
+  24:	dd02      	ble.n	2c <update_bullet+0x2c>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:725
+        reset_bullet();
+  26:	f7ff fffe 	bl	0 <update_bullet>
+  2a:	e058      	b.n	d2 <update_bullet+0xd2>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:727
+    }else{
+        bullet_translation++;
+  2c:	f240 0300 	movw	r3, #0
+  30:	f2c0 0300 	movt	r3, #0
+  34:	881b      	ldrh	r3, [r3, #0]
+  36:	f103 0301 	add.w	r3, r3, #1
+  3a:	b29a      	uxth	r2, r3
+  3c:	f240 0300 	movw	r3, #0
+  40:	f2c0 0300 	movt	r3, #0
+  44:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:728
+        LCD_FillRect(bullet_init_x, bullet_init_y + bullet_translation - 2, BULLET_WIDTH, BULLET_HEIGHT + 2, RGB_BLACK);
+  46:	f240 0300 	movw	r3, #0
+  4a:	f2c0 0300 	movt	r3, #0
+  4e:	681b      	ldr	r3, [r3, #0]
+  50:	f8d3 3118 	ldr.w	r3, [r3, #280]	; 0x118
+  54:	461c      	mov	r4, r3
+  56:	f240 0300 	movw	r3, #0
+  5a:	f2c0 0300 	movt	r3, #0
+  5e:	881b      	ldrh	r3, [r3, #0]
+  60:	b21a      	sxth	r2, r3
+  62:	f240 0300 	movw	r3, #0
+  66:	f2c0 0300 	movt	r3, #0
+  6a:	881b      	ldrh	r3, [r3, #0]
+  6c:	b219      	sxth	r1, r3
+  6e:	f240 0300 	movw	r3, #0
+  72:	f2c0 0300 	movt	r3, #0
+  76:	881b      	ldrh	r3, [r3, #0]
+  78:	b21b      	sxth	r3, r3
+  7a:	18cb      	adds	r3, r1, r3
+  7c:	f1a3 0302 	sub.w	r3, r3, #2
+  80:	f04f 0100 	mov.w	r1, #0
+  84:	9100      	str	r1, [sp, #0]
+  86:	4610      	mov	r0, r2
+  88:	4619      	mov	r1, r3
+  8a:	f04f 0202 	mov.w	r2, #2
+  8e:	f04f 0305 	mov.w	r3, #5
+  92:	47a0      	blx	r4
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:729
+        LCD_FillRect(bullet_init_x, bullet_init_y + bullet_translation, BULLET_WIDTH, BULLET_HEIGHT, RGB_RED);
+  94:	f240 0300 	movw	r3, #0
+  98:	f2c0 0300 	movt	r3, #0
+  9c:	681b      	ldr	r3, [r3, #0]
+  9e:	f8d3 3118 	ldr.w	r3, [r3, #280]	; 0x118
+  a2:	461c      	mov	r4, r3
+  a4:	f240 0300 	movw	r3, #0
+  a8:	f2c0 0300 	movt	r3, #0
+  ac:	881b      	ldrh	r3, [r3, #0]
+  ae:	b21a      	sxth	r2, r3
+  b0:	f240 0300 	movw	r3, #0
+  b4:	f2c0 0300 	movt	r3, #0
+  b8:	881b      	ldrh	r3, [r3, #0]
+  ba:	b219      	sxth	r1, r3
+  bc:	f240 0300 	movw	r3, #0
+  c0:	f2c0 0300 	movt	r3, #0
+  c4:	881b      	ldrh	r3, [r3, #0]
+  c6:	b21b      	sxth	r3, r3
+  c8:	18cb      	adds	r3, r1, r3
+  ca:	f04f 01f8 	mov.w	r1, #248	; 0xf8
+  ce:	9100      	str	r1, [sp, #0]
+  d0:	4610      	mov	r0, r2
+  d2:	4619      	mov	r1, r3
+  d4:	f04f 0202 	mov.w	r2, #2
+  d8:	f04f 0303 	mov.w	r3, #3
+  dc:	47a0      	blx	r4
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:731
+    }
+}
+  de:	4618      	mov	r0, r3
+  e0:	f107 0704 	add.w	r7, r7, #4
+  e4:	46bd      	mov	sp, r7
+  e6:	bd90      	pop	{r4, r7, pc}
+
+Disassembly of section .text.alien_display:
+
+00000000 <alien_display>:
+alien_display():
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:741
+                   draw_alien() function to draw it in it's correct location. 
+* Input          : None
+* Return         : 0
+*******************************************************************************/
+int alien_display()
+{
+   0:	b598      	push	{r3, r4, r7, lr}
+   2:	af00      	add	r7, sp, #0
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:742
+    for(alien_y = 0; alien_y < 4; alien_y++){
+   4:	f240 0300 	movw	r3, #0
+   8:	f2c0 0300 	movt	r3, #0
+   c:	f04f 0200 	mov.w	r2, #0
+  10:	601a      	str	r2, [r3, #0]
+  12:	e085      	b.n	120 <alien_display+0x120>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:743
+        for(alien_x = 0; alien_x < 6; alien_x++){
+  14:	f240 0300 	movw	r3, #0
+  18:	f2c0 0300 	movt	r3, #0
+  1c:	f04f 0200 	mov.w	r2, #0
+  20:	601a      	str	r2, [r3, #0]
+  22:	e06a      	b.n	fa <alien_display+0xfa>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:744
+            if (alien_array[alien_y][alien_x].alive){
+  24:	f240 0300 	movw	r3, #0
+  28:	f2c0 0300 	movt	r3, #0
+  2c:	6819      	ldr	r1, [r3, #0]
+  2e:	f240 0300 	movw	r3, #0
+  32:	f2c0 0300 	movt	r3, #0
+  36:	6818      	ldr	r0, [r3, #0]
+  38:	f240 0200 	movw	r2, #0
+  3c:	f2c0 0200 	movt	r2, #0
+  40:	4603      	mov	r3, r0
+  42:	ea4f 0343 	mov.w	r3, r3, lsl #1
+  46:	181b      	adds	r3, r3, r0
+  48:	ea4f 0043 	mov.w	r0, r3, lsl #1
+  4c:	460b      	mov	r3, r1
+  4e:	ea4f 03c3 	mov.w	r3, r3, lsl #3
+  52:	185b      	adds	r3, r3, r1
+  54:	ea4f 0383 	mov.w	r3, r3, lsl #2
+  58:	18c3      	adds	r3, r0, r3
+  5a:	18d3      	adds	r3, r2, r3
+  5c:	781b      	ldrb	r3, [r3, #0]
+  5e:	2b00      	cmp	r3, #0
+  60:	d03f      	beq.n	e2 <alien_display+0xe2>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:745
+                draw_alien(alien_array[alien_y][alien_x].alien_pos_x, alien_array[alien_y][alien_x].alien_pos_y);
+  62:	f240 0300 	movw	r3, #0
+  66:	f2c0 0300 	movt	r3, #0
+  6a:	6819      	ldr	r1, [r3, #0]
+  6c:	f240 0300 	movw	r3, #0
+  70:	f2c0 0300 	movt	r3, #0
+  74:	6818      	ldr	r0, [r3, #0]
+  76:	f240 0200 	movw	r2, #0
+  7a:	f2c0 0200 	movt	r2, #0
+  7e:	4603      	mov	r3, r0
+  80:	ea4f 0343 	mov.w	r3, r3, lsl #1
+  84:	181b      	adds	r3, r3, r0
+  86:	ea4f 0043 	mov.w	r0, r3, lsl #1
+  8a:	460b      	mov	r3, r1
+  8c:	ea4f 03c3 	mov.w	r3, r3, lsl #3
+  90:	185b      	adds	r3, r3, r1
+  92:	ea4f 0383 	mov.w	r3, r3, lsl #2
+  96:	18c3      	adds	r3, r0, r3
+  98:	18d3      	adds	r3, r2, r3
+  9a:	885b      	ldrh	r3, [r3, #2]
+  9c:	b21c      	sxth	r4, r3
+  9e:	f240 0300 	movw	r3, #0
+  a2:	f2c0 0300 	movt	r3, #0
+  a6:	6819      	ldr	r1, [r3, #0]
+  a8:	f240 0300 	movw	r3, #0
+  ac:	f2c0 0300 	movt	r3, #0
+  b0:	6818      	ldr	r0, [r3, #0]
+  b2:	f240 0200 	movw	r2, #0
+  b6:	f2c0 0200 	movt	r2, #0
+  ba:	4603      	mov	r3, r0
+  bc:	ea4f 0343 	mov.w	r3, r3, lsl #1
+  c0:	181b      	adds	r3, r3, r0
+  c2:	ea4f 0043 	mov.w	r0, r3, lsl #1
+  c6:	460b      	mov	r3, r1
+  c8:	ea4f 03c3 	mov.w	r3, r3, lsl #3
+  cc:	185b      	adds	r3, r3, r1
+  ce:	ea4f 0383 	mov.w	r3, r3, lsl #2
+  d2:	18c3      	adds	r3, r0, r3
+  d4:	18d3      	adds	r3, r2, r3
+  d6:	889b      	ldrh	r3, [r3, #4]
+  d8:	b21b      	sxth	r3, r3
+  da:	4620      	mov	r0, r4
+  dc:	4619      	mov	r1, r3
+  de:	f7ff fffe 	bl	0 <alien_display>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:743
+* Return         : 0
+*******************************************************************************/
+int alien_display()
+{
+    for(alien_y = 0; alien_y < 4; alien_y++){
+        for(alien_x = 0; alien_x < 6; alien_x++){
+  e2:	f240 0300 	movw	r3, #0
+  e6:	f2c0 0300 	movt	r3, #0
+  ea:	681b      	ldr	r3, [r3, #0]
+  ec:	f103 0201 	add.w	r2, r3, #1
+  f0:	f240 0300 	movw	r3, #0
+  f4:	f2c0 0300 	movt	r3, #0
+  f8:	601a      	str	r2, [r3, #0]
+  fa:	f240 0300 	movw	r3, #0
+  fe:	f2c0 0300 	movt	r3, #0
+ 102:	681b      	ldr	r3, [r3, #0]
+ 104:	2b05      	cmp	r3, #5
+ 106:	dd8d      	ble.n	24 <alien_display+0x24>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:742
+* Input          : None
+* Return         : 0
+*******************************************************************************/
+int alien_display()
+{
+    for(alien_y = 0; alien_y < 4; alien_y++){
+ 108:	f240 0300 	movw	r3, #0
+ 10c:	f2c0 0300 	movt	r3, #0
+ 110:	681b      	ldr	r3, [r3, #0]
+ 112:	f103 0201 	add.w	r2, r3, #1
+ 116:	f240 0300 	movw	r3, #0
+ 11a:	f2c0 0300 	movt	r3, #0
+ 11e:	601a      	str	r2, [r3, #0]
+ 120:	f240 0300 	movw	r3, #0
+ 124:	f2c0 0300 	movt	r3, #0
+ 128:	681b      	ldr	r3, [r3, #0]
+ 12a:	2b03      	cmp	r3, #3
+ 12c:	f77f af72 	ble.w	14 <alien_display+0x14>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:749
+            if (alien_array[alien_y][alien_x].alive){
+                draw_alien(alien_array[alien_y][alien_x].alien_pos_x, alien_array[alien_y][alien_x].alien_pos_y);
+            }
+        }
+    }
+    return 0;
+ 130:	f04f 0300 	mov.w	r3, #0
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:750
+}
+ 134:	4618      	mov	r0, r3
+ 136:	bd98      	pop	{r3, r4, r7, pc}
+
+Disassembly of section .text.draw_alien:
+
+00000000 <draw_alien>:
+draw_alien():
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:759
+* Description    : Draws a single enemy at a specified location
+* Input          : enemy_col, enemy_row, translation_x and translation_y
+* Return         : 0
+*******************************************************************************/
+int draw_alien(int alien_col, int alien_row) //lower left at position a
+{
+   0:	b590      	push	{r4, r7, lr}
+   2:	b085      	sub	sp, #20
+   4:	af02      	add	r7, sp, #8
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:760
+    tot_x = ALIEN_START_X + ((alien_col - 1)*COLUMN_SIZE) + alien_translation_x;
+   a:	687b      	ldr	r3, [r7, #4]
+   c:	f103 33ff 	add.w	r3, r3, #4294967295
+  10:	b29b      	uxth	r3, r3
+  12:	ea4f 1303 	mov.w	r3, r3, lsl #4
+  16:	b29a      	uxth	r2, r3
+  18:	f240 0300 	movw	r3, #0
+  1c:	f2c0 0300 	movt	r3, #0
+  20:	881b      	ldrh	r3, [r3, #0]
+  22:	b29b      	uxth	r3, r3
+  24:	18d3      	adds	r3, r2, r3
+  26:	b29b      	uxth	r3, r3
+  28:	f103 0305 	add.w	r3, r3, #5
+  2c:	b29b      	uxth	r3, r3
+  2e:	b29a      	uxth	r2, r3
+  30:	f240 0300 	movw	r3, #0
+  34:	f2c0 0300 	movt	r3, #0
+  38:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:761
+    tot_y = ALIEN_START_Y + ((alien_row - 1)*ROW_SIZE) + alien_translation_y;
+  3a:	683b      	ldr	r3, [r7, #0]
+  3c:	f103 33ff 	add.w	r3, r3, #4294967295
+  40:	b29b      	uxth	r3, r3
+  42:	461a      	mov	r2, r3
+  44:	ea4f 0242 	mov.w	r2, r2, lsl #1
+  48:	18d3      	adds	r3, r2, r3
+  4a:	ea4f 0383 	mov.w	r3, r3, lsl #2
+  4e:	b29a      	uxth	r2, r3
+  50:	f240 0300 	movw	r3, #0
+  54:	f2c0 0300 	movt	r3, #0
+  58:	881b      	ldrh	r3, [r3, #0]
+  5a:	b29b      	uxth	r3, r3
+  5c:	18d3      	adds	r3, r2, r3
+  5e:	b29b      	uxth	r3, r3
+  60:	f103 0346 	add.w	r3, r3, #70	; 0x46
+  64:	b29b      	uxth	r3, r3
+  66:	b29a      	uxth	r2, r3
+  68:	f240 0300 	movw	r3, #0
+  6c:	f2c0 0300 	movt	r3, #0
+  70:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:763
+    
+    LCD_FillRect(tot_x-1, tot_y, ALIEN_WIDTH + 2, ALIEN_HEIGHT, RGB_BLACK);
+  72:	f240 0300 	movw	r3, #0
+  76:	f2c0 0300 	movt	r3, #0
+  7a:	681b      	ldr	r3, [r3, #0]
+  7c:	f8d3 3118 	ldr.w	r3, [r3, #280]	; 0x118
+  80:	461c      	mov	r4, r3
+  82:	f240 0300 	movw	r3, #0
+  86:	f2c0 0300 	movt	r3, #0
+  8a:	881b      	ldrh	r3, [r3, #0]
+  8c:	b21b      	sxth	r3, r3
+  8e:	f103 33ff 	add.w	r3, r3, #4294967295
+  92:	461a      	mov	r2, r3
+  94:	f240 0300 	movw	r3, #0
+  98:	f2c0 0300 	movt	r3, #0
+  9c:	881b      	ldrh	r3, [r3, #0]
+  9e:	b21b      	sxth	r3, r3
+  a0:	f04f 0100 	mov.w	r1, #0
+  a4:	9100      	str	r1, [sp, #0]
+  a6:	4610      	mov	r0, r2
+  a8:	4619      	mov	r1, r3
+  aa:	f04f 020a 	mov.w	r2, #10
+  ae:	f04f 0308 	mov.w	r3, #8
+  b2:	47a0      	blx	r4
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:764
+    DRAW_SetImage(alien1, tot_x, tot_y, 8, 8);
+  b4:	f240 0300 	movw	r3, #0
+  b8:	f2c0 0300 	movt	r3, #0
+  bc:	681b      	ldr	r3, [r3, #0]
+  be:	f8d3 3088 	ldr.w	r3, [r3, #136]	; 0x88
+  c2:	461c      	mov	r4, r3
+  c4:	f240 0300 	movw	r3, #0
+  c8:	f2c0 0300 	movt	r3, #0
+  cc:	f240 0200 	movw	r2, #0
+  d0:	f2c0 0200 	movt	r2, #0
+  d4:	8812      	ldrh	r2, [r2, #0]
+  d6:	b211      	sxth	r1, r2
+  d8:	f240 0200 	movw	r2, #0
+  dc:	f2c0 0200 	movt	r2, #0
+  e0:	8812      	ldrh	r2, [r2, #0]
+  e2:	b212      	sxth	r2, r2
+  e4:	f04f 0008 	mov.w	r0, #8
+  e8:	9000      	str	r0, [sp, #0]
+  ea:	4618      	mov	r0, r3
+  ec:	f04f 0308 	mov.w	r3, #8
+  f0:	47a0      	blx	r4
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:765
+    return 0;
+  f2:	f04f 0300 	mov.w	r3, #0
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:766
+}
+  f6:	4618      	mov	r0, r3
+  f8:	f107 070c 	add.w	r7, r7, #12
+  fc:	46bd      	mov	sp, r7
+  fe:	bd90      	pop	{r4, r7, pc}
+
+Disassembly of section .text.draw_barrier:
+
+00000000 <draw_barrier>:
+draw_barrier():
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:774
+* Description    : Draws the barriers. Only executed one in application_ini()
+* Input          : barrier_col (column of barriers (incremented in 
+*                  application_ini()))
+* Return         : 0
+*******************************************************************************/
+int draw_barrier(int barrier_col){
+   0:	b590      	push	{r4, r7, lr}
+   2:	b087      	sub	sp, #28
+   4:	af02      	add	r7, sp, #8
+   6:	6078      	str	r0, [r7, #4]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:776
+    
+    for(barrier_col = 0; barrier_col < 4; barrier_col++){
+   8:	f04f 0300 	mov.w	r3, #0
+   c:	60fb      	str	r3, [r7, #12]
+   e:	e044      	b.n	9a <draw_barrier+0x9a>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:777
+        tot_barrier_x = BARRIER_START_X + (barrier_col*DISTANCE_BETWEEN_BARRIERS);
+  10:	68fa      	ldr	r2, [r7, #12]
+  12:	4613      	mov	r3, r2
+  14:	ea4f 0343 	mov.w	r3, r3, lsl #1
+  18:	189b      	adds	r3, r3, r2
+  1a:	ea4f 1343 	mov.w	r3, r3, lsl #5
+  1e:	461a      	mov	r2, r3
+  20:	f245 5356 	movw	r3, #21846	; 0x5556
+  24:	f2c5 5355 	movt	r3, #21845	; 0x5555
+  28:	fb83 0102 	smull	r0, r1, r3, r2
+  2c:	ea4f 73e2 	mov.w	r3, r2, asr #31
+  30:	1acb      	subs	r3, r1, r3
+  32:	b29b      	uxth	r3, r3
+  34:	f103 030a 	add.w	r3, r3, #10
+  38:	b29b      	uxth	r3, r3
+  3a:	b29a      	uxth	r2, r3
+  3c:	f240 0300 	movw	r3, #0
+  40:	f2c0 0300 	movt	r3, #0
+  44:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:778
+        tot_barrier_y = BARRIER_START_Y;
+  46:	f240 0300 	movw	r3, #0
+  4a:	f2c0 0300 	movt	r3, #0
+  4e:	f04f 0217 	mov.w	r2, #23
+  52:	801a      	strh	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:779
+        DRAW_SetImage(barrier, tot_barrier_x, tot_barrier_y, BARRIER_WIDTH, BARRIER_HEIGHT);
+  54:	f240 0300 	movw	r3, #0
+  58:	f2c0 0300 	movt	r3, #0
+  5c:	681b      	ldr	r3, [r3, #0]
+  5e:	f8d3 3088 	ldr.w	r3, [r3, #136]	; 0x88
+  62:	461c      	mov	r4, r3
+  64:	f240 0300 	movw	r3, #0
+  68:	f2c0 0300 	movt	r3, #0
+  6c:	f240 0200 	movw	r2, #0
+  70:	f2c0 0200 	movt	r2, #0
+  74:	8812      	ldrh	r2, [r2, #0]
+  76:	b211      	sxth	r1, r2
+  78:	f240 0200 	movw	r2, #0
+  7c:	f2c0 0200 	movt	r2, #0
+  80:	8812      	ldrh	r2, [r2, #0]
+  82:	b212      	sxth	r2, r2
+  84:	f04f 0008 	mov.w	r0, #8
+  88:	9000      	str	r0, [sp, #0]
+  8a:	4618      	mov	r0, r3
+  8c:	f04f 030c 	mov.w	r3, #12
+  90:	47a0      	blx	r4
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:776
+*                  application_ini()))
+* Return         : 0
+*******************************************************************************/
+int draw_barrier(int barrier_col){
+    
+    for(barrier_col = 0; barrier_col < 4; barrier_col++){
+  92:	68fb      	ldr	r3, [r7, #12]
+  94:	f103 0301 	add.w	r3, r3, #1
+  98:	60fb      	str	r3, [r7, #12]
+  9a:	68fb      	ldr	r3, [r7, #12]
+  9c:	2b03      	cmp	r3, #3
+  9e:	ddb7      	ble.n	10 <draw_barrier+0x10>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:783
+        tot_barrier_y = BARRIER_START_Y;
+        DRAW_SetImage(barrier, tot_barrier_x, tot_barrier_y, BARRIER_WIDTH, BARRIER_HEIGHT);
+    }
+    
+    
+}
+  a0:	4618      	mov	r0, r3
+  a2:	f107 0714 	add.w	r7, r7, #20
+  a6:	46bd      	mov	sp, r7
+  a8:	bd90      	pop	{r4, r7, pc}
+  aa:	bf00      	nop
+
+Disassembly of section .text.update_man:
+
+00000000 <update_man>:
+update_man():
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:792
+* Description    : Checks if the conditions for movement are ok; if so, moves
+*                  man in correct direction; else, does nothing. 
+* Input          : Current_MEMS_X
+* Return         : 0
+*******************************************************************************/
+int update_man(int Current_MEMS_X){
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:794
+                   
+    if (lim_check_right(Current_MEMS_X)){
+   8:	6878      	ldr	r0, [r7, #4]
+   a:	f7ff fffe 	bl	0 <update_man>
+   e:	4603      	mov	r3, r0
+  10:	2b00      	cmp	r3, #0
+  12:	d001      	beq.n	18 <update_man+0x18>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:795
+        man_move_right();
+  14:	f7ff fffe 	bl	0 <update_man>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:797
+    }
+    if (lim_check_left(Current_MEMS_X)){
+  18:	6878      	ldr	r0, [r7, #4]
+  1a:	f7ff fffe 	bl	0 <update_man>
+  1e:	4603      	mov	r3, r0
+  20:	2b00      	cmp	r3, #0
+  22:	d002      	beq.n	2a <update_man+0x2a>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:798
+        man_move_left();
+  24:	f7ff fffe 	bl	0 <update_man>
+  28:	e001      	b.n	6 <update_man+0x6>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:800
+    }else{
+        draw_man();
+  2a:	f7ff fffe 	bl	0 <update_man>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:802
+    }
+}
+  2e:	4618      	mov	r0, r3
+  30:	f107 0708 	add.w	r7, r7, #8
+  34:	46bd      	mov	sp, r7
+  36:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text.man_move_right:
+
+00000000 <man_move_right>:
+man_move_right():
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:812
+* Description    : Re-draws the man one pixel to the right of current position
+* Input          : x, y (x and y positions of man)
+* Return         : 0
+*******************************************************************************/
+int man_move_right()
+{
+   0:	b580      	push	{r7, lr}
+   2:	af00      	add	r7, sp, #0
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:813
+    x = x + 1;
+   4:	f240 0300 	movw	r3, #0
+   8:	f2c0 0300 	movt	r3, #0
+   c:	681b      	ldr	r3, [r3, #0]
+   e:	f103 0201 	add.w	r2, r3, #1
+  12:	f240 0300 	movw	r3, #0
+  16:	f2c0 0300 	movt	r3, #0
+  1a:	601a      	str	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:814
+    draw_man();
+  1c:	f7ff fffe 	bl	0 <man_move_right>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:815
+    return 0;
+  20:	f04f 0300 	mov.w	r3, #0
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:816
+}
+  24:	4618      	mov	r0, r3
+  26:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text.man_move_left:
+
+00000000 <man_move_left>:
+man_move_left():
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:825
+* Description    : Re-draws the man one pixel to the left of current position
+* Input          : x
+* Return         : 0
+*******************************************************************************/
+int man_move_left()
+{
+   0:	b580      	push	{r7, lr}
+   2:	af00      	add	r7, sp, #0
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:826
+    x = x - 1;
+   4:	f240 0300 	movw	r3, #0
+   8:	f2c0 0300 	movt	r3, #0
+   c:	681b      	ldr	r3, [r3, #0]
+   e:	f103 32ff 	add.w	r2, r3, #4294967295
+  12:	f240 0300 	movw	r3, #0
+  16:	f2c0 0300 	movt	r3, #0
+  1a:	601a      	str	r2, [r3, #0]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:827
+    draw_man();
+  1c:	f7ff fffe 	bl	0 <man_move_left>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:828
+    return 0;
+  20:	f04f 0300 	mov.w	r3, #0
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:829
+}
+  24:	4618      	mov	r0, r3
+  26:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text.draw_man:
+
+00000000 <draw_man>:
+draw_man():
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:838
+* Description    : Draws the moving man with updated position.  
+* Input          : x, y (x and y positions of man)
+* Return         : 0
+*******************************************************************************/
+int draw_man()
+{
+   0:	b590      	push	{r4, r7, lr}
+   2:	b083      	sub	sp, #12
+   4:	af02      	add	r7, sp, #8
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:839
+    LCD_DrawRect(x - 1, y - 1, MAN_WIDTH + 2, MAN_HEIGHT + 2, RGB_BLACK);
+   6:	f240 0300 	movw	r3, #0
+   a:	f2c0 0300 	movt	r3, #0
+   e:	681b      	ldr	r3, [r3, #0]
+  10:	f8d3 311c 	ldr.w	r3, [r3, #284]	; 0x11c
+  14:	461c      	mov	r4, r3
+  16:	f240 0300 	movw	r3, #0
+  1a:	f2c0 0300 	movt	r3, #0
+  1e:	681b      	ldr	r3, [r3, #0]
+  20:	f103 33ff 	add.w	r3, r3, #4294967295
+  24:	461a      	mov	r2, r3
+  26:	f240 0300 	movw	r3, #0
+  2a:	f2c0 0300 	movt	r3, #0
+  2e:	681b      	ldr	r3, [r3, #0]
+  30:	f103 33ff 	add.w	r3, r3, #4294967295
+  34:	f04f 0100 	mov.w	r1, #0
+  38:	9100      	str	r1, [sp, #0]
+  3a:	4610      	mov	r0, r2
+  3c:	4619      	mov	r1, r3
+  3e:	f04f 020b 	mov.w	r2, #11
+  42:	f04f 0307 	mov.w	r3, #7
+  46:	47a0      	blx	r4
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:840
+    DRAW_SetImage(man, x, y, MAN_WIDTH, MAN_HEIGHT);
+  48:	f240 0300 	movw	r3, #0
+  4c:	f2c0 0300 	movt	r3, #0
+  50:	681b      	ldr	r3, [r3, #0]
+  52:	f8d3 3088 	ldr.w	r3, [r3, #136]	; 0x88
+  56:	461c      	mov	r4, r3
+  58:	f240 0300 	movw	r3, #0
+  5c:	f2c0 0300 	movt	r3, #0
+  60:	f240 0200 	movw	r2, #0
+  64:	f2c0 0200 	movt	r2, #0
+  68:	6812      	ldr	r2, [r2, #0]
+  6a:	4611      	mov	r1, r2
+  6c:	f240 0200 	movw	r2, #0
+  70:	f2c0 0200 	movt	r2, #0
+  74:	6812      	ldr	r2, [r2, #0]
+  76:	f04f 0005 	mov.w	r0, #5
+  7a:	9000      	str	r0, [sp, #0]
+  7c:	4618      	mov	r0, r3
+  7e:	f04f 0309 	mov.w	r3, #9
+  82:	47a0      	blx	r4
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:841
+    return 0;
+  84:	f04f 0300 	mov.w	r3, #0
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:842
+}
+  88:	4618      	mov	r0, r3
+  8a:	f107 0704 	add.w	r7, r7, #4
+  8e:	46bd      	mov	sp, r7
+  90:	bd90      	pop	{r4, r7, pc}
+  92:	bf00      	nop
+
+Disassembly of section .text.lim_check_right:
+
+00000000 <lim_check_right>:
+lim_check_right():
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:850
+* Function Name  : lim_check_right
+* Description    : Checks if MEMS data is within range. Also checks boundaries. 
+* Input          : Current_MEMS_X (int)
+* Return         : 1 if MEMS > MIN_TILT_RIGHT, else 0.
+*******************************************************************************/
+int lim_check_right(int Current_MEMS_X){
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:851
+    if ((x < (SCREEN_WIDTH - (5 + MAN_WIDTH))) && (Current_MEMS_X > 0 && Current_MEMS_X > MIN_TILT_RIGHT) ){
+   8:	f240 0300 	movw	r3, #0
+   c:	f2c0 0300 	movt	r3, #0
+  10:	681b      	ldr	r3, [r3, #0]
+  12:	2b71      	cmp	r3, #113	; 0x71
+  14:	dc08      	bgt.n	28 <lim_check_right+0x28>
+  16:	687b      	ldr	r3, [r7, #4]
+  18:	2b00      	cmp	r3, #0
+  1a:	dd05      	ble.n	28 <lim_check_right+0x28>
+  1c:	687b      	ldr	r3, [r7, #4]
+  1e:	2b32      	cmp	r3, #50	; 0x32
+  20:	dd02      	ble.n	28 <lim_check_right+0x28>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:852
+        return 1;
+  22:	f04f 0301 	mov.w	r3, #1
+  26:	e001      	b.n	2c <lim_check_right+0x2c>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:854
+    }else{
+        return 0;
+  28:	f04f 0300 	mov.w	r3, #0
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:856
+    }
+}
+  2c:	4618      	mov	r0, r3
+  2e:	f107 070c 	add.w	r7, r7, #12
+  32:	46bd      	mov	sp, r7
+  34:	bc80      	pop	{r7}
+  36:	4770      	bx	lr
+
+Disassembly of section .text.lim_check_left:
+
+00000000 <lim_check_left>:
+lim_check_left():
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:864
+* Function Name  : lim_check_left
+* Description    : Checks if MEMS data is within range. Also checks boundaries. 
+* Input          : Current_MEMS_X (int)
+* Return         : 1 if MEMS > MIN_TILT_LEFT, else 0.
+*******************************************************************************/
+int lim_check_left(int Current_MEMS_X){
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:865
+    if ((x > 5) && (Current_MEMS_X < 0 && Current_MEMS_X < MIN_TILT_LEFT) ){
+   8:	f240 0300 	movw	r3, #0
+   c:	f2c0 0300 	movt	r3, #0
+  10:	681b      	ldr	r3, [r3, #0]
+  12:	2b05      	cmp	r3, #5
+  14:	dd09      	ble.n	2a <lim_check_left+0x2a>
+  16:	687b      	ldr	r3, [r7, #4]
+  18:	2b00      	cmp	r3, #0
+  1a:	da06      	bge.n	2a <lim_check_left+0x2a>
+  1c:	687b      	ldr	r3, [r7, #4]
+  1e:	f113 0f32 	cmn.w	r3, #50	; 0x32
+  22:	da02      	bge.n	2a <lim_check_left+0x2a>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:866
+        return 1;
+  24:	f04f 0301 	mov.w	r3, #1
+  28:	e001      	b.n	2e <lim_check_left+0x2e>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:868
+    }else{
+        return 0;
+  2a:	f04f 0300 	mov.w	r3, #0
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:870
+    }
+}
+  2e:	4618      	mov	r0, r3
+  30:	f107 070c 	add.w	r7, r7, #12
+  34:	46bd      	mov	sp, r7
+  36:	bc80      	pop	{r7}
+  38:	4770      	bx	lr
+  3a:	bf00      	nop
+
+Disassembly of section .text.MsgVersion:
+
+00000000 <MsgVersion>:
+MsgVersion():
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:880
+*                  exit to main menu after 4 seconds
+* Input          : None
+* Return         : MENU_REFRESH
+*******************************************************************************/
+static enum MENU_code MsgVersion(void)
+    {
+   0:	b590      	push	{r4, r7, lr}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:883
+    u8 hh, mm, ss, ss2;
+
+    DRAW_DisplayString( 5,  60, "CircleOS", 17 );
+   6:	f240 0300 	movw	r3, #0
+   a:	f2c0 0300 	movt	r3, #0
+   e:	681b      	ldr	r3, [r3, #0]
+  10:	f8d3 309c 	ldr.w	r3, [r3, #156]	; 0x9c
+  14:	461c      	mov	r4, r3
+  16:	f240 0300 	movw	r3, #0
+  1a:	f2c0 0300 	movt	r3, #0
+  1e:	f04f 0005 	mov.w	r0, #5
+  22:	f04f 013c 	mov.w	r1, #60	; 0x3c
+  26:	461a      	mov	r2, r3
+  28:	f04f 0311 	mov.w	r3, #17
+  2c:	47a0      	blx	r4
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:884
+    DRAW_DisplayString( 80, 60, UTIL_GetVersion(), 6 );
+  2e:	f240 0300 	movw	r3, #0
+  32:	f2c0 0300 	movt	r3, #0
+  36:	681b      	ldr	r3, [r3, #0]
+  38:	f8d3 309c 	ldr.w	r3, [r3, #156]	; 0x9c
+  3c:	461c      	mov	r4, r3
+  3e:	f240 0300 	movw	r3, #0
+  42:	f2c0 0300 	movt	r3, #0
+  46:	681b      	ldr	r3, [r3, #0]
+  48:	f8d3 32d0 	ldr.w	r3, [r3, #720]	; 0x2d0
+  4c:	4798      	blx	r3
+  4e:	4603      	mov	r3, r0
+  50:	f04f 0050 	mov.w	r0, #80	; 0x50
+  54:	f04f 013c 	mov.w	r1, #60	; 0x3c
+  58:	461a      	mov	r2, r3
+  5a:	f04f 0306 	mov.w	r3, #6
+  5e:	47a0      	blx	r4
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:885
+    DRAW_DisplayString( 5,  34, NEEDEDVERSION, 6 );
+  60:	f240 0300 	movw	r3, #0
+  64:	f2c0 0300 	movt	r3, #0
+  68:	681b      	ldr	r3, [r3, #0]
+  6a:	f8d3 309c 	ldr.w	r3, [r3, #156]	; 0x9c
+  6e:	461c      	mov	r4, r3
+  70:	f240 0300 	movw	r3, #0
+  74:	f2c0 0300 	movt	r3, #0
+  78:	f04f 0005 	mov.w	r0, #5
+  7c:	f04f 0122 	mov.w	r1, #34	; 0x22
+  80:	461a      	mov	r2, r3
+  82:	f04f 0306 	mov.w	r3, #6
+  86:	47a0      	blx	r4
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:886
+    DRAW_DisplayString( 50, 34, " required", 12 );
+  88:	f240 0300 	movw	r3, #0
+  8c:	f2c0 0300 	movt	r3, #0
+  90:	681b      	ldr	r3, [r3, #0]
+  92:	f8d3 309c 	ldr.w	r3, [r3, #156]	; 0x9c
+  96:	461c      	mov	r4, r3
+  98:	f240 0300 	movw	r3, #0
+  9c:	f2c0 0300 	movt	r3, #0
+  a0:	f04f 0032 	mov.w	r0, #50	; 0x32
+  a4:	f04f 0122 	mov.w	r1, #34	; 0x22
+  a8:	461a      	mov	r2, r3
+  aa:	f04f 030c 	mov.w	r3, #12
+  ae:	47a0      	blx	r4
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:888
+
+    RTC_GetTime( &hh, &mm, &ss );
+  b0:	f240 0300 	movw	r3, #0
+  b4:	f2c0 0300 	movt	r3, #0
+  b8:	681b      	ldr	r3, [r3, #0]
+  ba:	f8d3 3304 	ldr.w	r3, [r3, #772]	; 0x304
+  be:	f107 0007 	add.w	r0, r7, #7
+  c2:	f107 0106 	add.w	r1, r7, #6
+  c6:	f107 0205 	add.w	r2, r7, #5
+  ca:	4798      	blx	r3
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:889
+    ss = ss + 4;
+  cc:	797b      	ldrb	r3, [r7, #5]
+  ce:	f103 0304 	add.w	r3, r3, #4
+  d2:	b2db      	uxtb	r3, r3
+  d4:	717b      	strb	r3, [r7, #5]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:890
+    ss = ss % 60;
+  d6:	797a      	ldrb	r2, [r7, #5]
+  d8:	f648 0389 	movw	r3, #34953	; 0x8889
+  dc:	f6c8 0388 	movt	r3, #34952	; 0x8888
+  e0:	fba3 1302 	umull	r1, r3, r3, r2
+  e4:	ea4f 1153 	mov.w	r1, r3, lsr #5
+  e8:	460b      	mov	r3, r1
+  ea:	ea4f 1303 	mov.w	r3, r3, lsl #4
+  ee:	1a5b      	subs	r3, r3, r1
+  f0:	ea4f 0383 	mov.w	r3, r3, lsl #2
+  f4:	1ad3      	subs	r3, r2, r3
+  f6:	b2db      	uxtb	r3, r3
+  f8:	717b      	strb	r3, [r7, #5]
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:894
+
+    do
+        {
+        RTC_GetTime( &hh, &mm, &ss2 );
+  fa:	f240 0300 	movw	r3, #0
+  fe:	f2c0 0300 	movt	r3, #0
+ 102:	681b      	ldr	r3, [r3, #0]
+ 104:	f8d3 3304 	ldr.w	r3, [r3, #772]	; 0x304
+ 108:	f107 0007 	add.w	r0, r7, #7
+ 10c:	f107 0106 	add.w	r1, r7, #6
+ 110:	f107 0204 	add.w	r2, r7, #4
+ 114:	4798      	blx	r3
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:896
+        }
+    while ( ss2 != ss );           // do while < 4 seconds
+ 116:	793a      	ldrb	r2, [r7, #4]
+ 118:	797b      	ldrb	r3, [r7, #5]
+ 11a:	429a      	cmp	r2, r3
+ 11c:	d1ed      	bne.n	fa <MsgVersion+0xfa>
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:898
+
+    DRAW_Clear();
+ 11e:	f240 0300 	movw	r3, #0
+ 122:	f2c0 0300 	movt	r3, #0
+ 126:	681b      	ldr	r3, [r3, #0]
+ 128:	f8d3 3084 	ldr.w	r3, [r3, #132]	; 0x84
+ 12c:	4798      	blx	r3
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:899
+    return MENU_REFRESH;
+ 12e:	f04f 0302 	mov.w	r3, #2
+C:\Users\TOM\Desktop\SpaceInvaders/Application.c:900
+    }
+ 132:	4618      	mov	r0, r3
+ 134:	f107 070c 	add.w	r7, r7, #12
+ 138:	46bd      	mov	sp, r7
+ 13a:	bd90      	pop	{r4, r7, pc}

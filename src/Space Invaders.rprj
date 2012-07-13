@@ -1,0 +1,4 @@
+
+<Project Header="Project 'Space Invaders'" Path=".\Space Invaders.rprj" Project="Yes" AsyncBuild="" OutputFile="" sate="96" ActiveApp="Space Invaders" >
+	<ApplicationBuild Header="Space Invaders" Extern=".\Space Invaders.rapp" Path=".\Space Invaders.rapp" AsyncBuild="" OutputFile=".\objdebug\Space Invaders.elf" sate="96" Config="Circle_Debug" />
+</Project>

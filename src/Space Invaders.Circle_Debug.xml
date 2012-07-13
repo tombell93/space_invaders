@@ -1,0 +1,241 @@
+<!-- DWF2XML 2.00.01 - Raisonance Dwarf information extractor -->
+<aoffile Filename="Space Invaders" dwarf="1">
+ <modulelist>
+  <module Name="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" >
+   <type Family="Base" Name="signed char" ID="41"/>
+   <type Family="Base" Name="unsigned char" ID="59"/>
+   <type Family="typedef" Name="uint8_t" Line="42" ID="48" toTI="59"/>
+   <type Family="Base" Name="short int" ID="77"/>
+   <type Family="typedef" Name="int16_t" Line="53" ID="66" toTI="77"/>
+   <type Family="Base" Name="short unsigned int" ID="95"/>
+   <type Family="typedef" Name="uint16_t" Line="54" ID="84" toTI="95"/>
+   <type Family="Base" Name="long int" ID="113"/>
+   <type Family="typedef" Name="int32_t" Line="79" ID="102" toTI="113"/>
+   <type Family="Base" Name="long unsigned int" ID="131"/>
+   <type Family="typedef" Name="uint32_t" Line="80" ID="120" toTI="131"/>
+   <type Family="Base" Name="long long int" ID="138"/>
+   <type Family="Base" Name="long long unsigned int" ID="145"/>
+   <type Family="Base" Name="int" ID="152"/>
+   <type Family="Base" Name="unsigned int" ID="159"/>
+   <type Family="typedef" Name="s32" Line="22" ID="166" toTI="102"/>
+   <type Family="typedef" Name="s16" Line="23" ID="177" toTI="66"/>
+   <type Family="typedef" Name="u32" Line="38" ID="188" toTI="120"/>
+   <type Family="typedef" Name="u16" Line="39" ID="199" toTI="84"/>
+   <type Family="typedef" Name="u8" Line="40" ID="210" toTI="48"/>
+   <type Family="typedef" Name="bool" Line="57" ID="241" toTI="220"/>
+   <type Family="Pointer" TI="284" toTI="290"/>
+   <type Family="typedef" Name="tCircleFunc0" Line="110" ID="273" toTI="284"/>
+   <type Family="Pointer" TI="307" toTI="313"/>
+   <type Family="typedef" Name="tCircleFunc1" Line="111" ID="296" toTI="307"/>
+   <type Family="Pointer" TI="340" toTI="346"/>
+   <type Family="typedef" Name="tCircleFunc2" Line="112" ID="329" toTI="340"/>
+   <type Family="Pointer" TI="378" toTI="384"/>
+   <type Family="typedef" Name="tCircleFunc3" Line="113" ID="367" toTI="378"/>
+   <type Family="Pointer" TI="421" toTI="427"/>
+   <type Family="typedef" Name="tCircleFunc4" Line="114" ID="410" toTI="421"/>
+   <type Family="Pointer" TI="469" toTI="475"/>
+   <type Family="typedef" Name="tCircleFunc5" Line="115" ID="458" toTI="469"/>
+   <type Family="Pointer" TI="522" toTI="528"/>
+   <type Family="typedef" Name="tCircleFunc6" Line="116" ID="511" toTI="522"/>
+   <type Family="ComponentList" Line="208" ID="569">
+    <Component Name="OutX" TI="577" Line="210" Offs="0"/>
+    <Component Name="OutX_F4" TI="591" Line="211" Offs="2"/>
+    <Component Name="OutX_F16" TI="605" Line="212" Offs="4"/>
+    <Component Name="OutX_F64" TI="619" Line="213" Offs="8"/>
+    <Component Name="OutX_F256" TI="633" Line="214" Offs="12"/>
+    <Component Name="OutY" TI="647" Line="215" Offs="16"/>
+    <Component Name="OutY_F4" TI="661" Line="216" Offs="18"/>
+    <Component Name="OutY_F16" TI="675" Line="217" Offs="20"/>
+    <Component Name="OutY_F64" TI="689" Line="218" Offs="24"/>
+    <Component Name="OutY_F256" TI="703" Line="219" Offs="28"/>
+    <Component Name="OutZ" TI="717" Line="220" Offs="32"/>
+    <Component Name="OutZ_F4" TI="731" Line="221" Offs="34"/>
+    <Component Name="OutZ_F16" TI="745" Line="222" Offs="36"/>
+    <Component Name="OutZ_F64" TI="759" Line="223" Offs="40"/>
+    <Component Name="OutZ_F256" TI="773" Line="224" Offs="44"/>
+    <Component Name="Shocked" TI="787" Line="225" Offs="48"/>
+    <Component Name="RELATIVE_X" TI="801" Line="226" Offs="50"/>
+    <Component Name="RELATIVE_Y" TI="815" Line="227" Offs="52"/>
+    <Component Name="DoubleClick" TI="829" Line="228" Offs="54"/>
+   </type>
+   <type Family="typedef" Name="tMEMS_Info" Line="229" ID="844" toTI="569"/>
+   <type Family="ComponentList" Name="alien" Line="54" ID="1035">
+    <Component Name="alive" TI="1047" Line="55" Offs="0"/>
+    <Component Name="alien_pos_x" TI="1061" Line="56" Offs="2"/>
+    <Component Name="alien_pos_y" TI="1075" Line="57" Offs="4"/>
+   </type>
+   <type Family="Base" Name="char" ID="1090"/>
+   <function Name="Application_Ini" TI="979" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="53">
+    <variable Name="barrier_col" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="69" Addr="0x1C000004" TI="152"/>
+   </function >
+   <function Name="Application_Handler" TI="979" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="85">
+    <variable Name="clk" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="87" Addr="0x200005F4" TI="152"/>
+    <variable Name="Current_MEMS_X" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="88" Addr="0x1C000006" TI="177"/>
+    <variable Name="delta" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="88" Addr="0x1C000004" TI="177"/>
+   </function >
+   <function Name="splash_scrn" TI="152" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="168">
+    <variable Name="clk_splash" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="171" Addr="0x1C000004" TI="152"/>
+   </function >
+   <function Name="alien_shoot_speed" TI="152" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="184">
+   </function >
+   <function Name="alien_translate_speed" TI="152" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="199">
+   </function >
+   <function Name="update_score_lives" TI="152" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="214">
+   </function >
+   <function Name="show_score" TI="152" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="240">
+   </function >
+   <function Name="show_lives" TI="152" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="253">
+   </function >
+   <function Name="check_quit" TI="152" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="276">
+   </function >
+   <function Name="reset_alien_bullet" TI="152" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="291">
+   </function >
+   <function Name="update_alien_bullet" TI="152" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="307">
+   </function >
+   <function Name="random_alien_attack" TI="152" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="325">
+    <parameter Name="clk" TI="152" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="325" Addr="0x1C000004" Param="Yes"/>
+   </function >
+   <function Name="alien_fire_draw" TI="152" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="347">
+   </function >
+   <function Name="check_speed" TI="152" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="361">
+    <parameter Name="Current_MEMS_X" TI="152" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="361" Addr="0x1C000004" Param="Yes"/>
+   </function >
+   <function Name="check_all_aliens_killed" TI="152" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="381">
+   </function >
+   <function Name="reset_alien_array" TI="152" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="408">
+   </function >
+   <function Name="game_over" TI="152" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="423">
+   </function >
+   <function Name="check_dead_columns_left" TI="152" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="444">
+   </function >
+   <function Name="check_dead_columns_right" TI="152" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="469">
+   </function >
+   <function Name="check_rows" TI="152" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="483">
+   </function >
+   <function Name="alien_translate" TI="152" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="511">
+   </function >
+   <function Name="reposition_aliens" TI="152" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="553">
+   </function >
+   <function Name="check_alien_bullet_man_collision" TI="152" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="569">
+   </function >
+   <function Name="check_barrier_collision" TI="152" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="586">
+   </function >
+   <function Name="check_alien_bullet_barrier_collision" TI="152" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="602">
+   </function >
+   <function Name="check_destroy" TI="152" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="617">
+   </function >
+   <function Name="reset_bullet" TI="152" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="647">
+   </function >
+   <function Name="compare_distance" TI="152" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="663">
+    <parameter Name="alien_col" TI="152" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="663" Addr="0x1C000004" Param="Yes"/>
+    <parameter Name="alien_row" TI="152" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="663" Addr="0x1C000000" Param="Yes"/>
+   </function >
+   <function Name="alien_die" TI="152" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="691">
+    <parameter Name="alien_col" TI="152" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="691" Addr="0x1C000004" Param="Yes"/>
+    <parameter Name="alien_row" TI="152" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="691" Addr="0x1C000000" Param="Yes"/>
+   </function >
+   <function Name="fire" TI="152" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="706">
+   </function >
+   <function Name="update_bullet" TI="152" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="721">
+   </function >
+   <function Name="alien_display" TI="152" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="740">
+   </function >
+   <function Name="draw_alien" TI="152" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="758">
+    <parameter Name="alien_col" TI="152" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="758" Addr="0x1C000004" Param="Yes"/>
+    <parameter Name="alien_row" TI="152" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="758" Addr="0x1C000000" Param="Yes"/>
+   </function >
+   <function Name="draw_barrier" TI="152" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="774">
+    <parameter Name="barrier_col" TI="152" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="774" Addr="0x1C000004" Param="Yes"/>
+   </function >
+   <function Name="update_man" TI="152" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="792">
+    <parameter Name="Current_MEMS_X" TI="152" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="792" Addr="0x1C000004" Param="Yes"/>
+   </function >
+   <function Name="man_move_right" TI="152" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="811">
+   </function >
+   <function Name="man_move_left" TI="152" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="824">
+   </function >
+   <function Name="draw_man" TI="152" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="837">
+   </function >
+   <function Name="lim_check_right" TI="152" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="850">
+    <parameter Name="Current_MEMS_X" TI="152" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="850" Addr="0x1C000004" Param="Yes"/>
+   </function >
+   <function Name="lim_check_left" TI="152" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="864">
+    <parameter Name="Current_MEMS_X" TI="152" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="864" Addr="0x1C000004" Param="Yes"/>
+   </function >
+   <function Name="MsgVersion" TI="979" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="879">
+    <variable Name="hh" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="881" Addr="0x1C000007" TI="210"/>
+    <variable Name="mm" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="881" Addr="0x1C000006" TI="210"/>
+    <variable Name="ss" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="881" Addr="0x1C000005" TI="210"/>
+    <variable Name="ss2" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="881" Addr="0x1C000004" TI="210"/>
+   </function >
+   <type Family="array" ID="3784" toTI="273"/>
+   <type Family="Pointer" TI="3808" toTI="3784"/>
+   <type Family="array" ID="3875" toTI="1035"/>
+   <type Family="array" ID="4261" toTI="1090"/>
+   <type Family="array" ID="4290" toTI="1090"/>
+   <type Family="array" ID="4358" toTI="199"/>
+   <variable Name="splash" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="13" Addr="0x80099C4" TI="4392"/>
+   <type Family="array" ID="4397" toTI="199"/>
+   <variable Name="alien1" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="17" Addr="0x80119C4" TI="4430"/>
+   <type Family="array" ID="4435" toTI="199"/>
+   <variable Name="barrier" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="21" Addr="0x8011A44" TI="4468"/>
+   <type Family="array" ID="4473" toTI="199"/>
+   <variable Name="man" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="25" Addr="0x8011B04" TI="4506"/>
+   <type Family="array" ID="4511" toTI="199"/>
+   <variable Name="score_img" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="29" Addr="0x8011B60" TI="4545"/>
+   <type Family="array" ID="4550" toTI="199"/>
+   <variable Name="lives_img" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="33" Addr="0x8011D6C" TI="4584"/>
+   <type Family="array" ID="4589" toTI="199"/>
+   <variable Name="man_lives_img" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="37" Addr="0x8011F88" TI="4622"/>
+   <variable Name="gameOver" FileName="C:\Users\TOM\Desktop\SpaceInvaders\Application.c" Line="41" Addr="0x8011FD0" TI="4644"/>
+   <variable Name="alien_col" FileName="C:\Users\TOM\Desktop\SpaceInvaders\definitions.h" Line="41" Addr="0x200005A4" TI="152"/>
+   <variable Name="alien_row" FileName="C:\Users\TOM\Desktop\SpaceInvaders\definitions.h" Line="42" Addr="0x200005A8" TI="152"/>
+   <variable Name="alien_x" FileName="C:\Users\TOM\Desktop\SpaceInvaders\definitions.h" Line="43" Addr="0x200005AC" TI="152"/>
+   <variable Name="alien_y" FileName="C:\Users\TOM\Desktop\SpaceInvaders\definitions.h" Line="44" Addr="0x200005B0" TI="152"/>
+   <variable Name="y" FileName="C:\Users\TOM\Desktop\SpaceInvaders\definitions.h" Line="47" Addr="0x20000000" TI="152"/>
+   <variable Name="x" FileName="C:\Users\TOM\Desktop\SpaceInvaders\definitions.h" Line="48" Addr="0x20000004" TI="152"/>
+   <type Family="array" ID="4766" toTI="1090"/>
+   <variable Name="Application_Name" FileName="C:\Users\TOM\Desktop\SpaceInvaders\definitions.h" Line="51" Addr="0x80099B8" TI="4800"/>
+   <variable Name="Initial_MEMS_X" FileName="C:\Users\TOM\Desktop\SpaceInvaders\definitions.h" Line="52" Addr="0x20000634" TI="177"/>
+   <variable Name="alien_array" FileName="C:\Users\TOM\Desktop\SpaceInvaders\definitions.h" Line="65" Addr="0x20000008" TI="3875"/>
+   <variable Name="tot_x" FileName="C:\Users\TOM\Desktop\SpaceInvaders\definitions.h" Line="71" Addr="0x200005B4" TI="77"/>
+   <variable Name="tot_y" FileName="C:\Users\TOM\Desktop\SpaceInvaders\definitions.h" Line="72" Addr="0x200005B6" TI="77"/>
+   <variable Name="man_speed" FileName="C:\Users\TOM\Desktop\SpaceInvaders\definitions.h" Line="73" Addr="0x20000640" TI="77"/>
+   <variable Name="alien_translation_x" FileName="C:\Users\TOM\Desktop\SpaceInvaders\definitions.h" Line="74" Addr="0x200005B8" TI="77"/>
+   <variable Name="alien_translation_y" FileName="C:\Users\TOM\Desktop\SpaceInvaders\definitions.h" Line="75" Addr="0x200005BA" TI="77"/>
+   <variable Name="barrier_col" FileName="C:\Users\TOM\Desktop\SpaceInvaders\definitions.h" Line="76" Addr="0x200005BC" TI="77"/>
+   <variable Name="tot_barrier_x" FileName="C:\Users\TOM\Desktop\SpaceInvaders\definitions.h" Line="77" Addr="0x200005BE" TI="77"/>
+   <variable Name="tot_barrier_y" FileName="C:\Users\TOM\Desktop\SpaceInvaders\definitions.h" Line="78" Addr="0x200005C0" TI="77"/>
+   <variable Name="bullet_translation" FileName="C:\Users\TOM\Desktop\SpaceInvaders\definitions.h" Line="79" Addr="0x200005C2" TI="77"/>
+   <variable Name="bullet_init_x" FileName="C:\Users\TOM\Desktop\SpaceInvaders\definitions.h" Line="80" Addr="0x200005C4" TI="77"/>
+   <variable Name="bullet_init_y" FileName="C:\Users\TOM\Desktop\SpaceInvaders\definitions.h" Line="81" Addr="0x200005C6" TI="77"/>
+   <variable Name="bullet_active" FileName="C:\Users\TOM\Desktop\SpaceInvaders\definitions.h" Line="82" Addr="0x200005C8" TI="77"/>
+   <variable Name="centre_coord_bullet_x" FileName="C:\Users\TOM\Desktop\SpaceInvaders\definitions.h" Line="83" Addr="0x2000063C" TI="77"/>
+   <variable Name="centre_coord_bullet_y" FileName="C:\Users\TOM\Desktop\SpaceInvaders\definitions.h" Line="84" Addr="0x20000648" TI="77"/>
+   <variable Name="centre_coord_alien_x" FileName="C:\Users\TOM\Desktop\SpaceInvaders\definitions.h" Line="85" Addr="0x2000063E" TI="77"/>
+   <variable Name="centre_coord_alien_y" FileName="C:\Users\TOM\Desktop\SpaceInvaders\definitions.h" Line="86" Addr="0x2000064A" TI="77"/>
+   <variable Name="alien_fire_point_x" FileName="C:\Users\TOM\Desktop\SpaceInvaders\definitions.h" Line="87" Addr="0x20000098" TI="77"/>
+   <variable Name="alien_fire_point_y" FileName="C:\Users\TOM\Desktop\SpaceInvaders\definitions.h" Line="88" Addr="0x200005CA" TI="77"/>
+   <variable Name="alien_bullet_translation" FileName="C:\Users\TOM\Desktop\SpaceInvaders\definitions.h" Line="89" Addr="0x200005CC" TI="77"/>
+   <variable Name="alien_bullet_active" FileName="C:\Users\TOM\Desktop\SpaceInvaders\definitions.h" Line="90" Addr="0x200005CE" TI="77"/>
+   <variable Name="alien_fire_col" FileName="C:\Users\TOM\Desktop\SpaceInvaders\definitions.h" Line="91" Addr="0x200005D0" TI="77"/>
+   <variable Name="alien_fire_row" FileName="C:\Users\TOM\Desktop\SpaceInvaders\definitions.h" Line="92" Addr="0x200005D2" TI="77"/>
+   <variable Name="direction" FileName="C:\Users\TOM\Desktop\SpaceInvaders\definitions.h" Line="93" Addr="0x2000009A" TI="77"/>
+   <variable Name="enable_fire" FileName="C:\Users\TOM\Desktop\SpaceInvaders\definitions.h" Line="95" Addr="0x200005D4" TI="77"/>
+   <variable Name="alive_count" FileName="C:\Users\TOM\Desktop\SpaceInvaders\definitions.h" Line="96" Addr="0x200005D6" TI="77"/>
+   <variable Name="end" FileName="C:\Users\TOM\Desktop\SpaceInvaders\definitions.h" Line="97" Addr="0x200005D8" TI="77"/>
+   <variable Name="state" FileName="C:\Users\TOM\Desktop\SpaceInvaders\definitions.h" Line="98" Addr="0x20000636" TI="77"/>
+   <variable Name="lives" FileName="C:\Users\TOM\Desktop\SpaceInvaders\definitions.h" Line="101" Addr="0x2000009C" TI="77"/>
+   <variable Name="score" FileName="C:\Users\TOM\Desktop\SpaceInvaders\definitions.h" Line="102" Addr="0x200005DC" TI="152"/>
+   <variable Name="game_duration" FileName="C:\Users\TOM\Desktop\SpaceInvaders\definitions.h" Line="103" Addr="0x2000009E" TI="77"/>
+   <variable Name="score_str" FileName="C:\Users\TOM\Desktop\SpaceInvaders\definitions.h" Line="104" Addr="0x20000638" TI="4261"/>
+   <variable Name="score_str2" FileName="C:\Users\TOM\Desktop\SpaceInvaders\definitions.h" Line="105" Addr="0x20000644" TI="4290"/>
+   <variable Name="dead_right_count" FileName="C:\Users\TOM\Desktop\SpaceInvaders\definitions.h" Line="106" Addr="0x200005E0" TI="152"/>
+   <variable Name="dead_left_count" FileName="C:\Users\TOM\Desktop\SpaceInvaders\definitions.h" Line="107" Addr="0x200005E4" TI="152"/>
+   <variable Name="dead_row_count" FileName="C:\Users\TOM\Desktop\SpaceInvaders\definitions.h" Line="108" Addr="0x200005E8" TI="152"/>
+   <variable Name="result_right" FileName="C:\Users\TOM\Desktop\SpaceInvaders\definitions.h" Line="109" Addr="0x200005EC" TI="152"/>
+   <variable Name="result_left" FileName="C:\Users\TOM\Desktop\SpaceInvaders\definitions.h" Line="110" Addr="0x200005F0" TI="152"/>
+  </module>
+ </modulelist>
+</aoffile>
+
